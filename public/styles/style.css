@@ -71,3 +71,11 @@ body{
   width: 100%;
   padding: 20px;
 }
+.navbarColors{
+  background-color: #000;
+  color: #f1f1f1;
+}
+.navbarColors a{
+  background-color: #000;
+  color: #f1f1f1;
+}

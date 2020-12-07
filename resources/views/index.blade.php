@@ -21,7 +21,7 @@
   </head>
   <body>
   	<!-- navbar -->
-  	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  	<nav class="navbar navbar-expand-lg navbar-dark navbarColors">
   		<!-- <a class="navbar-brand" href="#"> -->
   	  <img src="img/logo-transparent-invcolors.png" width="100" height="60" alt="MusicPit" loading="lazy">
 	  <!-- MusicPit</a> -->
@@ -31,21 +31,21 @@
 	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
 	    <ul class="navbar-nav">
 	      <li class="nav-item active">
-	        <a class="nav-link" id="home" href="#">Home <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" id="home">Home <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" id="about" href="#about">About MusicPit</a>
+	        <a class="nav-link" id="about">About MusicPit</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#" data-toggle="modal" data-target="#LoginModal">Login</a>
+	        <a class="nav-link" data-toggle="modal" data-target="#LoginModal">Login</a>
 	      </li>
 	      <li class="nav-item dropdown">
-	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	          Languaje
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	          <a class="dropdown-item" href="#">En</a>
-	          <a class="dropdown-item" href="#">Es</a>
+	          <a class="dropdown-item">En</a>
+	          <a class="dropdown-item">Es</a>
 	        </div>
 	      </li>
 	    </ul>
@@ -142,7 +142,6 @@
 	<!-- END Login MODAL -->
 
     <!-- jQuery, Popper.js, and Bootstrap JS -->
-    
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
     
