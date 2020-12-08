@@ -3,7 +3,7 @@ $(document).ready(function(){
       $(".content").fadeOut("slow");
       $(".about").delay(666).fadeIn("fast");
     });
-    $("#home").click(function(){
+    $(".home").click(function(){
         $(".about").fadeOut("slow");
         $(".content").delay(666).fadeIn("fast");
       });

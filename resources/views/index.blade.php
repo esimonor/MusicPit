@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="styles/style.css">
 
@@ -15,15 +15,15 @@
     <title>FINAL PROYECT - LANDING PAGE [Eneko]</title>
 
 	<!-- Scripts -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="JS/jquery-3.5.1.slim.min.js"></script>
+	<script src="JS/jquery.min.js"></script>
 	<script src="JS/fadeScript.js"></script>
   </head>
   <body>
   	<!-- navbar -->
   	<nav class="navbar navbar-expand-lg navbar-dark navbarColors">
   		<!-- <a class="navbar-brand" href="#"> -->
-  	  <img src="img/logo-transparent-invcolors.png" width="100" height="60" alt="MusicPit" loading="lazy">
+  	  <img class="home" src="img/logo-transparent-invcolors.png" width="100" height="60" alt="MusicPit" loading="lazy">
 	  <!-- MusicPit</a> -->
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -31,10 +31,10 @@
 	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
 	    <ul class="navbar-nav">
 	      <li class="nav-item active">
-	        <a class="nav-link" id="home">Home <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" class="home">Home <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" id="about">About MusicPit</a>
+	        <a class="nav-link" id="about">About</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" data-toggle="modal" data-target="#LoginModal">Login</a>
@@ -142,8 +142,8 @@
 	<!-- END Login MODAL -->
 
     <!-- jQuery, Popper.js, and Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+    <script src="JS/popper.min.js"></script>
+    <script src="JS/bootstrap.min.js"></script>
     
   </body>
 </html>
