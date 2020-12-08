@@ -79,3 +79,9 @@ body{
   background-color: #000;
   color: #f1f1f1;
 }
+
+.darkModal{
+  background-color: #111;
+  color: #f1f1f1;
+  text-shadow: 1px 1px 5px red;
+}
