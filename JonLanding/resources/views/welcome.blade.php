@@ -168,7 +168,6 @@
                                         <button type="button" class="btn btn-primary py-3 px-5 btn-pill" data-toggle="modal" data-target="#CreateAccountModal">
                                             Crear cuenta
                                         </button>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -177,52 +176,61 @@
                 </div>
             </div>
         </div>
-
+        <!-- About -->
         <div class="site-section" id="programs-section">
             <div class="container">
                 <div class="row mb-5 justify-content-center">
                     <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
                         <h2 class="section-title">¿Que es MusicPit?</h2>
-                        <p>Somos una página para ayudarte a encontrar un grupo de musica o simplemente compañeros con los que aprender!</p>
+                        <p>MusicPit es una red social diseñada con musicos en mente. ¡Simplemente crea tu cuenta y busca otros musicos cerca tuya con los que tocar!</p>
+                    </div>
+                </div>
+                <h3>AL CREAR TU CUENTA PUEDES ACCEDER A ESTAS FUNCIONALIDADES</h3>
+                <div class="row mb-5 align-items-center">
+                    <div class="col-3 mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card" style="width: 18rem;">
+                        <img src="images/busqueda.png" alt="Image" height="250px">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Busqueda</h5>
+                            <p class="card-text">Gracias a nuestro buscador, podras filtrar los instrumentos que necesites para tu banda, buscar a los musicos mas cercanos e incluso buscar gente con gustos musicales similares a los tuyos.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-5 align-items-center">
-                    <div class="col-lg-7 mb-5" data-aos="fade-up" data-aos-delay="100">
-                        <img src="images/busqueda.png" alt="Image" height="400px">
-                    </div>
-                    <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
-                        <h2 class="text-black mb-4">Busqueda</h2>
-                        <p class="mb-4">Vas a poder encontrar los mejores grupos y personas cerca de ti gracias a nuestro buscador.</p>
+                    <div class="col-3 mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card" style="width: 18rem;">
+                            <img src="images/checklist.png" alt="Image" height="250px">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Filtra</h5>
+                            <p class="card-text">Filtra los instrumentos o la zona en la que quieras buscar nuevas personas segun tus gustos.</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="row mb-5 align-items-center">
-                    <div class="ml-5 col-lg-7 mb-5 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-                        <img src="images/checklist.png" alt="Image" height="550px">
-                    </div>
-                    <div class="col-lg-4 mr-auto order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-                        <h2 class="text-black mb-4">Filtra</h2>
-                        <p class="mb-4">Filtra los instrumentos o la zona en la que quieras buscar nuevas personas segun tus gustos.</p>
-                    </div>
-                </div>
-
-                <div class="row mb-5 align-items-center">
                     <div class="col-lg-7 mb-5" data-aos="fade-up" data-aos-delay="100">
-                        <img src="images/comentario.png" alt="Image" height="400px">
-                    </div>
-                    <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
-                        <h2 class="text-black mb-4">Comentarios</h2>
-                        <p class="mb-4">Comprueba el estado o el servicio de los establecimientos mediante comentarios del resto de usuarios</p>
+                        <div class="card" style="width: 18rem;">
+                            <img src="images/comentario.png" alt="Image" height="250px">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Comentarios</h5>
+                            <!-- ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿-->
+                            <p class="card-text">Comprueba el estado o el servicio de los establecimientos mediante comentarios del resto de usuarios</p>
+                            <!-- ??????????????????????????-->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- About us -->
         <div class="site-section courses-title" id="courses-section">
             <div class="container">
                 <div class="row mb-5 justify-content-center">
                     <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="section-title">¿Que es MusicPit?</h2>
+                        <h2 class="section-title">¿Quienes somos?</h2>
                         <p class="text-white">Somos una página para ayudarte a encontrar un grupo de musica o simplemente compañeros con los que aprender!</p>
                     </div>
                 </div>
@@ -271,7 +279,7 @@
             </div>
         </div>
 
-
+        <!-- Contact -->
         <div class="site-section bg-light" id="contact-section">
             <div class="container">
                 <div class="row justify-content-center">
