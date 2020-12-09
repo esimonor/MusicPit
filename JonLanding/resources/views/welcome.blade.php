@@ -54,8 +54,8 @@
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto w-25">
                         <a href="#home-section">
-                            <img src="images/logo1.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                            MusicPit
+                            <img src="images/logo1.png" width="100" height="60" class="d-inline-block align-top" alt="">
+                            
                         </a>
                     </div>
 
@@ -349,6 +349,7 @@
                             </p>
                         </div>
                     </div>
+                    <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>
 
                 </div>
             </div>
@@ -372,7 +373,7 @@
     <script src="{{ URL::asset('/js/jquery.fancybox.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery.sticky.js') }}"></script>
 
-
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script src="{{ URL::asset('/js/main.js') }}"></script>
 
 </body>

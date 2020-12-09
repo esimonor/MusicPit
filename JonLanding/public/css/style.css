@@ -1,7 +1,7 @@
 /* Base */
 body {
   line-height: 1.7;
-  color: gray;
+  color: black;
   font-weight: 300;
   font-size: 1.1rem; }
 
@@ -12,6 +12,13 @@ body {
 ::selection {
   background: #000;
   color: #fff; }
+
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+}
 
 a {
   -webkit-transition: .3s all ease;
