@@ -1,4 +1,4 @@
-/* Base */
+/* Custom stuff*/
 #myVideo {
   min-width: 100%;
   min-height: 100%;
@@ -11,10 +11,29 @@
   transform: translateX(-50%) translateY(-50%); 
       
   z-index: -100;
-    
   background-size: cover;
 }
+.btn-large{
+  width: 100%;
+  background-color: red;
+  border: 2px 2px solid black;
+  transition: 0.6s;
+}
+.btn-large:hover{
+  width: 100%;
+  font-size: 1.5em;
+  text-shadow: 2px 2px 5px red;
+  background-color: transparent;
+  color: black;
+}
+.intro-background{
+  background-color: rgba(209, 209, 209, 0.5);
+}
+/* End custom stuff*/
+
+/* Base */
 body {
+  text-shadow: 1px 1px 2px black;
   line-height: 1.7;
   color: black;
   font-weight: 300;

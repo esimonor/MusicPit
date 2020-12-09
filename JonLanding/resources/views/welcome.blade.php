@@ -77,21 +77,16 @@
 
         <div class="intro-section" id="home-section">
             <div class="slide-1" data-stellar-background-ratio="0.5">
-            <!--<video autoplay muted loop id="myVideo">
+            <video autoplay muted loop id="myVideo">
                 <source src="video/GojiraSmall.mp4" type="video/mp4">
-            </video>-->
+            </video>
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="row align-items-center">
-                                <div class="col-lg-6 mb-4">
+                                <div class="col-lg-12 mb-4">
                                     <h1 data-aos="fade-up" data-aos-delay="100">Encuentra los mejores compañeros para formar un grupo cerca de ti</h1>
-                                    <p class="mb-4" data-aos="fade-up" data-aos-delay="200">Encuentra tus compañeros ideales</p>
-                                    <p data-aos="fade-up" data-aos-delay="300">
-                                        <button type="button" class="btn btn-primary py-3 px-5 btn-pill" data-toggle="modal" data-target="#exampleModalCenter">
-                                            Iniciar Sesion
-                                        </button>
-                                    </p>
+                                    <h3 class="mb-4" data-aos="fade-up" data-aos-delay="200">Encuentra tus compañeros ideales</h3>
 
                                     <!-- Modal Login -->
                                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -164,10 +159,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
-                                        <button type="button" class="btn btn-primary py-3 px-5 btn-pill" data-toggle="modal" data-target="#CreateAccountModal">
+                                    <div class="col-12 ml-auto" data-aos="fade-up" data-aos-delay="500">
+                                        <button type="button" class="btn btn-danger py-3 px-5 btn-pill btn-large" data-toggle="modal" data-target="#CreateAccountModal">
                                             Crear cuenta
                                         </button>
+                                        <p style="text-align:center"data-toggle="modal" data-target="#exampleModalCenter">Ya tienes una cuenta? Haz click aqui para iniciar sesion</p>
                                     </div>
                                 </div>
                             </div>
@@ -177,7 +173,7 @@
             </div>
         </div>
         <!-- About -->
-        <div class="site-section" id="programs-section">
+        <div class="site-section intro-background" id="programs-section">
             <div class="container">
                 <div class="row mb-5 justify-content-center">
                     <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
