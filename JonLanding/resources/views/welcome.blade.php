@@ -196,21 +196,21 @@
                 <h3>AL CREAR TU CUENTA PUEDES ACCEDER A ESTAS FUNCIONALIDADES</h3>
                 <div class="card-deck">
                     <div class="card" data-aos="fade-up-right" data-aos-delay="">
-                        <i class="fas fa-search fa-10x" style="text-align:center"></i>
+                        <i class="fas fa-search fa-6x" style="text-align:center"></i>
                         <div class="card-body">
                         <h5 class="card-title border-dark border-bottom">Busqueda</h5>
                         <p class="card-text"> Gracias a nuestro buscador, podras buscar entre miles de usuarios con gustos similares a los tuyos.</p>
                         </div>
                     </div>
                     <div class="card" data-aos="fade-up" data-aos-delay="">
-                        <i class="fas fa-filter fa-9x" style="text-align:center;padding-top:5%"></i>
+                        <i class="fas fa-filter fa-5x" style="text-align:center;padding-top:5%"></i>
                         <div class="card-body">
                         <h5 class="card-title border-dark border-bottom">Filtra</h5>
                         <p class="card-text">Filtra los instrumentos o la zona en la que quieras buscar nuevas personas segun tus gustos.</p>
                         </div>
                     </div>
                     <div class="card" data-aos="fade-up-left" data-aos-delay="">
-                        <i class="far fa-comment fa-10x" style="text-align:center"></i>
+                        <i class="far fa-comment fa-6x" style="text-align:center"></i>
                         <div class="card-body">
                         <h5 class="card-title border-dark border-bottom">Comentarios</h5>
                         <p class="card-text">Comprueba el estado o el servicio de los establecimientos mediante comentarios del resto de usuarios.</p>
@@ -312,10 +312,11 @@
         <!-- Contact -->
         <div class="site-section bg-light" id="contact-section">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-7">
-                        <h2 class="section-title mb-3">Contactanos</h2>
+            <div class="row mb-5 justify-content-center">
+                    <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+                        <h2 class="section-title">Contactanos</h2>
                         <p class="mb-5">¡Si tienes cualquier duda haznoslo saber y te ayudaremos cuanto antes!</p>
+                    </div>
                         <form method="post" data-aos="fade">
                             <div class="form-group row">
                                 <div class="col-md-6 mb-3 mb-lg-0">
