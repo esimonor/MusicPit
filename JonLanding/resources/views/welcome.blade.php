@@ -122,6 +122,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <!-- Modal Create account -->
                                 <div class="modal fade" id="CreateAccountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -182,39 +183,26 @@
                     </div>
                 </div>
                 <h3>AL CREAR TU CUENTA PUEDES ACCEDER A ESTAS FUNCIONALIDADES</h3>
-                <div class="row mb-5 align-items-center">
-                    <div class="col-3 mb-5" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card" style="width: 18rem;">
-                        <img src="images/busqueda.png" alt="Image" height="250px">
-                        </div>
+                <div class="card-deck" data-aos="fade-up" data-aos-delay="">
+                    <div class="card">
+                        <i class="fas fa-search fa-10x" style="text-align:center"></i>
                         <div class="card-body">
-                            <h5 class="card-title">Busqueda</h5>
-                            <p class="card-text">Gracias a nuestro buscador, podras filtrar los instrumentos que necesites para tu banda, buscar a los musicos mas cercanos e incluso buscar gente con gustos musicales similares a los tuyos.</p>
+                        <h5 class="card-title border-dark border-bottom">Busqueda</h5>
+                        <p class="card-text"> Gracias a nuestro buscador, podras filtrar los instrumentos que necesites para tu banda, buscar a los musicos mas cercanos e incluso buscar gente con gustos musicales similares a los tuyos..</p>
                         </div>
                     </div>
-                </div>
-                <div class="row mb-5 align-items-center">
-                    <div class="col-3 mb-5" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card" style="width: 18rem;">
-                            <img src="images/checklist.png" alt="Image" height="250px">
-                        </div>
+                    <div class="card">
+                        <i class="fas fa-filter fa-9x" style="text-align:center;padding-top:5%"></i>
                         <div class="card-body">
-                            <h5 class="card-title">Filtra</h5>
-                            <p class="card-text">Filtra los instrumentos o la zona en la que quieras buscar nuevas personas segun tus gustos.</p>
+                        <h5 class="card-title border-dark border-bottom">Filtra</h5>
+                        <p class="card-text">Filtra los instrumentos o la zona en la que quieras buscar nuevas personas segun tus gustos.</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="row mb-5 align-items-center">
-                    <div class="col-lg-7 mb-5" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card" style="width: 18rem;">
-                            <img src="images/comentario.png" alt="Image" height="250px">
-                        </div>
+                    <div class="card">
+                        <i class="far fa-comment fa-10x" style="text-align:center"></i>
                         <div class="card-body">
-                            <h5 class="card-title">Comentarios</h5>
-                            <!-- ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿-->
-                            <p class="card-text">Comprueba el estado o el servicio de los establecimientos mediante comentarios del resto de usuarios</p>
-                            <!-- ??????????????????????????-->
+                        <h5 class="card-title border-dark border-bottom">Comentarios</h5>
+                        <p class="card-text">Comprueba el estado o el servicio de los establecimientos mediante comentarios del resto de usuarios.</p>
                         </div>
                     </div>
                 </div>
