@@ -209,6 +209,40 @@
                 </div>
             </div>
         </div>
+        <!-- Users aproval -->
+        <section id="facts">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h3 class="section-title">Datos de Usuarios</h3>
+          <p class="section-description">Tenemos muchos usuarios registrados que nos apoyan y confirman que este sitio es la leche</p>
+        </div>
+        <div class="row counters"> 
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">732</span>
+            <p>Usuarios</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">521</span>
+            <p>Grupos</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">1,463</span>
+            <p>Horas De Videos Musicales</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">2</span>
+            <p>Trabajadores</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End of users aproval -->
 
         <!-- About us -->
         <div class="site-section courses-title" id="courses-section">
