@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
     <link rel="stylesheet"href="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('/css/botones.css') }}">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"/>-->
 
 </head>
 
@@ -40,7 +41,7 @@
         </div>
         <!-- Navbar -->
         <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto w-20">
                         <a href="#home-section">
@@ -55,6 +56,15 @@
                                 <li><a href="#programs-section" class="nav-link">¿Que es MusicPit?</a></li>
                                 <li><a href="#courses-section" class="nav-link">¿Quienes somos?</a></li>
                                 <li><a href="#contact-section" class="nav-link">Contactanos</a></li>
+                                <i class="united states flag"></i>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lang</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">En</a>
+                                        <a class="dropdown-item" href="#">Es</a>
+                                        <a class="dropdown-item" href="#">Ru</a>
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -62,8 +72,8 @@
                     <div class="ml-auto w-25">
                         <nav class="site-navigation position-relative text-right" role="navigation">
                             <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                                <li class="cta">
-                                    <a href="" class="nav-link" data-toggle="modal" data-target="#exampleModalCenter"><span>Iniciar sesion</span></a>
+                                <li class="btn btn-danger">
+                                    <a href="" class="nav-link " data-toggle="modal" data-target="#exampleModalCenter"><span style="color:white">Iniciar sesion</span></a>
                                 </li>
                             </ul>
                         </nav>
@@ -115,8 +125,8 @@
                                                     </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+                                                        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-dark">Iniciar sesion</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -154,8 +164,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Crear cuenta</button>
+                                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-dark">Crear cuenta</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -211,37 +221,37 @@
         </div>
         <!-- Users aproval -->
         <section id="facts">
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h3 class="section-title">Datos de Usuarios</h3>
-          <p class="section-description">Tenemos muchos usuarios registrados que nos apoyan y confirman que este sitio es la leche</p>
-        </div>
-        <div class="row counters"> 
+            <div class="container" data-aos="fade-up">
+                <div class="section-header">
+                <h3 class="section-title">Datos de Usuarios</h3>
+                <p class="section-description">Tenemos muchos usuarios registrados que nos apoyan y recomiendan nuestra pagina.</p>
+                </div>
+                <div class="row counters"> 
 
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">732</span>
-            <p>Usuarios</p>
-          </div>
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-toggle="counter-up">732</span>
+                    <p>Usuarios</p>
+                </div>
 
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">521</span>
-            <p>Grupos</p>
-          </div>
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-toggle="counter-up">521</span>
+                    <p>Grupos</p>
+                </div>
 
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">1,463</span>
-            <p>Horas De Videos Musicales</p>
-          </div>
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-toggle="counter-up">1,463</span>
+                    <p>Horas De Videos Musicales</p>
+                </div>
 
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">2</span>
-            <p>Trabajadores</p>
-          </div>
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-toggle="counter-up">2</span>
+                    <p>Trabajadores</p>
+                </div>
 
-        </div>
+                </div>
 
-      </div>
-    </section>
+            </div>
+        </section>
     <!-- End of users aproval -->
 
         <!-- About us -->
@@ -291,8 +301,8 @@
                     </div>
 
                     <div class="row w-100 justify-content-center">
-                        <button class="customPrevBtn btn btn-primary m-1 border border-dark">&#8592;</button>
-                        <button class="customNextBtn btn btn-primary m-1 ml-4 border border-dark">&#8594;</button>
+                        <button class="customPrevBtn btn btn-danger m-1 border border-dark">&#8592;</button>
+                        <button class="customNextBtn btn btn-danger m-1 ml-4 border border-dark">&#8594;</button>
                     </div>
                 </div>
             </div>
@@ -335,7 +345,7 @@
 
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                    <input type="submit" class="btn btn-primary py-3 px-5 btn-block btn-pill"
+                                    <input type="submit" class="btn btn-danger py-3 px-5 btn-block btn-pill"
                                         value="Enviar mensaje">
                                 </div>
                             </div>
@@ -353,9 +363,9 @@
                     <a href="https://instagram.com" class="icon-button instagram"><i class="icon-instagram"></i><span></span></a>
                     <a href="https://github.com" class="icon-button github"><i class="icon-github"></i><span></span></a>
                 </div>
-                <div class="row pt-5 mt-5 text-center">
+                <div class="row text-center">
                     <div class="col-md-12">
-                        <div class="border-top pt-5">
+                        <div class="border-top pt-1">
                             <p>
                                 Copyright &copy;
                                 <script>
