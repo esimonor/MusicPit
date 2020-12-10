@@ -229,22 +229,22 @@
                 <div class="row counters"> 
 
                 <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">732</span>
+                <span class="counter">732</span>
                     <p>Usuarios</p>
                 </div>
 
                 <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">521</span>
+                <span class="counter">521</span>
                     <p>Grupos</p>
                 </div>
 
                 <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">1,463</span>
+                <span class="counter">1463</span>
                     <p>Horas De Videos Musicales</p>
                 </div>
 
                 <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">2</span>
+                <span class="counter">2</span>
                     <p>Trabajadores</p>
                 </div>
 

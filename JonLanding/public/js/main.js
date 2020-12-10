@@ -323,19 +323,18 @@ jQuery(document).ready(function($) {
 		});
 });
 
-// Init AOS
-  function aos_init() {
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-  }
-  $(window).on('load', function() {
-    aos_init();
-  });
+$(document).ready(function() {
 
-  // jQuery counterUp
-  $('[data-toggle="counter-up"]').counterUp({
-    delay: 10,
-    time: 1000
-  });
+	$('.counter').each(function () {
+	$(this).prop('Counter',0).animate({
+	Counter: $(this).text()
+	}, {
+	duration: 4000,
+	easing: 'swing',
+	step: function (now) {
+	$(this).text(Math.ceil(now));
+	}
+	});
+	});
+	
+	});
