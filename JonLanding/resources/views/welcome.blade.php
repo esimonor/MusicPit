@@ -42,7 +42,7 @@
         <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
-                    <div class="site-logo mr-auto w-25">
+                    <div class="site-logo mr-auto w-20">
                         <a href="#home-section">
                             <img src="images/logo-transparent.png" width="100" height="60" class="d-inline-block align-top" alt="MusicPit">
                         </a>
@@ -50,10 +50,11 @@
 
                     <div class="mx-auto text-center">
                         <nav class="site-navigation position-relative text-right" role="navigation">
-                            <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
+                            <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block m-0 p-0">
                                 <li><a href="#home-section" class="nav-link">Inicio</a></li>
                                 <li><a href="#programs-section" class="nav-link">¿Que es MusicPit?</a></li>
                                 <li><a href="#courses-section" class="nav-link">¿Quienes somos?</a></li>
+                                <li><a href="#contact-section" class="nav-link">Contactanos</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -62,7 +63,7 @@
                         <nav class="site-navigation position-relative text-right" role="navigation">
                             <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
                                 <li class="cta">
-                                    <a href="#contact-section" class="nav-link"><span>Contactanos</span></a>
+                                    <a href="" class="nav-link" data-toggle="modal" data-target="#exampleModalCenter"><span>Iniciar sesion</span></a>
                                 </li>
                             </ul>
                         </nav>
@@ -160,11 +161,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <div class="col-12 ml-auto" data-aos="fade-up" data-aos-delay="500">
+                                    <div class="col-12 ml-auto" >
                                         <button type="button" class="btn btn-danger py-3 px-5 btn-pill btn-large" data-toggle="modal" data-target="#CreateAccountModal">
                                             Crear cuenta
                                         </button>
-                                        <p style="text-align:center"data-toggle="modal" data-target="#exampleModalCenter">Ya tienes una cuenta? Haz click aqui para iniciar sesion</p>
+                                        <p style="text-align:center" data-toggle="modal" data-target="#exampleModalCenter">Ya tienes una cuenta? Haz click aqui para iniciar sesion</p>
                                     </div>
                                 </div>
                             </div>
@@ -183,22 +184,22 @@
                     </div>
                 </div>
                 <h3>AL CREAR TU CUENTA PUEDES ACCEDER A ESTAS FUNCIONALIDADES</h3>
-                <div class="card-deck" data-aos="fade-up" data-aos-delay="">
-                    <div class="card">
+                <div class="card-deck">
+                    <div class="card" data-aos="fade-up-right" data-aos-delay="">
                         <i class="fas fa-search fa-10x" style="text-align:center"></i>
                         <div class="card-body">
                         <h5 class="card-title border-dark border-bottom">Busqueda</h5>
-                        <p class="card-text"> Gracias a nuestro buscador, podras filtrar los instrumentos que necesites para tu banda, buscar a los musicos mas cercanos e incluso buscar gente con gustos musicales similares a los tuyos..</p>
+                        <p class="card-text"> Gracias a nuestro buscador, podras buscar entre miles de usuarios con gustos similares a los tuyos.</p>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" data-aos="fade-up" data-aos-delay="">
                         <i class="fas fa-filter fa-9x" style="text-align:center;padding-top:5%"></i>
                         <div class="card-body">
                         <h5 class="card-title border-dark border-bottom">Filtra</h5>
                         <p class="card-text">Filtra los instrumentos o la zona en la que quieras buscar nuevas personas segun tus gustos.</p>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" data-aos="fade-up-left" data-aos-delay="">
                         <i class="far fa-comment fa-10x" style="text-align:center"></i>
                         <div class="card-body">
                         <h5 class="card-title border-dark border-bottom">Comentarios</h5>
@@ -256,8 +257,8 @@
                     </div>
 
                     <div class="row w-100 justify-content-center">
-                        <button class="customPrevBtn btn btn-primary m-1">&#8592;</button>
-                        <button class="customNextBtn btn btn-primary m-1 ml-4">&#8594;</button>
+                        <button class="customPrevBtn btn btn-primary m-1 border border-dark">&#8592;</button>
+                        <button class="customNextBtn btn btn-primary m-1 ml-4 border border-dark">&#8594;</button>
                     </div>
                 </div>
             </div>
@@ -329,7 +330,7 @@
                             </p>
                         </div>
                     </div>
-                    <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>
+                    <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fas fa-chevron-up fa-2x"></i></a>
                 </div>
             </div>
         </footer>
