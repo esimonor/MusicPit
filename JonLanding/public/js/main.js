@@ -323,6 +323,7 @@ jQuery(document).ready(function($) {
 		});
 });
 
+// Datos de usuarios, contador de numeros
 $(document).ready(function() {
 
 	$('.counter').each(function () {

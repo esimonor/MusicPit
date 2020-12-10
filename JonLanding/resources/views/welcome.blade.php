@@ -221,11 +221,12 @@
         </div>
         <!-- Users aproval -->
         <section id="facts">
-            <div class="container" data-aos="fade-up">
-                <div class="section-header">
-                <h3 class="section-title">Datos de Usuarios</h3>
+        <div class="row mb-5 justify-content-center">
+                    <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+                        <h2 class="section-title">Datos De Usuarios</h2>
                 <p class="section-description">Tenemos muchos usuarios registrados que nos apoyan y recomiendan nuestra pagina.</p>
                 </div>
+</div>
                 <div class="row counters"> 
 
                 <div class="col-lg-3 col-6 text-center">
