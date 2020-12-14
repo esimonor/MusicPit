@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ URL::asset('/css/bootstrap-datepicker.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('/css/aos.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
-    <link rel="stylesheet"href="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('/css/botones.css') }}">
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"/>-->
 
@@ -62,7 +62,6 @@
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#">En</a>
                                         <a class="dropdown-item" href="#">Es</a>
-                                        <a class="dropdown-item" href="#">Ru</a>
                                     </ul>
                                 </li>
                             </ul>
@@ -147,12 +146,12 @@
                                             <form>
                                                 <div class="modal-body">
                                                 <div class="form-group">
-                                                        <label for="InputEmail1">Nombre de usuario</label>
+                                                        <label for="InputUsername">Nombre de usuario</label>
                                                         <input type="text" class="form-control" id="InputUsername" aria-describedby="emailHelp" placeholder="Nombre de usuario">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="InputEmail1">Correo electronico</label>
-                                                        <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Correo electronico">
+                                                        <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Correo electronico">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="InputPassword1">Contraseña</label>
@@ -165,7 +164,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-dark">Crear cuenta</button>
+                                                    <button id="AccountButton" type="submit" class="btn btn-dark">Crear cuenta</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -313,7 +312,7 @@
         <div class="site-section bg-light" id="contact-section">
             <div class="container">
             <div class="row mb-5 justify-content-center">
-                    <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+                    <div class="col-lg-12 text-center" data-aos="fade-up" data-aos-delay="">
                         <h2 class="section-title">Contactanos</h2>
                         <p class="mb-5">¡Si tienes cualquier duda haznoslo saber y te ayudaremos cuanto antes!</p>
                     </div>
@@ -398,6 +397,7 @@
     <script src="{{ URL::asset('/js/jquery.sticky.js') }}"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script src="{{ URL::asset('/js/main.js') }}"></script>
+    <script src="{{ URL::asset('/js/validate.js') }}"></script>
 
 </body>
 </html>
