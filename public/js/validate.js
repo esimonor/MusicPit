@@ -14,11 +14,14 @@ function validate(){
     let password = document.getElementById("InputPassword1").value;
     let confirm = document.getElementById("InputPassword2").value;
     var boton = document.getElementById("AccountButton");
+    // Regex: .*[@].*[.].*
+    var emailCheck = /.*[@].*[.].*/gm;
+    var valid = emailCheck.test(email);
 
-    if(username == "" || email == "" || password == "" || confirm == "" ){
+    if(username == "" || email == "" || password == "" || confirm == ""){
         boton.disabled = true;
     }else{
-        if(password == confirm){
+        if(password == confirm && valid == true){
             boton.disabled = false;
         } else{
             boton.disabled = true;

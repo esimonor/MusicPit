@@ -56,7 +56,6 @@
                                 <li><a href="#programs-section" class="nav-link">¿Que es MusicPit?</a></li>
                                 <li><a href="#courses-section" class="nav-link">¿Quienes somos?</a></li>
                                 <li><a href="#contact-section" class="nav-link">Contactanos</a></li>
-                                <i class="united states flag"></i>
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lang</a>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -147,24 +146,24 @@
                                                 <div class="modal-body">
                                                 <div class="form-group">
                                                         <label for="InputUsername">Nombre de usuario</label>
-                                                        <input type="text" class="form-control" id="InputUsername" aria-describedby="emailHelp" placeholder="Nombre de usuario">
+                                                        <input required type="text" class="form-control" id="InputUsername" aria-describedby="emailHelp" placeholder="Nombre de usuario">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="InputEmail1">Correo electronico</label>
-                                                        <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Correo electronico">
+                                                        <input required type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Correo electronico">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="InputPassword1">Contraseña</label>
-                                                        <input type="password" class="form-control" id="InputPassword1" placeholder="Contraseña">
+                                                        <input required type="password" class="form-control" id="InputPassword1" placeholder="Contraseña">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="InputPassword2">Confirmar contraseña</label>
-                                                        <input type="password" class="form-control" id="InputPassword2" placeholder="Confirmar contraseña">
+                                                        <input required type="password" class="form-control" id="InputPassword2" placeholder="Confirmar contraseña">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                                                    <button id="AccountButton" type="submit" class="btn btn-dark">Crear cuenta</button>
+                                                    <button disabled id="AccountButton" type="submit" class="btn btn-dark">Crear cuenta</button>
                                                 </div>
                                             </form>
                                         </div>
