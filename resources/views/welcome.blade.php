@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <title>MusicPit</title>
@@ -52,10 +52,10 @@
                     <div class="mx-auto text-center">
                         <nav class="site-navigation position-relative text-right" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block m-0 p-0">
-                                <li><a href="#home-section" class="nav-link">Inicio</a></li>
-                                <li><a href="#programs-section" class="nav-link">¿Que es MusicPit?</a></li>
-                                <li><a href="#courses-section" class="nav-link">¿Quienes somos?</a></li>
-                                <li><a href="#contact-section" class="nav-link">Contactanos</a></li>
+                                <li><a href="#home-section" class="nav-link">@lang('landing.home')</a></li>
+                                <li><a href="#programs-section" class="nav-link">@lang('landing.what')</a></li>
+                                <li><a href="#courses-section" class="nav-link">@lang('landing.who')</a></li>
+                                <li><a href="#contact-section" class="nav-link">@lang('landing.contact')</a></li>
                                 <i class="united states flag"></i>
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lang</a>
@@ -76,7 +76,7 @@
                                 @auth
                                 <a href="{{ url('/user/profile') }} "class="nav-link"><span style="color:white">{{ Auth::user()->name}}</span></a>
                                 @else
-                                <a href=""class="nav-link " data-toggle="modal" data-target="#exampleModalCenter"><span style="color:white">Iniciar Sesion</span></a>
+                                <a href=""class="nav-link " data-toggle="modal" data-target="#exampleModalCenter"><span style="color:white">@lang('landing.login')</span></a>
                                 @endauth
                                 @endif
                                 
@@ -102,15 +102,15 @@
                         <div class="col-12">
                             <div class="row align-items-center">
                                 <div class="col-lg-12 mb-4">
-                                    <h1 data-aos="fade-up" data-aos-delay="100">Encuentra los mejores compañeros para formar un grupo cerca de ti</h1>
-                                    <h3 class="mb-4" data-aos="fade-up" data-aos-delay="200">Encuentra tus compañeros ideales</h3>
+                                    <h1 data-aos="fade-up" data-aos-delay="100">@lang('landing.message')</h1>
+                                    <h3 class="mb-4" data-aos="fade-up" data-aos-delay="200">@lang('landing.message2')</h3>
 
                                     <!-- Modal Login -->
                                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">Iniciar sesion</h5>
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">@lang('landing.login')</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -128,7 +128,7 @@
                                                     </div>
                                                     <div class="form-check">
                                                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                        <label class="form-check-label" for="exampleCheck1">Mantenerme iniciada la sesion</label>
+                                                        <label class="form-check-label" for="exampleCheck1">@lang('landing.remember')</label>
                                                     </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -146,7 +146,7 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Crear cuenta</h5>
+                                                <h5 class="modal-title" id="exampleModalLongTitle">@lang('landing.create')</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -182,9 +182,9 @@
                                 </div>
                                     <div class="col-12 ml-auto" >
                                         <button type="button" class="btn btn-danger py-3 px-5 btn-pill btn-large" data-toggle="modal" data-target="#CreateAccountModal">
-                                            Crear cuenta
+                                            @lang('landing.create')
                                         </button>
-                                        <p style="text-align:center" data-toggle="modal" data-target="#exampleModalCenter">Ya tienes una cuenta? Haz click aqui para iniciar sesion</p>
+                                        <p style="text-align:center" data-toggle="modal" data-target="#exampleModalCenter">@lang('landing.account2')</p>
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +198,7 @@
             <div class="container">
                 <div class="row mb-5 justify-content-center">
                     <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="section-title">¿Que es MusicPit?</h2>
+                        <h2 class="section-title">@lang('landing.what')</h2>
                         <p>MusicPit es una red social diseñada con musicos en mente. ¡Simplemente crea tu cuenta y busca otros musicos cerca tuya con los que tocar!</p>
                     </div>
                 </div>
