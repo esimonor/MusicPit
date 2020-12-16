@@ -13,12 +13,13 @@ function validate(){
     let email = document.getElementById("InputEmail").value;
     let password = document.getElementById("InputPassword1").value;
     let confirm = document.getElementById("InputPassword2").value;
+    let pattern = /.*[@].*[.].*/;
     var boton = document.getElementById("AccountButton");
-
+    
     if(username == "" || email == "" || password == "" || confirm == "" ){
         boton.disabled = true;
     }else{
-        if(password == confirm){
+        if(password == confirm && password.length >= 8 && pattern.test(email) == true){
             boton.disabled = false;
         } else{
             boton.disabled = true;

@@ -79,6 +79,7 @@
                                 <a href=""class="nav-link " data-toggle="modal" data-target="#exampleModalCenter"><span style="color:white">Iniciar Sesion</span></a>
                                 @endauth
                                 @endif
+                                
                                 </li>
                             </ul>
                         </nav>
@@ -86,8 +87,6 @@
                             <span class="icon-menu h3"></span>
                         </a>
                     </div>
-
-                    
                 </div>
             </div>
         </header>
@@ -157,25 +156,25 @@
                                                 <div class="modal-body">
                                                 <div class="form-group">
                                                 <x-jet-label for="name" value="{{ __('Name') }}" />
-                                                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                                                <x-jet-input id="InputUsername" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                                                     </div>
 
                                                     <div class="form-group">
                                                     <x-jet-label for="email" value="{{ __('Email') }}" />
-                                                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                                                    <x-jet-input id="InputEmail" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
                                                     </div>
                                                     <div class="form-group">
                                                     <x-jet-label for="password" value="{{ __('Password') }}" />
-                                                    <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                                                    <x-jet-input id="InputPassword1" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
                                                     </div>
                                                     <div class="form-group">
                                                     <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                                                    <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                                                    <x-jet-input id="InputPassword2" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                                                    <button id="AccountButton" type="submit" class="btn btn-dark">{{ __('Register') }}</button>
+                                                    <button disabled=true id="AccountButton" type="submit" class="btn btn-dark">{{ __('Register') }}</button>
                                                 </div>
                                             </form>
                                         </div>
