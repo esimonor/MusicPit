@@ -17,10 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/{lang}', function ($lang) {
+Route::get('/{lang}', function ($lang = 'en') {
     App::setlocale($lang);
+    Session::put('locale', $lang);
     return view('welcome');
-})->name('welcome');
+})->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

@@ -199,30 +199,30 @@
                 <div class="row mb-5 justify-content-center">
                     <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
                         <h2 class="section-title">@lang('landing.what')</h2>
-                        <p>MusicPit es una red social diseñada con musicos en mente. ¡Simplemente crea tu cuenta y busca otros musicos cerca tuya con los que tocar!</p>
+                        <p>@lang('landing.what2')</p>
                     </div>
                 </div>
-                <h3>AL CREAR TU CUENTA PUEDES ACCEDER A ESTAS FUNCIONALIDADES</h3>
+                <h3>@lang('landing.functionalities')</h3>
                 <div class="card-deck">
                     <div class="card" data-aos="fade-up-right" data-aos-delay="">
                         <i class="fas fa-search fa-6x" style="text-align:center"></i>
                         <div class="card-body">
-                        <h5 class="card-title border-dark border-bottom">Busqueda</h5>
-                        <p class="card-text"> Gracias a nuestro buscador, podras buscar entre miles de usuarios con gustos similares a los tuyos.</p>
+                        <h5 class="card-title border-dark border-bottom">@lang('landing.search')</h5>
+                        <p class="card-text"> @lang('landing.search-desc')</p>
                         </div>
                     </div>
                     <div class="card" data-aos="fade-up" data-aos-delay="">
                         <i class="fas fa-filter fa-5x" style="text-align:center;padding-top:5%"></i>
                         <div class="card-body">
-                        <h5 class="card-title border-dark border-bottom">Filtra</h5>
-                        <p class="card-text">Filtra los instrumentos o la zona en la que quieras buscar nuevas personas segun tus gustos.</p>
+                        <h5 class="card-title border-dark border-bottom">@lang('landing.filter')</h5>
+                        <p class="card-text">@lang('landing.filter-desc')</p>
                         </div>
                     </div>
                     <div class="card" data-aos="fade-up-left" data-aos-delay="">
                         <i class="far fa-comment fa-6x" style="text-align:center"></i>
                         <div class="card-body">
-                        <h5 class="card-title border-dark border-bottom">Comentarios</h5>
-                        <p class="card-text">Comprueba el estado o el servicio de los establecimientos mediante comentarios del resto de usuarios.</p>
+                        <h5 class="card-title border-dark border-bottom">@lang('landing.comments')</h5>
+                        <p class="card-text">@lang('landing.comments-desc')</p>
                         </div>
                     </div>
                 </div>
@@ -232,30 +232,30 @@
         <section id="facts">
         <div class="row mb-5 justify-content-center">
                     <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="section-title">Datos De Usuarios</h2>
-                <p class="section-description">Tenemos muchos usuarios registrados que nos apoyan y recomiendan nuestra pagina.</p>
+                        <h2 class="section-title">@lang('landing.user-dat')</h2>
+                <p class="section-description">@lang('landing.user-desc')</p>
                 </div>
 </div>
                 <div class="row counters"> 
 
                 <div class="col-lg-3 col-6 text-center">
                 <span class="counter">732</span>
-                    <p>Usuarios</p>
+                    <p>@lang('landing.users')</p>
                 </div>
 
                 <div class="col-lg-3 col-6 text-center">
                 <span class="counter">521</span>
-                    <p>Grupos</p>
+                    <p>@lang('landing.bands')</p>
                 </div>
 
                 <div class="col-lg-3 col-6 text-center">
                 <span class="counter">1463</span>
-                    <p>Horas De Videos Musicales</p>
+                    <p>@lang('landing.video-hours')</p>
                 </div>
 
                 <div class="col-lg-3 col-6 text-center">
                 <span class="counter">2</span>
-                    <p>Trabajadores</p>
+                    <p>@lang('landing.workers')</p>
                 </div>
 
                 </div>
@@ -269,8 +269,8 @@
             <div class="container">
                 <div class="row mb-5 justify-content-center">
                     <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="section-title">¿Quienes somos?</h2>
-                        <p class="text-white">Somos una página para ayudarte a encontrar un grupo de musica o simplemente compañeros con los que aprender!</p>
+                        <h2 class="section-title">@lang('landing.who')</h2>
+                        <p class="text-white">@lang('landing.who2')</p>
                     </div>
                 </div>
             </div>
@@ -285,7 +285,7 @@
                             </figure>
                             <div class="course-inner-text py-4 px-4">
                                 <h3>El JEFE</h3>
-                                <p>Jefe de proyecto.</p>
+                                <p>@lang('landing.job1').</p>
                             </div>
                         </div>
 
@@ -295,7 +295,7 @@
                             </figure>
                             <div class="course-inner-text py-4 px-4">
                                 <h3>Jon imanol</h3>
-                                <p>Programador.</p>
+                                <p>@lang('landing.job2').</p>
                             </div>
                         </div>
 
@@ -305,7 +305,7 @@
                             </figure>
                             <div class="course-inner-text py-4 px-4">
                                 <h3>Eneko Simon</h3>
-                                <p>Diseñador grafico.</p>
+                                <p>@lang('landing.job3').</p>
                             </div>
                         </div>
                     </div>
@@ -323,22 +323,22 @@
             <div class="container">
             <div class="row mb-5 justify-content-center">
                     <div class="col-lg-12 text-center" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="section-title">Contactanos</h2>
-                        <p class="mb-5">¡Si tienes cualquier duda haznoslo saber y te ayudaremos cuanto antes!</p>
+                        <h2 class="section-title">@lang('landing.contact')</h2>
+                        <p class="mb-5">@lang('landing.contact2')</p>
                     </div>
                         <form method="post" data-aos="fade">
                             <div class="form-group row">
                                 <div class="col-md-6 mb-3 mb-lg-0">
-                                    <input type="text" class="form-control" placeholder="Nombre">
+                                    <input type="text" class="form-control" placeholder="@lang('landing.name')">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Apellido">
+                                    <input type="text" class="form-control" placeholder="@lang('landing.surname')">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="Motivo">
+                                    <input type="text" class="form-control" placeholder="@lang('landing.subject')">
                                 </div>
                             </div>
 
@@ -350,14 +350,14 @@
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <textarea class="form-control" id="" cols="30" rows="10"
-                                        placeholder="Escribe aqui tu mensaje."></textarea>
+                                        placeholder="@lang('landing.write-message')"></textarea>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <input type="submit" class="btn btn-danger py-3 px-5 btn-block btn-pill"
-                                        value="Enviar mensaje">
+                                        value="@lang('landing.send')">
                                 </div>
                             </div>
                         </form>
