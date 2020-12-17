@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Landing àge Language Lines
+    | Landing page Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used during the landing page for various
