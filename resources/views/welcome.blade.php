@@ -60,8 +60,8 @@
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lang</a>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">En</a>
-                                        <a class="dropdown-item" href="#">Es</a>
+                                        <a class="dropdown-item" href="/en">En</a>
+                                        <a class="dropdown-item" href="/es">Es</a>
                                     </ul>
                                 </li>
                             </ul>
