@@ -120,11 +120,11 @@
                                                     <div class="modal-body">
                                                         <div class="form-group">
                                                         <x-jet-label for="email" value="{{ __('Email') }}" />
-                                                        <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                                                        <x-jet-input id="email" class="block mt-1 w-full modal-form-input" type="email" name="email" :value="old('email')" required autofocus />
                                                     </div>
                                                     <div class="form-group">
                                                     <x-jet-label for="password" value="{{ __('Password') }}" />
-                                                    <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                                                    <x-jet-input id="password" class="block mt-1 w-full modal-form-input" type="password" name="password" required autocomplete="current-password" />
                                                     </div>
                                                     <div class="form-check">
                                                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -156,20 +156,20 @@
                                                 <div class="modal-body">
                                                 <div class="form-group">
                                                 <x-jet-label for="name" value="{{ __('Name') }}" />
-                                                <x-jet-input id="InputUsername" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                                                <x-jet-input id="InputUsername" class="block mt-1 w-full modal-form-input" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                                                     </div>
 
                                                     <div class="form-group">
                                                     <x-jet-label for="email" value="{{ __('Email') }}" />
-                                                    <x-jet-input id="InputEmail" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                                                    <x-jet-input id="InputEmail" class="block mt-1 w-full modal-form-input" type="email" name="email" :value="old('email')" required />
                                                     </div>
                                                     <div class="form-group">
                                                     <x-jet-label for="password" value="{{ __('Password') }}" />
-                                                    <x-jet-input id="InputPassword1" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                                                    <x-jet-input id="InputPassword1" class="block mt-1 w-full modal-form-input" type="password" name="password" required autocomplete="new-password" />
                                                     </div>
                                                     <div class="form-group">
                                                     <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                                                    <x-jet-input id="InputPassword2" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                                                    <x-jet-input id="InputPassword2" class="block mt-1 w-full modal-form-input" type="password" name="password_confirmation" required autocomplete="new-password" />
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -376,7 +376,7 @@
                 </div>
                 <div class="row text-center">
                     <div class="col-md-12">
-                        <div class="border-top pt-1">
+                        <div class="border-top">
                             <p>
                                 Copyright &copy;
                                 <script>

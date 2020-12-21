@@ -29,6 +29,10 @@
 .intro-background{
   background-color: rgba(209, 209, 209, 0.5);
 }
+
+.modal-form-input{
+  width:100%;
+}
 /* End custom stuff*/
 
 /* Base */
