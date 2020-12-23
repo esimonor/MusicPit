@@ -130,10 +130,11 @@
                         <div class="card-body">
                             <div class="account-settings">
                                 <div class="user-profile">
+                                @foreach($allUsers as $user)
                                     <div class="user-avatar">
-                                        <img src="/images/icono3.png" alt="Maxwell Admin">
+                                        <img src="{{$user->profile_photo_path}}" alt="{{$user->name}}">
                                     </div>
-                                    @foreach($allUsers as $user)
+                                   
                                     <h5 class="user-name">{{$user->name}}</h5>
                                     <h6 class="user-email">{{$user->email}}</h6>
                                     
@@ -170,13 +171,13 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="phone">Instrument</label>
-                                        <h4 id="instrument">Drums, guitar</h4>
+                                        <h4 id="instrument">{{$user->instrument}}</h4>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="website">Music</label>
-                                        <h4 id="music">Classic rock, blues</h4>
+                                        <h4 id="music">{{$user->music_genre}}</h4>
                                     </div>
                                 </div>
                             </div>
