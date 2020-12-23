@@ -31,6 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //TEST
-Route::get('/prueba/yeet', function () {
-    return view('user');
-})->name('yeet');
+Route::get('/user/profile', function () {
+    $users = \App\Models\User::where('id', '1')->get();
+    return view('user', ['allUsers' => $users]);
+})->name('user');
