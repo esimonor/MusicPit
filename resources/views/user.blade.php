@@ -83,98 +83,96 @@
         End navbar -->
 
         <!--Profile body-->
-        <div id="home-user">
-            <div class="container">
-                <div class="row gutters">
-                    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <div class="account-settings">
-                                    <div class="user-profile">
-                                        <div class="user-avatar">
-                                            <img src="/images/icono3.png" alt="Maxwell Admin">
-                                        </div>
-                                        <h5 class="user-name">Username</h5>
-                                        <h6 class="user-email">email@example.com</h6>
+        <div class="container">
+            <div class="row gutters">
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="account-settings">
+                                <div class="user-profile">
+                                    <div class="user-avatar">
+                                        <img src="/images/icono3.png" alt="Maxwell Admin">
                                     </div>
-                                    <div class="about">
-                                        <h5 class="mb-2 text-primary">About</h5>
-                                        <p>User description (gear, what kind of band, years of experience, etc)</p>
-                                    </div>
+                                    <h5 class="user-name">Username</h5>
+                                    <h6 class="user-email">email@example.com</h6>
+                                </div>
+                                <div class="about">
+                                    <h5 class="mb-2 text-danger">About</h5>
+                                    <p>User description (gear, what kind of band, years of experience, etc)</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <div class="row gutters">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <h6 class="mb-3 text-primary">Details</h6>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="fullName">Name</label>
-                                            <h4 id="fullName">Username</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="eMail">Email</label>
-                                            <h4 id="eMail">email@example.com</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="phone">Instrument</label>
-                                            <h4 id="instrument">Drums, guitar</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="website">Music</label>
-                                            <h4 id="music">Classic rock, blues</h4>
-                                        </div>
+                </div>
+                <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 class="mb-3 text-danger">Details</h6>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="fullName">Name</label>
+                                        <h4 id="fullName">Username</h4>
                                     </div>
                                 </div>
-                                <div class="row gutters">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <h6 class="mb-3 text-primary">Media</h6>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="Street">Video</label>
-                                            <h4 id="video">No video yet</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="ciTy">Audio</label>
-                                            <h4 id="audio">No audio yet</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="sTate">Localization</label>
-                                            <h4 id="localization">No localization set</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="zIp">On a band?</label>
-                                            <h4 id="band">No</h4>
-                                        </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="eMail">Email</label>
+                                        <h4 id="eMail">email@example.com</h4>
                                     </div>
                                 </div>
-                                <!-- <div class="row gutters">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <div class="text-right">
-                                            <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
-                                            <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
-                                        </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="phone">Instrument</label>
+                                        <h4 id="instrument">Drums, guitar</h4>
                                     </div>
-                                </div> -->
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="website">Music</label>
+                                        <h4 id="music">Classic rock, blues</h4>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 class="mb-3 text-danger">Media</h6>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Street">Video</label>
+                                        <h4 id="video">No video yet</h4>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="ciTy">Audio</label>
+                                        <h4 id="audio">No audio yet</h4>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="sTate">Localization</label>
+                                        <h4 id="localization">No localization set</h4>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="zIp">On a band?</label>
+                                        <h4 id="band">No</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="text-right">
+                                        <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
+                                        <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

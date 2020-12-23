@@ -1,20 +1,13 @@
 body{
     margin-top:20px;
-    color: #bcd0f7;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgb(0, 0, 0);
 }
 #background-image{
-    background-image: url(/images/user_background.png.jpg);
+    background-image: url(/images/background.png);
     position: relative;
 }
-#home-user{
-    background-color: rgba(39, 39, 38, 0.479);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 
-}
 .account-settings .user-profile {
     margin: 0 0 1rem 0;
     padding-bottom: 1rem;
@@ -44,7 +37,7 @@ body{
     text-align: center;
 }
 .card {
-    background: #272E48;
+    background: #1f1f1faf;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -52,11 +45,11 @@ body{
     margin-bottom: 1rem;
 }
 .form-control {
-    border: 1px solid #596280;
+    border: 1px solid #360a0a;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
     font-size: .825rem;
-    background: #1A233A;
-    color: #bcd0f7;
+    background: #4b4b4b;
+    color: #000000;
 }
