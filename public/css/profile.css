@@ -1,7 +1,7 @@
 body{
     margin-top:20px;
     color: #ffffff;
-    text-shadow: 1px 1px 5px rgb(0, 0, 0);
+    /*text-shadow: 1px 1px 5px rgb(0, 0, 0);*/
 }
 #background-image{
     background-image: url(/images/background.png);
@@ -53,3 +53,12 @@ body{
     background: #4b4b4b;
     color: #000000;
 }
+
+/* ADMIN */		                
+                        
+.text{
+    color: white;
+    text-shadow: 2px 2px 10px #000000;
+}
+                			              
+/* END ADMIN*/

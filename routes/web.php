@@ -35,3 +35,7 @@ Route::get('/user/profile', function () {
     $users = \App\Models\User::where('id', '1')->get();
     return view('user', ['allUsers' => $users]);
 })->name('user');
+
+Route::get('/admin/profile', function () {
+    return view('admin');
+})->name('admin');
