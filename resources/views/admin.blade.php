@@ -3,7 +3,7 @@
 
     <head>
         <title>MusicPit</title>
-        <link rel="shortcut icon" href="images/logo-transparent.png"/>
+        <link rel="shortcut icon" href="{{URL::asset('images/logo-transparent.png')}}"/>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,7 +28,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-                <img src="{{URL::asset('images/logo-transparent-invcolors.png')}}" width="100" height="60" class="d-inline-block align-top" alt="MusicPit">
+                <a href="{{ route('welcome') }}"><img src="{{URL::asset('images/logo-transparent-invcolors.png')}}" width="100" height="60" class="d-inline-block align-top" alt="MusicPit"></a>
             </div>
             <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -43,7 +43,8 @@
                 </li>
             </ul>
             </div>
-        </div><!-- /container -->
+        </div>
+        <!-- /container -->
         </div>
         <!-- /Header -->
 

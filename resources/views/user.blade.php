@@ -3,7 +3,7 @@
 
     <head>
         <title>MusicPit</title>
-        <link rel="shortcut icon" href="images/logo-transparent.png"/>
+        <link rel="shortcut icon" href="{{URL::asset('images/logo-transparent.png')}}"/>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -82,37 +82,34 @@
         </header>
         End navbar -->
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-2 p-3">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-2 p-2">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="site-logo mr-auto w-20">
+                    <div class="site-logo w-20">
                         <a>
                             <img src="{{URL::asset('images/logo-transparent-invcolors.png')}}" width="100" height="60" class="d-inline-block align-top" alt="MusicPit">
                         </a>
                     </div>
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('welcome') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">Search Users</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
+                    Filter by:
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Instrument</a>
+                        <a class="dropdown-item" href="#">Music genre</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Localization</a>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -130,7 +127,7 @@
                         <div class="card-body">
                             <div class="account-settings">
                                 <div class="user-profile">
-                                @foreach($allUsers as $user)
+                                @foreach($users as $user)
                                     <div class="user-avatar">
                                         <img src="{{$user->profile_photo_path}}" alt="{{$user->name}}">
                                     </div>
