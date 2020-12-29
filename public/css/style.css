@@ -33,6 +33,23 @@
 .modal-form-input{
   width:100%;
 }
+
+.user-info{
+  background-color: rgba(7, 7, 7, 0.774);
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.user-info i{
+  font-size: 1.3em;
+}
+.user-info b{
+  color: rgb(255, 0, 0);
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.user-info hr{
+  color: whitesmoke;
+}
 /* End custom stuff*/
 
 /* Base */

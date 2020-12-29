@@ -6,6 +6,8 @@ body{
 #background-image{
     background-image: url(/images/background.png);
     position: relative;
+    background-repeat: no-repeat;
+    background-color: black;
 }
 
 .account-settings .user-profile {

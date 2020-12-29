@@ -39,3 +39,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/admin/profile', function () {
     return view('admin');
 })->name('admin');
+
+Route::get('/find/users', function(){
+    $users = \App\Models\User::all();
+    return view('finder', ['users'=>$users]);
+})->name('finder');
+
+// END TEST
