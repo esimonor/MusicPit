@@ -74,7 +74,7 @@
                             <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
                                 <li class="btn btn-danger">
                                 @auth
-                                <a href="{{ url('/user/profile') }} "class="nav-link"><span style="color:white">{{ Auth::user()->name}}</span></a>
+                                <a href="{{ url('/profile/user') }} "class="nav-link"><span style="color:white">{{ Auth::user()->name}}</span></a>
                                 @else
                                 <a href=""class="nav-link " data-toggle="modal" data-target="#exampleModalCenter"><span style="color:white">@lang('landing.login')</span></a>
                                 @endauth

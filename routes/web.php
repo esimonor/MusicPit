@@ -31,7 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //TEST
-Route::get('/prueba/profile', function () {
+Route::get('/profile/user', function () {
     $users = \App\Models\User::where('id', 1)->get();
     return view('user', ['users'=>$users]);
 })->name('user');
@@ -39,6 +39,11 @@ Route::get('/prueba/profile', function () {
 Route::get('/admin/profile', function () {
     return view('admin');
 })->name('admin');
+Route::group(['middleware'=>'admins'],function(){
+    Route::get('/admin/profile')->name('userManagement');
+});
+
+
 
 Route::get('/find/users', function(){
     $users = \App\Models\User::all();
@@ -46,3 +51,6 @@ Route::get('/find/users', function(){
 })->name('finder');
 
 // END TEST
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
