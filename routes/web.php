@@ -31,10 +31,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //TEST
-/*Route::get('/user/profile', function () {
+Route::get('/prueba/profile', function () {
     $users = \App\Models\User::where('id', 1)->get();
     return view('user', ['users'=>$users]);
-})->name('user');*/
+})->name('user');
 
 Route::get('/admin/profile', function () {
     return view('admin');

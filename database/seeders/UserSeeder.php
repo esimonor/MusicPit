@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         $instruments = ['guitar', 'drums', 'vocals', 'bass', 'saxophone'];
         $music = ['Blues', 'Jazz', 'Rock', 'Metal', 'Hip-Hop'];
 
-    for ($i = 0; $i < 10; $i++) {
+    for ($i = 0; $i < 5; $i++) {
         DB::table('users')->insert([
             'age' => random_int(18, 99),
             'name' => $names[random_int(0, 9)],
