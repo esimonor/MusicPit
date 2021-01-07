@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'age' => random_int(18, 99),
             'name' => $names[random_int(0, 9)],
-            'email' => $lastnames[random_int(0, 9)].random_int(0, 99).'email.com',
+            'email' => $lastnames[random_int(0, 9)].random_int(0, 99).'@email.com',
             'password' => bcrypt('andatza'),
             'instrument' => $instruments[random_int(0, 4)],
             'music_genre' => $music[random_int(0, 4)],
