@@ -27,6 +27,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('andatza'),
             'instrument' => $instruments[random_int(0, 4)],
             'music_genre' => $music[random_int(0, 4)],
+            'profile_photo_path' => '/images/icono'.random_int(1,4).'.png'
         ]);
     }
     }

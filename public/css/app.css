@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);
 
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
@@ -217,6 +218,7 @@ img {
 svg {
   overflow: hidden;
   vertical-align: middle;
+  width: 20%;
 }
 
 table {

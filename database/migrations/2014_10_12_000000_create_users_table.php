@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('location')->nullable();
             $table->string('instrument')->default('guitar');
-            $table->string('music_genre')->default('rock');
+            $table->string('music_genre')->default('Rock');
             $table->string('media')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
