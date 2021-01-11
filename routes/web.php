@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/finder/all', function () {
+    $users = \App\Models\User::all();
+    return view('finder', ['users'=>$users]);
+})->name('finder');
+
 //LOCALIZATION
 Route::get('/{lang}', function ($lang = 'en') {
     App::setlocale($lang);
