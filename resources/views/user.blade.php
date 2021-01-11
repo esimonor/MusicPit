@@ -127,13 +127,12 @@
                         <div class="card-body">
                             <div class="account-settings">
                                 <div class="user-profile">
-                                @foreach($users as $user)
                                     <div class="user-avatar">
-                                        <img src="{{$user->profile_photo_path}}" alt="{{$user->name}}">
+                                        <img src="{{Auth::user()->profile_photo_path}}" alt="{{Auth::user()->name}}">
                                     </div>
                                    
-                                    <h5 class="user-name">{{$user->name}}</h5>
-                                    <h6 class="user-email">{{$user->email}}</h6>
+                                    <h5 class="user-name">{{Auth::user()->name}}</h5>
+                                    <h6 class="user-email">{{Auth::user()->email}}</h6>
                                     
                                 </div>
                                 <div class="about">
@@ -155,26 +154,26 @@
                                     <div class="form-group">
                                     
                                         <label for="fullName">Name</label>
-                                        <h4 id="fullName">{{$user->name}}</h4>
+                                        <h4 id="fullName">{{Auth::user()->name}}</h4>
                                     
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="eMail">Email</label>
-                                        <h4 id="eMail">{{$user->email}}</h4>
+                                        <h4 id="eMail">{{Auth::user()->email}}</h4>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="phone">Instrument</label>
-                                        <h4 id="instrument">{{$user->instrument}}</h4>
+                                        <h4 id="instrument">{{Auth::user()->instrument}}</h4>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="website">Music</label>
-                                        <h4 id="music">{{$user->music_genre}}</h4>
+                                        <h4 id="music">{{Auth::user()->music_genre}}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -207,7 +206,6 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
                             <!-- <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="text-right">
