@@ -29,3 +29,8 @@ Route::get('/{lang}', function ($lang = 'en') {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+//
+Route::get('prueba/user', function(){
+    return view('user');
+})->name('user');
