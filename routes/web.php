@@ -25,6 +25,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');*/
 
+//USER
+Route::resource('users', UserController::class);
+
 //JETSTREAM
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
