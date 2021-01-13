@@ -71,10 +71,10 @@
                                     <div class="user-avatar">
                                         <img src="{{Auth::user()->profile_photo_path}}" alt="{{Auth::user()->name}}">
                                     </div>
-                                   
+
                                     <h5 class="user-name">{{Auth::user()->name}}</h5>
                                     <h6 class="user-email">{{Auth::user()->email}}</h6>
-                                    
+
                                 </div>
                                 <div class="about">
                                     <h5 class="mb-2 text-danger">About</h5>
@@ -93,10 +93,10 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                    
+
                                         <label for="fullName">Name</label>
                                         <h4 id="fullName">{{Auth::user()->name}}</h4>
-                                    
+
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -146,15 +146,29 @@
                                         <h4 id="band">No</h4>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- <div class="row gutters">
+
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <div class="text-right">
-                                        <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
-                                        <button type="button" id="submit" name="submit" class="btn btn-success">Update</button>
+                                    <h6 class="mb-3 text-danger">Update or Delete your account</h6>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                    <button type="button" id="submit" name="submit" class="btn btn-success">Update</button>
                                     </div>
                                 </div>
-                            </div> -->
+                                
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                    <form action="{{ route('users.destroy', Auth::user()->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" id="submit" name="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                   
+                                    </div>
+                                </div>
+                            </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
