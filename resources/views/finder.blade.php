@@ -60,16 +60,20 @@
             <!-- END NAVBAR -->
 
             <!-- CONTENT -->
-            <div>
+            <div class="card-columns user-card">
                 @foreach($users as $user)
-                <div class="user-info">
-                    <b>Nombre:</b><i>{{$user->name}}</i>
-                    <hr>
-                    <b>Instrumento:</b><i>{{$user->instrument}}</i>
-                    <hr>
-                    <b>Musica:</b><i>{{$user->music_genre}}</i>
-                    <p></p>
+                @if($user->name == "admin" || $user->type == "1")
+
+                @else
+                <div class="card">
+                    <img class="card-img-top" style="width:30%;" src="{{$user->profile_photo_path}}" alt="{{$user->name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$user->name}}</h5>
+                        <p class="card-text">Instrument: {{$user->instrument}}</p>
+                        <p class="card-text">Music: {{$user->music_genre}}</p>
+                    </div>
                 </div>
+                @endif
                 @endforeach
             </div>
     </body>

@@ -36,6 +36,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //
-Route::get('prueba/user', function(){
+Route::get('/user/profile', function(){
     return view('user');
 })->name('user');
+
+Route::get('/find/all', function(){
+    $users = \App\Models\User::all();
+    return view('finder', ['users'=>$users]);
+})->name('finder');
