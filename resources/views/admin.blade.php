@@ -20,6 +20,14 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     </head>
+    @if(Auth::user()->type == 0)
+    <!-- <img src="https://i.ytimg.com/vi/4WS2nAx7e54/hqdefault.jpg">
+    <b>TIENES 3 SEGUNDOS PARA ABANDONAR LA PAGINA</b> -->
+    <b>Wrong URL, redirecting...</b>
+    <script>
+        setTimeout(function(){ location.replace("{{ route('welcome') }}"); }, 100);
+    </script>
+    @else
     <body style="background-color: #333">
        <!-- Header -->
         <div id="top-nav" class="navbar navbar-inverse navbar-static-top">
@@ -153,4 +161,5 @@
         </div><!--/container-->
         <!-- /Main -->  
     </body>
+    @endif
 </html>

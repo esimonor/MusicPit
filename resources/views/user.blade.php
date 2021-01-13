@@ -56,6 +56,10 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
+                <form style="margin-left:30%" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a style="color:white;float:right;" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                </form>
             </div>
         </nav>
         <!-- END NAVBAR -->

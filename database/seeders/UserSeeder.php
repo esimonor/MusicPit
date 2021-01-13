@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -20,12 +21,10 @@ class UserSeeder extends Seeder
 
     for ($i = 0; $i < 5; $i++) {
         DB::table('users')->insert([
-            'age' => random_int(18, 99),
             'name' => $names[random_int(0, 9)],
             'email' => $lastnames[random_int(0, 9)].random_int(0, 99).'@email.com',
             'password' => bcrypt('andatza'),
-            'instrument' => $instruments[random_int(0, 4)],
-            'music_genre' => $music[random_int(0, 4)],
+            'type' => 0,
             'email_verified_at' => now(),
         ]);
     }
