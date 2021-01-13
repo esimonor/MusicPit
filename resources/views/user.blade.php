@@ -155,7 +155,7 @@
                                     <button type="button" id="submit" name="submit" class="btn btn-success">Update</button>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                     <form action="{{ route('users.destroy', Auth::user()->id) }}" method="POST">
@@ -163,7 +163,7 @@
                                     @method('DELETE')
                                     <button type="submit" id="submit" name="submit" class="btn btn-danger">Delete</button>
                                     </form>
-                                   
+
                                     </div>
                                 </div>
                             </div>
