@@ -41,9 +41,7 @@
                     <!-- Authentication -->
                     <li><form method="POST" action="{{ route('logout') }}">
                             @csrf
-
-                            <a id="logout" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault();
-                                                            this.closest('form').submit();">Logout</a>
+                            <a id="logout" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
                         </form>
                     </li>
                 </ul>
