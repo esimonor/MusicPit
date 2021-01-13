@@ -19,18 +19,27 @@ Route::get('/', function () {
 })->name('welcome');
 
 //LOCALIZATION
-Route::get('/{lang}', function ($lang = 'en') {
+/*Route::get('/{lang}', function ($lang = 'en') {
     App::setlocale($lang);
     Session::put('locale', $lang);
     return view('welcome');
-})->name('home');
+})->name('home');*/
 
 //JETSTREAM
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-//
-Route::get('prueba/user', function(){
+//TESTS
+Route::get('/prueba/profile', function(){
     return view('user');
 })->name('user');
+
+Route::get('/admin/profile', function () {
+    return view('admin');
+})->name('admin');
+
+Route::get('/find/all', function(){
+    $users = \App\Models\User::all();
+    return view('finder', ['users'=>$users]);
+})->name('finder');
