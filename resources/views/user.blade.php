@@ -84,6 +84,7 @@
                                     <h5 class="mb-2 text-danger">About</h5>
                                     <p>User description (gear, what kind of band, years of experience, etc)</p>
                                 </div>
+                                <a style="color:darkred" href="{{ route('admin') }}">Back to admin view</a>
                             </div>
                         </div>
                     </div>
@@ -91,6 +92,9 @@
                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="card h-100">
                         <div class="card-body">
+                        <form method="POST" action="{{ route('users.update', Auth::user()->id) }}">
+                            @csrf
+                            @method('PUT')
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Details</h6>
@@ -98,27 +102,27 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
 
-                                        <label for="fullName">Name</label>
-                                        <h4 id="fullName">{{Auth::user()->name}}</h4>
+                                        <label for="fullName">Name</label><br>
+                                        <input type="text" name="nombre" value="{{Auth::user()->name}}" id="fullName">
 
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="eMail">Email</label>
-                                        <h4 id="eMail">{{Auth::user()->email}}</h4>
+                                        <label for="eMail">Email</label><br>
+                                        <input type="text" name="email" value="{{Auth::user()->email}}" id="eMail">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="phone">Instrument</label>
-                                        <h4 id="instrument">{{Auth::user()->instrument}}</h4>
+                                        <label for="phone">Instrument</label><br>
+                                        <input type="text" value="{{Auth::user()->instrument}}" id="instrument">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="website">Music</label>
-                                        <h4 id="music">{{Auth::user()->music_genre}}</h4>
+                                        <label for="website">Music</label><br>
+                                        <input type="text" value="{{Auth::user()->music_genre}}" id="music">
                                     </div>
                                 </div>
                             </div>
@@ -128,26 +132,26 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="Street">Video</label>
-                                        <h4 id="video">No video yet</h4>
+                                        <label for="Street">Video</label><br>
+                                        <input type="text" value="" id="video">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="ciTy">Audio</label>
-                                        <h4 id="audio">No audio yet</h4>
+                                        <label for="ciTy">Audio</label><br>
+                                        <input type="text" value="" id="audio">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="sTate">Localization</label>
-                                        <h4 id="localization">No localization set</h4>
+                                        <label for="sTate">Localization</label><br>
+                                        <input type="text" value="" id="localization">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="zIp">On a band?</label>
-                                        <h4 id="band">No</h4>
+                                        <label for="zIp">On a band?</label><br>
+                                        <input type="text" value="" id="band">No
                                     </div>
                                 </div>
 
@@ -156,10 +160,11 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                    <button type="button" id="submit" name="submit" class="btn btn-success">Update</button>
+                                    <button type="submit" id="submit" name="submit" class="btn btn-success">Update</button>
+                                    
                                     </div>
                                 </div>
-
+                        </form>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                     <form action="{{ route('users.destroy', Auth::user()->id) }}" method="POST">

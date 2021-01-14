@@ -7,8 +7,8 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-       <!-- Fonts -->
-       <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Muli:300,400,700,900') }}" rel="stylesheet">
+        <!-- Fonts -->
+        <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Muli:300,400,700,900') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ URL::asset('/fonts/icomoon/style.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('/fonts/flaticon/font/flaticon.css') }}">
         <!-- Styles -->
@@ -20,8 +20,30 @@
         <link rel="stylesheet" href="{{ URL::asset('/css/profile.css') }}">
 
         <!-- Scripts -->
+        <script>
+        window.onload=inicio;
+
+        function inicio() {
+            document.getElementById("prueba").addEventListener("click", confirmDelete);
+        }
+
+        function confirmDelete(event){
+            event.preventDefault();
+            if (confirm("Are you sure you want to delte your profile?")) {
+                document.getElementById('deleteForm').submit();
+            } else {
+                
+            }
+        }
+    </script>
         <script src="{{ mix('js/app.js') }}" defer></script>
+        
     </head>
+    @if(Auth::user()->type == 1)
+    <script>
+        setTimeout(function(){ location.replace("{{ route('admin') }}"); }, 1);
+    </script>
+    @else
     <body id="background-image" class="font-sans antialiased">
          <!-- NAVBAR -->
          <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-2 p-2">
@@ -40,7 +62,7 @@
                     <a class="nav-link" href="{{ route('welcome') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Search Users</a>
+                    <a class="nav-link" href="{{ route('finder') }}">All Users</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -96,6 +118,7 @@
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Details</h6>
                                 </div>
+                                
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
 
@@ -157,16 +180,16 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                    <button type="button" id="submit" name="submit" class="btn btn-success">Update</button>
+                                        <a href="profile/edit" name="submit" class="btn btn-success">Update</a>
                                     </div>
                                 </div>
 
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                    <form action="{{ route('users.destroy', Auth::user()->id) }}" method="POST">
+                                    <form id="deleteForm" action="{{ route('users.destroy', Auth::user()->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" id="submit" name="submit" class="btn btn-danger">Delete</button>
+                                    <input type="submit" id="prueba" name="submitbtn" class="btn btn-danger" value="Delete">
                                     </form>
 
                                     </div>
@@ -181,11 +204,14 @@
     <!-- end profile body -->
 
     <!-- Scripts -->
+   
+
     <script src="{{ URL::asset('/js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery-ui.js') }}"></script>
     <script src="{{ URL::asset('/js/popper.min.js') }}"></script>
     <script src="{{ URL::asset('/js/bootstrap.min.js') }}"></script>
+    <!-- 
     <script src="{{ URL::asset('/js/owl.carousel.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery.stellar.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery.countdown.min.js') }}"></script>
@@ -194,9 +220,11 @@
     <script src="{{ URL::asset('/js/aos.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery.fancybox.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery.sticky.js') }}"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+    -->
     <script src="{{ URL::asset('/js/main.js') }}"></script>
-    <script src="{{ URL::asset('/js/validate.js') }}"></script>
+    <!-- <script src="{{ URL::asset('/js/validate.js') }}"></script> -->
         @livewireScripts
     </body>
 </html>
+@endif

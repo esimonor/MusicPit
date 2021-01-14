@@ -45,7 +45,7 @@
                 <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
                     <i class="glyphicon glyphicon-user"></i> {{Auth::user()->name}} <span class="caret"></span></a>
                 <ul id="g-account-menu" class="dropdown-menu" role="menu">
-                    <li><a href="#">My Profile</a></li>
+                    <li><a href="{{ route('adminUser') }}">My Profile</a></li>
                     <!-- Authentication -->
                     <li><form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -144,7 +144,7 @@
                             <i class="glyphicon glyphicon-cloud"></i><br>
                             Cloud
                         </a>
-                        <a href="#" class="btn btn-info col-sm-3 text">
+                        <a href="{{ route('adminUser') }}" class="btn btn-info col-sm-3 text">
                             <i class="glyphicon glyphicon-cog"></i><br>
                             Tools
                         </a>

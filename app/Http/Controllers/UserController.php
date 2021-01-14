@@ -70,7 +70,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Busca el producto
+        $user = User::find($id);
+        // Actualiza el stock
+        $user->name = $request->input('nombre');
+        $user->email = $request->input('email');
+        // Lo guarda
+        $user->save();
+        return back();
     }
 
     /**
@@ -84,6 +91,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
 
-        return redirect('/welcome')->with('success', 'User deleted!');
+        return redirect('/')->with('success', 'User deleted!');
     }
 }
