@@ -39,9 +39,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //TESTS
-Route::get('/prueba/profile', function(){
+Route::get('/user/profile/edit', function(){
     return view('user');
-})->name('user');
+})->name('adminUser');
 
 Route::get('/admin/profile', function () {
     return view('admin');

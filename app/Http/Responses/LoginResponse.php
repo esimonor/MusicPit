@@ -15,6 +15,7 @@ class LoginResponse implements LoginResponseContract
         // below is the existing response
         // replace this with your own code
         // the user can be located with Auth facade
+        // NOT IN USE (de momento)
         $role = Auth::user()->type;
        
         if ($role=="1") {
@@ -28,5 +29,5 @@ class LoginResponse implements LoginResponseContract
                     ? response()->json(['two_factor' => false])
                     : redirect()->intended(config('fortify.home'));
     }
-
+    // NOT IN USE
 }
