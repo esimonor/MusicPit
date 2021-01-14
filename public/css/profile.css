@@ -4,7 +4,7 @@ body{
     /*text-shadow: 1px 1px 5px rgb(0, 0, 0);*/
 }
 #background-image{
-    background-image: url(/images/background.png);
+    background-image: url(/images/profile-background.png);
     position: relative;
     background-repeat: no-repeat;
     background-color: black;
@@ -39,12 +39,15 @@ body{
     text-align: center;
 }
 .card {
-    background: #1f1f1faf;
+    background: #1f1f1f;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     border: 0;
     margin-bottom: 1rem;
+}
+.card img{
+    filter:drop-shadow(0px 0px 10px rgb(56, 55, 55));
 }
 .form-control {
     border: 1px solid #360a0a;
@@ -57,7 +60,11 @@ body{
 }
 
 /* ADMIN */		                
-                        
+#logout{
+    color:rgb(51, 51, 51); 
+    text-decoration:none;
+    margin-left:13%
+}              
 .text{
     color: white;
     text-shadow: 2px 2px 10px #000000;

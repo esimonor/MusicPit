@@ -56,6 +56,10 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
+                <form style="margin-left:30%" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a style="color:white;float:right;" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                </form>
             </div>
         </nav>
         <!-- END NAVBAR -->
@@ -71,10 +75,10 @@
                                     <div class="user-avatar">
                                         <img src="{{Auth::user()->profile_photo_path}}" alt="{{Auth::user()->name}}">
                                     </div>
-                                   
+
                                     <h5 class="user-name">{{Auth::user()->name}}</h5>
                                     <h6 class="user-email">{{Auth::user()->email}}</h6>
-                                    
+
                                 </div>
                                 <div class="about">
                                     <h5 class="mb-2 text-danger">About</h5>
@@ -93,10 +97,10 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                    
+
                                         <label for="fullName">Name</label>
                                         <h4 id="fullName">{{Auth::user()->name}}</h4>
-                                    
+
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -146,14 +150,26 @@
                                         <h4 id="band">No</h4>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <div class="text-right">
-                                        <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
-                                        <button type="button" id="submit" name="submit" class="btn btn-success">Update</button>
+                                    <h6 class="mb-3 text-danger">Update or Delete your account</h6>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                    <button type="button" id="submit" name="submit" class="btn btn-success">Update</button>
                                     </div>
                                 </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                    <form action="{{ route('users.destroy', Auth::user()->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" id="submit" name="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -161,5 +177,23 @@
             </div>
         </div>
     <!-- end profile body -->
+
+    <!-- Scripts -->
+    <script src="{{ URL::asset('/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/jquery-migrate-3.0.1.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/jquery-ui.js') }}"></script>
+    <script src="{{ URL::asset('/js/popper.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/bootstrap.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/jquery.stellar.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ URL::asset('/js/aos.js') }}"></script>
+    <script src="{{ URL::asset('/js/jquery.fancybox.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/jquery.sticky.js') }}"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="{{ URL::asset('/js/main.js') }}"></script>
+    <script src="{{ URL::asset('/js/validate.js') }}"></script>
     </body>
 </html>

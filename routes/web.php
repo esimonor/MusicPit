@@ -24,21 +24,28 @@ Route::get('/finder/all', function () {
 })->name('finder');
 
 //LOCALIZATION
-Route::get('/{lang}', function ($lang = 'en') {
+/*Route::get('/{lang}', function ($lang = 'en') {
     App::setlocale($lang);
     Session::put('locale', $lang);
     return view('welcome');
-})->name('home');
+})->name('home');*/
+
+//USER
+Route::resource('users', UserController::class);
 
 //JETSTREAM
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-//
-Route::get('/user/profile', function(){
+//TESTS
+Route::get('/prueba/profile', function(){
     return view('user');
 })->name('user');
+
+Route::get('/admin/profile', function () {
+    return view('admin');
+})->name('admin');
 
 Route::get('/find/all', function(){
     $users = \App\Models\User::all();
