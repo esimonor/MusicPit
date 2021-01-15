@@ -22,14 +22,14 @@
     </head>
     <body id="background-image">
          <!-- NAVBAR -->
-         <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-2 p-2">
+         <nav class="navbar navbar-expand-lg navbar-dark navbar-styles p-2">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="site-logo w-20">
-                        <a>
+                        <a href="{{ route('welcome') }}">
                             <img src="{{URL::asset('images/logo-transparent-invcolors.png')}}" width="100" height="60" class="d-inline-block align-top" alt="MusicPit">
                         </a>
                     </div>
@@ -44,16 +44,32 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filter by:
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Instrument</a>
-                        <a class="dropdown-item" href="#">Music genre</a>
+                    <form class="form-inline my-2 my-lg-0">
+                    <div id="filterDropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <h6 class="dropdown-header text-dark">Instrument</h6>
+                        <select>
+                            <option>Any</option>
+                            <option>Bass</option>
+                            <option>Guitar</option>
+                        </select>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Localization</a>
+                        <h6 class="dropdown-header text-dark">Music genre</h6>
+                        <select>
+                            <option>Any</option>
+                            <option>Rock</option>
+                            <option>Metal</option>
+                        </select>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header text-dark">Localization</h6>
+                        <select>
+                            <option>Any</option>
+                            <option>Gipuzkoa</option>
+                            <option>Bizkaia</option>
+                        </select>
                     </div>
                 </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <form style="margin-left:30%" method="POST" action="{{ route('logout') }}">
@@ -76,10 +92,8 @@
                                     <div class="user-avatar">
                                         <img src="{{Auth::user()->profile_photo_path}}" alt="{{Auth::user()->name}}">
                                     </div>
-
                                     <h5 class="user-name">{{Auth::user()->name}}</h5>
                                     <h6 class="user-email">{{Auth::user()->email}}</h6>
-
                                 </div>
                                 <div class="about">
                                     <h5 class="mb-2 text-danger">About</h5>
@@ -117,13 +131,27 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="instrument">Instrument</label><br>
-                                        <input type="text" value="{{Auth::user()->instrument}}" id="instrument">
+                                        <select id="instrument">
+                                            <option>{{Auth::user()->instrument}}</option>
+                                            <option>Bass</option>
+                                            <option>Guitar</option>
+                                            <option>Drums</option>
+                                            <option>Flute</option>
+                                            <option>Keyboard</option>
+                                        <select>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="music">Music</label><br>
-                                        <input type="text" value="{{Auth::user()->music_genre}}" id="music">
+                                        <select id="music">
+                                            <option>{{Auth::user()->music_genre}}</option>
+                                            <option>Rock</option>
+                                            <option>Metal</option>
+                                            <option>Hip-hop</option>
+                                            <option>Jazz</option>
+                                            <option>Blues</option>
+                                        <select>
                                     </div>
                                 </div>
                             </div>
@@ -147,13 +175,20 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="sTate">Localization</label><br>
-                                        <input type="text" value="" id="localization">
+                                        <select id="localization">
+                                            <option>{{Auth::user()->localization}}</option>
+                                            <option>Gipuzkoa</option>
+                                            <option>Bizkaia</option>
+                                            <option>Sevilla</option>
+                                            <option>Murcia</option>
+                                            <option>Barcelona</option>
+                                        <select>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="zIp">On a band?</label><br>
-                                        <input type="text" value="" id="band">No
+                                        <input type="text" value="" id="band">
                                     </div>
                                 </div>
 
@@ -188,6 +223,11 @@
     <!-- end profile body -->
 
     <!-- Scripts -->
+    <script>
+    $("#filterDropdown").click(function(e){
+        e.stopPropagation();
+    })
+   </script>
     <script src="{{ URL::asset('/js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery-ui.js') }}"></script>

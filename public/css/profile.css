@@ -58,7 +58,12 @@ body{
     background: #4b4b4b;
     color: #000000;
 }
-
+.navbar-styles{
+    background-color: #222;
+    color: whitesmoke;
+    margin-bottom: 1%;
+    margin-top: 0%;
+}
 /* ADMIN */		                
 #logout{
     color:rgb(51, 51, 51); 
