@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('/css/botones.css') }}">
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"/> -->
+        <link rel="stylesheet" href="{{ URL::asset('/fonts/flaticon/font/flaticon.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('/css/profile.css') }}">
 
         <!-- Scripts -->
@@ -82,8 +83,9 @@
                 </form>
                 <form style="margin-left:30%" method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <a style="color:white;float:right;" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                    <a style="color:white;float:right;" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
                 </form>
+                <a style="color:white;float:right; margin-left:2%" href="{{ URL::ROUTE('welcome') }}/user/profile">Profile</a>
             </div>
         </nav>
         <!-- END NAVBAR -->
@@ -117,6 +119,7 @@
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Details</h6>
+                                    <hr class="border border-danger">
                                 </div>
                                 
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -149,6 +152,7 @@
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Media</h6>
+                                    <hr class="border border-danger">
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
@@ -176,11 +180,12 @@
                                 </div>
 
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h6 class="mb-3 text-danger">Update or Delete your account</h6>
+                                    <h6 class="mb-3 text-danger">Edit or Delete your account</h6>
+                                    <hr class="border border-danger">
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <a href="profile/edit" name="submit" class="btn btn-success">Update</a>
+                                        <a href="profile/edit" style="color:white" name="submit" class="btn btn-warning">Edit</a>
                                     </div>
                                 </div>
 

@@ -20,8 +20,8 @@
 
     </head>
     <body id="background-image">
-        <!-- NAVBAR -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-2 p-2">
+         <!-- NAVBAR -->
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-2 p-2">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -55,9 +55,14 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
+                <form style="margin-left:30%" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a style="color:white;float:right;" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                </form>
+                <a style="color:white;float:right; margin-left:2%" href="{{ URL::ROUTE('welcome') }}/user/profile">Profile</a>
             </div>
         </nav>
-            <!-- END NAVBAR -->
+        <!-- END NAVBAR -->
 
             <!-- CONTENT -->
             <div class="card-columns user-card">

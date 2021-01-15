@@ -21,8 +21,8 @@
 
     </head>
     <body id="background-image">
-       <!-- NAVBAR -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-2 p-2">
+         <!-- NAVBAR -->
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-2 p-2">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,7 +38,7 @@
                     <a class="nav-link" href="{{ route('welcome') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Search Users</a>
+                    <a class="nav-link" href="{{ route('finder') }}">All Users</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,8 +58,9 @@
                 </form>
                 <form style="margin-left:30%" method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <a style="color:white;float:right;" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                    <a style="color:white;float:right;" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
                 </form>
+                <a style="color:white;float:right; margin-left:2%" href="{{ URL::ROUTE('welcome') }}/user/profile">Profile</a>
             </div>
         </nav>
         <!-- END NAVBAR -->
@@ -84,7 +85,6 @@
                                     <h5 class="mb-2 text-danger">About</h5>
                                     <p>User description (gear, what kind of band, years of experience, etc)</p>
                                 </div>
-                                <a style="color:darkred" href="{{ route('admin') }}">Back to admin view</a>
                             </div>
                         </div>
                     </div>
@@ -98,6 +98,7 @@
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Details</h6>
+                                    <hr class="border border-danger">
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
@@ -115,13 +116,13 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="phone">Instrument</label><br>
+                                        <label for="instrument">Instrument</label><br>
                                         <input type="text" value="{{Auth::user()->instrument}}" id="instrument">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="website">Music</label><br>
+                                        <label for="music">Music</label><br>
                                         <input type="text" value="{{Auth::user()->music_genre}}" id="music">
                                     </div>
                                 </div>
@@ -129,17 +130,18 @@
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Media</h6>
+                                    <hr class="border border-danger">
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="Street">Video</label><br>
-                                        <input type="text" value="" id="video">
+                                        <input type="file" value="" accept="video/*" id="video">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="ciTy">Audio</label><br>
-                                        <input type="text" value="" id="audio">
+                                        <input type="file" value="" accept="audio/*" id="audio"> 
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -157,10 +159,11 @@
 
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Update or Delete your account</h6>
+                                    <hr class="border border-danger">
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                    <button type="submit" id="submit" name="submit" class="btn btn-success">Update</button>
+                                    <button type="submit" id="submit" name="submit" style="color:white" class="btn btn-success">Update</button>
                                     
                                     </div>
                                 </div>
