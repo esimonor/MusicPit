@@ -131,7 +131,7 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="instrument">Instrument</label><br>
-                                        <select id="instrument">
+                                        <select name="instrument" id="instrument">
                                             <option>{{Auth::user()->instrument}}</option>
                                             <option>Bass</option>
                                             <option>Guitar</option>
@@ -144,8 +144,8 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="music">Music</label><br>
-                                        <select id="music">
-                                            <option>{{Auth::user()->music_genre}}</option>
+                                        <select name="music" id="music">
+                                            <option>{{Auth::user()->music}}</option>
                                             <option>Rock</option>
                                             <option>Metal</option>
                                             <option>Hip-hop</option>

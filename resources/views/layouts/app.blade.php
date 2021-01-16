@@ -161,7 +161,7 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="website">Music</label>
-                                        <h4 id="music">{{Auth::user()->music_genre}}</h4>
+                                        <h4 id="music">{{Auth::user()->music}}</h4>
                                     </div>
                                 </div>
                             </div>
