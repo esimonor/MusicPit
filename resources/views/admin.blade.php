@@ -92,7 +92,7 @@
             <div class="row">
                     <!-- center left-->	
                     <div class="col-md-7">
-                    <div class="well">Welcome {{Auth::user()->name}} </div>
+                    <div class="well" style="color:black">Welcome {{Auth::user()->name}} </div>
                     
                     <hr>
                     
@@ -103,30 +103,30 @@
                             <small>Complete</small>
                             <div class="progress">
                             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%">
-                                <span class="sr-only">72% Complete</span>
+                                <span style="color:lime" class="sr-only">72% Complete</span>
                             </div>
                             </div>
                             <small>In Progress</small>
                             <div class="progress">
                             <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                <span class="sr-only">20% Complete</span>
+                                <span style="color:lightyellow" class="sr-only">20% Complete</span>
                             </div>
                             </div>
                             <small>At Risk</small>
                             <div class="progress">
                             <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                <span class="sr-only">80% Complete</span>
+                                <span style="color:red" class="sr-only">80% Complete</span>
                             </div>
                             </div>
 
                         </div><!--/panel-body-->
                     </div><!--/panel-->                     
-                    <table>
+                    <table border="1">
                         <tr>
-                            <td>Username</td>
+                            <td>Email</td>
                             <td>Instrument</td>
                             <td>Music</td>
-                            <td>Email</td>
+                            <td>Name</td>
                             <td>Action</td>
                         </tr>
                         @foreach($users as $user)
@@ -134,10 +134,24 @@
                         @csrf
                         @method('PUT')
                         <tr>
-                            <td><img class="img-fluid" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"><input style="color:black" name="nombre" value="{{$user->name}}"></td>
-                            <td><input style="color:black" name="instrument" value="{{$user->instrument}}"></td>
-                            <td><input style="color:black" name="music" value="{{$user->music}}"></td>
-                            <td><input style="color:black" name="email" value="{{$user->email}}"></td>
+                            <td><img class="img-fluid" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"><input style="color:black" name="email" value="{{$user->email}}"></td>
+                            <td><select style="color:black" id="instrument" name="instrument">
+                                            <option>{{$user->instrument}}</option>
+                                            <option>Bass</option>
+                                            <option>Guitar</option>
+                                            <option>Drums</option>
+                                            <option>Flute</option>
+                                            <option>Keyboard</option>
+                                        <select></td>
+                            <td><select style="color:black" id="music" name="music">
+                                            <option>{{$user->music}}</option>
+                                            <option>Rock</option>
+                                            <option>Metal</option>
+                                            <option>Hip-hop</option>
+                                            <option>Jazz</option>
+                                            <option>Blues</option>
+                                        <select></td>
+                            <td><input style="color:black" name="nombre" value="{{$user->name}}"></td>
                             <td>
                                 <button style="background-color:#0d0d0e;border:none;" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="glyphicon glyphicon-pencil"></i></button>
                             </form>
