@@ -33,12 +33,12 @@
             if (confirm("Are you sure you want to delte your profile?")) {
                 document.getElementById('deleteForm').submit();
             } else {
-                
+
             }
         }
     </script>
         <script src="{{ mix('js/app.js') }}" defer></script>
-        
+
     </head>
     @if(Auth::user()->type == 1)
     <script>
@@ -137,7 +137,7 @@
                                     <h6 class="mb-3 text-danger">Details</h6>
                                     <hr class="border border-danger">
                                 </div>
-                                
+
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
 
@@ -172,8 +172,10 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="Street">Video</label>
+                                    <form action="{{ URL::to('upload') }}" method="post" enctype="multipart/form-data">
+                                        <label for="Street" name="video">Video</label>
                                         <h4 id="video">No video yet</h4>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">

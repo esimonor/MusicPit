@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
 
-class UserController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,6 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        //
     }
 
     /**
@@ -46,7 +47,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -69,17 +70,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $user = User::find($id);
-
-        $user->name = $request->input('nombre');
-        $user->email = $request->input('email');
-        $user->instrument = $request->input('instrument');
-        $user->music = $request->input('music');
-
-        // Lo guarda
-        $user->save();
-        return redirect('/user/profile');
+        //
     }
 
     /**
@@ -93,8 +84,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
 
-        return redirect('/')->with('success', 'User deleted!');
+        return redirect('listUsers');
     }
-
-
 }
