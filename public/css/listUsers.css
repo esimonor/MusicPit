@@ -1,8 +1,11 @@
 *{
     color:whitesmoke;
 }
-body{
-    background-color: #0d0d0e!important
+table img{
+    width: 10%;
+}
+input{
+    width: 90%;
 }
 .p-4 {
     padding: 1.5rem!important;

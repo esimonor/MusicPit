@@ -46,7 +46,8 @@ Route::get('/user/profile/edit', function(){
 })->name('adminUser');
 
 Route::get('/admin/profile', function () {
-    return view('admin');
+    $users = \App\Models\User::all();
+    return view('admin', ['users'=>$users]);
 })->name('admin');
 
 Route::get('/find/all', function(){
@@ -54,7 +55,7 @@ Route::get('/find/all', function(){
     return view('finder', ['users'=>$users]);
 })->name('finder');
 
-Route::get('/admin/list', function(){
-    $users = \App\Models\User::all();
+/*Route::get('/admin/list', function(){
+    
     return view('listUsers', ['users'=>$users]);
-})->name('listUsers');
+})->name('listUsers');*/

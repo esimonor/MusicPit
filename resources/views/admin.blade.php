@@ -12,13 +12,14 @@
         <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Muli:300,400,700,900') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ URL::asset('/fonts/icomoon/style.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('/fonts/flaticon/font/flaticon.css') }}">
-
+ 
         <!-- Admin styles and scripts -->
         <link rel="stylesheet" href="{{ URL::asset('/css/profile.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('/css/listUsers.css') }}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+        
     </head>
     @if(Auth::user()->type == 0)
     <!-- <img src="https://i.ytimg.com/vi/4WS2nAx7e54/hqdefault.jpg">
@@ -120,7 +121,36 @@
 
                         </div><!--/panel-body-->
                     </div><!--/panel-->                     
-                    
+                    <table>
+                        <tr>
+                            <td>Username</td>
+                            <td>Instrument</td>
+                            <td>Music</td>
+                            <td>Email</td>
+                            <td>Action</td>
+                        </tr>
+                        @foreach($users as $user)
+                        <form method="POST" action="{{route('users.update',[$user->id])}}">
+                        @csrf
+                        @method('PUT')
+                        <tr>
+                            <td><img class="img-fluid" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"><input style="color:black" name="nombre" value="{{$user->name}}"></td>
+                            <td><input style="color:black" name="instrument" value="{{$user->instrument}}"></td>
+                            <td><input style="color:black" name="music" value="{{$user->music}}"></td>
+                            <td><input style="color:black" name="email" value="{{$user->email}}"></td>
+                            <td>
+                                <button style="background-color:#0d0d0e;border:none;" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="glyphicon glyphicon-pencil"></i></button>
+                            </form>
+                                <form action="{{route('users.destroy',[$user->id])}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button style="background-color:#0d0d0e;border:none;"><i class="glyphicon glyphicon-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                        </form>
+                        @endforeach
+                    </table>
                     </div><!--/col-->
                 
                     <!--center-right-->
