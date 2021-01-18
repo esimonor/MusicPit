@@ -121,11 +121,12 @@
 
                         </div><!--/panel-body-->
                     </div><!--/panel-->                     
-                    <table border="1">
+                    <table style="border:1px solid white; width:140%;text-align:center">
                         <tr>
                             <td>Email</td>
                             <td>Instrument</td>
                             <td>Music</td>
+                            <td>Type</td>
                             <td>Name</td>
                             <td>Action</td>
                         </tr>
@@ -151,6 +152,7 @@
                                             <option>Jazz</option>
                                             <option>Blues</option>
                                         <select></td>
+                            <td><input style="color:black" name="nombre" value="{{$user->type}}"></td>
                             <td><input style="color:black" name="nombre" value="{{$user->name}}"></td>
                             <td>
                                 <button style="background-color:#0d0d0e;border:none;" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="glyphicon glyphicon-pencil"></i></button>
