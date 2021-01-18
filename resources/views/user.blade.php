@@ -131,7 +131,7 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="instrument">Instrument</label><br>
-                                        <select id="instrument">
+                                        <select id="instrument" name="instrument">
                                             <option>{{Auth::user()->instrument}}</option>
                                             <option>Bass</option>
                                             <option>Guitar</option>
@@ -144,8 +144,8 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="music">Music</label><br>
-                                        <select id="music">
-                                            <option>{{Auth::user()->music_genre}}</option>
+                                        <select id="music" name="music">
+                                            <option>{{Auth::user()->music}}</option>
                                             <option>Rock</option>
                                             <option>Metal</option>
                                             <option>Hip-hop</option>
@@ -163,7 +163,7 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="Street">Video</label><br>
-                                        <input type="file" value="" accept="video/*" id="video">
+                                        <input type="file" name="file" value="" accept="video/*" id="video">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">

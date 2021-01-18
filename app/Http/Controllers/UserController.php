@@ -36,7 +36,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -75,6 +74,9 @@ class UserController extends Controller
         // Actualiza el stock
         $user->name = $request->input('nombre');
         $user->email = $request->input('email');
+        $user->instrument = $request->input('instrument');
+        $user->music = $request->input('music');
+
         // Lo guarda
         $user->save();
         return redirect('/user/profile');
@@ -93,4 +95,6 @@ class UserController extends Controller
 
         return redirect('/')->with('success', 'User deleted!');
     }
+
+
 }
