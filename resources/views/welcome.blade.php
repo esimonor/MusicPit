@@ -173,7 +173,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                     <select style="color:black" id="instrument" name="instrument">
-                                                        <option>Choose and instrument</option>
+                                                        <option>Select instrument</option>
                                                         <option>Bass</option>
                                                         <option>Guitar</option>
                                                         <option>Drums</option>

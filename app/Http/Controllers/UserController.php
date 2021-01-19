@@ -74,22 +74,22 @@ class UserController extends Controller
 
         // Coge el archivo enviado
         $file=$request->file('archivo');
-        // Se le da un nombre distinto para que no haya nombres repetidos y confictos
-        $name=time().$file->getClientOriginalName();
-        // Se mueve a la carpeta public/img
-        $file->move(public_path().'/video',$name);
-        // Se especifica la ruta y se guarda en la base de datos
-        $user->archivo = "/video"."/".$name;
-
+        // detectar si hay archivo o no
+        if($file != ""){
+            // Se le da un nombre distinto para que no haya nombres repetidos y confictos
+            $name=time().$file->getClientOriginalName();
+            // Se mueve a la carpeta public/img
+            $file->move(public_path().'/video',$name);
+            // Se especifica la ruta y se guarda en la base de datos
+            $user->archivo = "/video"."/".$name;
+        }
         
         $audio=$request->file('audio');
-        
-        $nombre=time().$audio->getClientOriginalName();
-        
-        $audio->move(public_path().'/audio',$nombre);
-        
-        $user->audio = "/audio"."/".$nombre;
-
+        if($audio != ""){
+            $nombre=time().$audio->getClientOriginalName();
+            $audio->move(public_path().'/audio',$nombre);
+            $user->audio = "/audio"."/".$nombre;
+        }
         $user->name = $request->input('nombre');
         $user->email = $request->input('email');
         $user->instrument = $request->input('instrument');

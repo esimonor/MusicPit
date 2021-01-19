@@ -109,13 +109,13 @@
                             <small>In Progress</small>
                             <div class="progress">
                             <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                <span style="color:lightyellow" class="sr-only">20% Complete</span>
+                                <span style="color:lightyellow" class="sr-only">35% Complete</span>
                             </div>
                             </div>
                             <small>At Risk</small>
                             <div class="progress">
                             <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                <span style="color:red" class="sr-only">80% Complete</span>
+                                <span style="color:red" class="sr-only">10% Complete</span>
                             </div>
                             </div>
 
@@ -152,15 +152,19 @@
                                             <option>Jazz</option>
                                             <option>Blues</option>
                                         <select></td>
-                            <td><input style="color:black" readonly name="nombre" value="{{$user->type}}"></td>
+                                        @if($user->type == 1)
+                                        <td><p>Admin</p></td>
+                                        @else
+                                        <td><p>User</p></td>
+                                        @endif
                             <td><input style="color:black" name="nombre" value="{{$user->name}}"></td>
                             <td>
-                                <button style="background-color:#0d0d0e;border:none;" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="glyphicon glyphicon-pencil"></i></button>
+                                <button style="background-color:transparent;border:none;" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="glyphicon glyphicon-pencil"></i></button>
                             </form>
                                 <form action="{{route('users.destroy',[$user->id])}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button style="background-color:#0d0d0e;border:none;"><i class="glyphicon glyphicon-trash"></i></button>
+                                    <button style="background-color:transparent;border:none;"><i class="glyphicon glyphicon-trash"></i></button>
                                 </form>
                             </td>
                         </tr>

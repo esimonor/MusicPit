@@ -208,8 +208,9 @@
                                         @endif
                                     </div>
                                 </div>
-                                
-
+                                @foreach($users as $user)
+                                <p>{{$user->id}} </p>
+                                @endforeach
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Edit or Delete your account</h6>
                                     <hr class="border border-danger">

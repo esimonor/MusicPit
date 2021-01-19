@@ -184,7 +184,7 @@
 
 
                                         <label for="archivo">Video</label><br>
-                                        <input type="file" name="archivo" value="{{Auth::user()->archivo}} "accept="video/*" id="archivo" required>
+                                        <input type="file" name="archivo" value="{{Auth::user()->archivo}} "accept="video/*" id="archivo">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
