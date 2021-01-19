@@ -172,10 +172,11 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                    <form action="{{ URL::to('upload') }}" method="post" enctype="multipart/form-data">
-                                        <label for="Street" name="video">Video</label>
-                                        <h4 id="video">No video yet</h4>
-                                        </form>
+
+                                        <label for="Street" name="archivo">Video</label>
+                                        <h4 id="video">{{Auth::user()->archivo}}</h4>
+                                        <source src="{{Auth::user()->archivo}}" type='video/*'>
+
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">

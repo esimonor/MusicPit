@@ -57,5 +57,5 @@ Route::get('/find/all', function(){
     return view('finder', ['users'=>$users]);
 })->name('finder');
 
-//UPLOAD
-Route::post('/subir','UploadController@subirArchivo')->name('subir');
+
+
