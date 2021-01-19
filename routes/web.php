@@ -57,12 +57,5 @@ Route::get('/find/all', function(){
     return view('finder', ['users'=>$users]);
 })->name('finder');
 
-<<<<<<< HEAD
-/*Route::get('/admin/list', function(){
-    
-    return view('listUsers', ['users'=>$users]);
-})->name('listUsers');*/
-=======
 //UPLOAD
 Route::post('/upload-file', [UploadController::class, 'fileUpload'])->name('fileUpload');
->>>>>>> 7f633b8a1e4745a730b18d5e726a9088c2f98e69

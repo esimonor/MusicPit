@@ -134,10 +134,10 @@
                         @csrf
                         @method('PUT')
                         <tr>
-                            <td><img class="img-fluid" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"><input style="color:black" name="nombre" value="{{$user->name}}"></td>
+                            <td><img class="img-fluid" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"><input style="color:black" name="nombre" value="{{$user->email}}"></td>
                             <td><input style="color:black" name="instrument" value="{{$user->instrument}}"></td>
                             <td><input style="color:black" name="music" value="{{$user->music}}"></td>
-                            <td><input style="color:black" name="email" value="{{$user->email}}"></td>
+                            <td><input style="color:black" name="email" value="{{$user->name}}"></td>
                             <td>
                                 <button style="background-color:#0d0d0e;border:none;" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="glyphicon glyphicon-pencil"></i></button>
                             </form>
