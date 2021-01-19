@@ -164,27 +164,6 @@
                                         <h4 id="music">{{Auth::user()->music}}</h4>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row gutters">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h6 class="mb-3 text-danger">Media</h6>
-                                    <hr class="border border-danger">
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-
-                                        <label for="Street" name="archivo">Video</label>
-                                        <h4 id="video">{{Auth::user()->archivo}}</h4>
-                                        <source src="{{Auth::user()->archivo}}" type='video/*'>
-
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label for="ciTy">Audio</label>
-                                        <h4 id="audio">No audio yet</h4>
-                                    </div>
-                                </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="sTate">Localization</label>
@@ -197,6 +176,39 @@
                                         <h4 id="band">No</h4>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 class="mb-3 text-danger">Media</h6>
+                                    <hr class="border border-danger">
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+
+                                        <label for="Street" name="archivo">Video</label>
+                                        @if(Auth::user()->archivo == "")
+                                        <h4>No video yet</h4>
+                                        @else
+                                        <video style="width:100%;" controls>
+                                            <source src="{{Auth::user()->archivo}}" type='video/mp4'>
+                                        </video>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="ciTy">Audio</label>
+                                        @if(Auth::user()->audio == "")
+                                        <h4 id="audio">No audio yet</h4>
+                                        @else
+                                        <br>
+                                        <audio style="width:100%" controls>
+                                            <source src="{{Auth::user()->audio}}" type="audio/mp3">
+                                        </audio>
+                                        @endif
+                                    </div>
+                                </div>
+                                
 
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Edit or Delete your account</h6>

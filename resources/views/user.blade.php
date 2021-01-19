@@ -154,26 +154,6 @@
                                         <select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row gutters">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h6 class="mb-3 text-danger">Media</h6>
-                                    <hr class="border border-danger">
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-
-
-                                        <label for="archivo">Video</label><br>
-                                        <input type="file" name="archivo" value="{{Auth::user()->archivo}} "accept="video/*" id="archivo" required>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label for="ciTy">Audio</label><br>
-                                        <input type="file" value="" accept="audio/*" id="audio">
-                                    </div>
-                                </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="sTate">Localization</label><br>
@@ -193,6 +173,27 @@
                                         <input type="text" value="" id="band">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 class="mb-3 text-danger">Media</h6>
+                                    <hr class="border border-danger">
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+
+
+                                        <label for="archivo">Video</label><br>
+                                        <input type="file" name="archivo" value="{{Auth::user()->archivo}} "accept="video/*" id="archivo" required>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="audio">Audio</label><br>
+                                        <input type="file" name="audio" value="{{Auth::user()->audio}}" accept="audio/*" id="audio">
+                                    </div>
+                                </div>
+                               
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Update or Delete your account</h6>
                                     <hr class="border border-danger">
