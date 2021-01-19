@@ -106,7 +106,7 @@
                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="card h-100">
                         <div class="card-body">
-                        <form method="POST" action="{{ route('users.update', Auth::user()->id) }}">
+                        <form method="POST" action="{{ route('users.update', Auth::user()->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row gutters">
@@ -162,14 +162,16 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="Street">Video</label><br>
-                                        <input type="file" name="file" value="" accept="video/*" id="video">
+
+
+                                        <label for="archivo">Video</label><br>
+                                        <input type="file" name="archivo" value="{{Auth::user()->archivo}} "accept="video/*" id="archivo" required>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="ciTy">Audio</label><br>
-                                        <input type="file" value="" accept="audio/*" id="audio"> 
+                                        <input type="file" value="" accept="audio/*" id="audio">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -198,7 +200,7 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                     <button type="submit" id="submit" name="submit" style="color:white" class="btn btn-success">Update</button>
-                                    
+    
                                     </div>
                                 </div>
                         </form>

@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('type')->default(0);
             $table->string('instrument')->nullable();
             $table->string('music')->nullable();
-            $table->string('video')->nullable();
+            $table->string('archivo')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
