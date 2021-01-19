@@ -171,6 +171,26 @@
                                                     <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                                                     <x-jet-input id="InputPassword2" class="block mt-1 w-full modal-form-input" type="password" name="password_confirmation" required autocomplete="new-password" />
                                                     </div>
+                                                    <div class="form-group">
+                                                    <select style="color:black" id="instrument" name="instrument">
+                                                        <option>Choose and instrument</option>
+                                                        <option>Bass</option>
+                                                        <option>Guitar</option>
+                                                        <option>Drums</option>
+                                                        <option>Flute</option>
+                                                        <option>Keyboard</option>
+                                                    <select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <select style="color:black" id="music" name="music">
+                                                        <option>Music genre</option>
+                                                        <option>Rock</option>
+                                                        <option>Metal</option>
+                                                        <option>Hip-hop</option>
+                                                        <option>Jazz</option>
+                                                        <option>Blues</option>
+                                                    <select>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>

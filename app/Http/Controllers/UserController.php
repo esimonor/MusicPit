@@ -69,9 +69,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Busca el producto
+
         $user = User::find($id);
-        // Actualiza el stock
+
         $user->name = $request->input('nombre');
         $user->email = $request->input('email');
         $user->instrument = $request->input('instrument');

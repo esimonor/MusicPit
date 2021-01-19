@@ -23,6 +23,9 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => $names[random_int(0, 9)],
             'email' => $lastnames[random_int(0, 9)].random_int(0, 99).'@email.com',
+            'instrument' => $instruments[random_int(0, 4)],
+            'music' => $music[random_int(0, 4)],
+            'profile_photo_path' => '/images/icono'.random_int(1,4).'.png',
             'password' => bcrypt('andatza'),
             'type' => 0,
             'email_verified_at' => now(),
