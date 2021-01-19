@@ -55,4 +55,4 @@ Route::get('/find/all', function(){
 })->name('finder');
 
 //UPLOAD
-Route::post('/upload-file', [UploadController::class, 'fileUpload'])->name('fileUpload');
+Route::post('/subir','UploadController@subirArchivo')->name('subir');

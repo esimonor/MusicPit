@@ -162,14 +162,17 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="Street">Video</label><br>
-                                        <input type="file" name="file" value="" accept="video/*" id="video">
+                                    <form method="POST" action="{{route('subir')}}" accept-charset="UTF-8" enctype="multipart/form-data">
+  {{ csrf_field() }}
+                                        <label for="archivo">Video</label><br>
+                                        <input type="file" name="archivo" accept="video/*" id="video" required>
+                                    </form>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="ciTy">Audio</label><br>
-                                        <input type="file" value="" accept="audio/*" id="audio"> 
+                                        <input type="file" value="" accept="audio/*" id="audio">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
