@@ -95,7 +95,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$user->name}}</h5>
                         <p class="card-text">Instrument: {{$user->instrument}}</p>
-                        <p class="card-text">Music: {{$user->music_genre}}</p>
+                        <p class="card-text">Music: {{$user->music}}</p>
                     </div>
                 </div>
                 @endif

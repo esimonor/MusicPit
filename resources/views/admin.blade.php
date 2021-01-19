@@ -12,13 +12,14 @@
         <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Muli:300,400,700,900') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ URL::asset('/fonts/icomoon/style.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('/fonts/flaticon/font/flaticon.css') }}">
-
+ 
         <!-- Admin styles and scripts -->
         <link rel="stylesheet" href="{{ URL::asset('/css/profile.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('/css/listUsers.css') }}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+        
     </head>
     @if(Auth::user()->type == 0)
     <!-- <img src="https://i.ytimg.com/vi/4WS2nAx7e54/hqdefault.jpg">
@@ -91,7 +92,7 @@
             <div class="row">
                     <!-- center left-->	
                     <div class="col-md-7">
-                    <div class="well">Welcome {{Auth::user()->name}} </div>
+                    <div class="well" style="color:black">Welcome {{Auth::user()->name}} </div>
                     
                     <hr>
                     
@@ -102,25 +103,70 @@
                             <small>Complete</small>
                             <div class="progress">
                             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%">
-                                <span class="sr-only">72% Complete</span>
+                                <span style="color:lime" class="sr-only">72% Complete</span>
                             </div>
                             </div>
                             <small>In Progress</small>
                             <div class="progress">
                             <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                <span class="sr-only">20% Complete</span>
+                                <span style="color:lightyellow" class="sr-only">20% Complete</span>
                             </div>
                             </div>
                             <small>At Risk</small>
                             <div class="progress">
                             <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                <span class="sr-only">80% Complete</span>
+                                <span style="color:red" class="sr-only">80% Complete</span>
                             </div>
                             </div>
 
                         </div><!--/panel-body-->
                     </div><!--/panel-->                     
-                    
+                    <table style="border:1px solid white; width:140%;text-align:center">
+                        <tr>
+                            <td>Email</td>
+                            <td>Instrument</td>
+                            <td>Music</td>
+                            <td>Type</td>
+                            <td>Name</td>
+                            <td>Action</td>
+                        </tr>
+                        @foreach($users as $user)
+                        <form method="POST" action="{{route('users.update',[$user->id])}}">
+                        @csrf
+                        @method('PUT')
+                        <tr>
+                            <td><img class="img-fluid" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"><input style="color:black" name="email" value="{{$user->email}}"></td>
+                            <td><select style="color:black" id="instrument" name="instrument">
+                                            <option>{{$user->instrument}}</option>
+                                            <option>Bass</option>
+                                            <option>Guitar</option>
+                                            <option>Drums</option>
+                                            <option>Flute</option>
+                                            <option>Keyboard</option>
+                                        <select></td>
+                            <td><select style="color:black" id="music" name="music">
+                                            <option>{{$user->music}}</option>
+                                            <option>Rock</option>
+                                            <option>Metal</option>
+                                            <option>Hip-hop</option>
+                                            <option>Jazz</option>
+                                            <option>Blues</option>
+                                        <select></td>
+                            <td><input style="color:black" name="nombre" value="{{$user->type}}"></td>
+                            <td><input style="color:black" name="nombre" value="{{$user->name}}"></td>
+                            <td>
+                                <button style="background-color:#0d0d0e;border:none;" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="glyphicon glyphicon-pencil"></i></button>
+                            </form>
+                                <form action="{{route('users.destroy',[$user->id])}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button style="background-color:#0d0d0e;border:none;"><i class="glyphicon glyphicon-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                        </form>
+                        @endforeach
+                    </table>
                     </div><!--/col-->
                 
                     <!--center-right-->

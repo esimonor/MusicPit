@@ -33,6 +33,8 @@ Route::get('/finder/all', function () {
 //USER
 Route::resource('users', UserController::class);
 
+
+
 //JETSTREAM
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -45,7 +47,8 @@ Route::get('/user/profile/edit', function(){
 
 //ADMIN
 Route::get('/admin/profile', function () {
-    return view('admin');
+    $users = \App\Models\User::all();
+    return view('admin', ['users'=>$users]);
 })->name('admin');
 
 //ADVANCED SEARCH FINDER
