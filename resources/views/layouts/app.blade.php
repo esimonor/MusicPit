@@ -110,7 +110,7 @@
                     </div>
                 </li>
                 </ul>
-                
+
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <form style="margin-left:30%" method="POST" action="{{ route('logout') }}">
@@ -145,7 +145,7 @@
                                 <h6>Bandmates</h6>
                                 @foreach(\App\Models\User::all() as $user)
                                 <p>{{$user->name}} </p>
-                                @endforeach 
+                                @endforeach
                                 </div>
                             </div>
                         </div>
@@ -230,7 +230,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                 
+
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Edit or Delete your account</h6>
                                     <hr class="border border-danger">
