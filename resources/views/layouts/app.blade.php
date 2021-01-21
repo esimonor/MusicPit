@@ -48,7 +48,8 @@
             document.getElementById('music').value = musica;
             document.getElementById('location').value = localizacion;
         }
-    </script>
+        </script>
+
         <script src="{{ mix('js/app.js') }}" defer></script>
 
     </head>
@@ -140,6 +141,12 @@
                                     <h5 class="mb-2 text-danger">About</h5>
                                     <p>User description (gear, what kind of band, years of experience, etc)</p>
                                 </div>
+                                <div class="about">
+                                <h6>Bandmates</h6>
+                                @foreach(\App\Models\User::all() as $user)
+                                <p>{{$user->name}} </p>
+                                @endforeach 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -223,9 +230,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                {{-- @foreach($users as $user)
-                                <p>{{$user->id}} </p>
-                                @endforeach --}}
+                                 
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Edit or Delete your account</h6>
                                     <hr class="border border-danger">

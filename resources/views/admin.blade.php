@@ -12,14 +12,14 @@
         <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Muli:300,400,700,900') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ URL::asset('/fonts/icomoon/style.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('/fonts/flaticon/font/flaticon.css') }}">
- 
+
         <!-- Admin styles and scripts -->
         <link rel="stylesheet" href="{{ URL::asset('/css/profile.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('/css/listUsers.css') }}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        
+        <script src="{{URL::asset('/js/AdminValidate.js')}}"></script>
     </head>
     @if(Auth::user()->type == 0)
     <!-- <img src="https://i.ytimg.com/vi/4WS2nAx7e54/hqdefault.jpg">
@@ -29,7 +29,7 @@
         setTimeout(function(){ location.replace("{{ route('welcome') }}"); }, 100);
     </script>
     @else
-    <body style="background-color: #333">
+    <body id="body" style="background-color: #333">
        <!-- Header -->
         <div id="top-nav" class="navbar navbar-inverse navbar-static-top">
         <div class="container bootstrap snippets bootdey">
@@ -131,12 +131,12 @@
                             <td>Action</td>
                         </tr>
                         @foreach($users as $user)
-                        <form method="POST" action="{{route('users.update',[$user->id])}}">
+                        <form name="myForm" method="POST" action="{{route('users.update',[$user->id])}}">
                         @csrf
                         @method('PUT')
                         <tr>
-                            <td><img class="img-fluid" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"><input style="color:black" name="email" value="{{$user->email}}"></td>
-                            <td><select style="color:black" id="instrument" name="instrument">
+                            <td><img class="img-fluid" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"><input style="color:black" name="email" class="email" value="{{$user->email}}"></td>
+                            <td><select style="color:black" class="instrument" name="instrument">
                                             <option>{{$user->instrument}}</option>
                                             <option>Bass</option>
                                             <option>Guitar</option>
@@ -144,7 +144,7 @@
                                             <option>Flute</option>
                                             <option>Keyboard</option>
                                         <select></td>
-                            <td><select style="color:black" id="music" name="music">
+                            <td><select style="color:black" class="music" name="music">
                                             <option>{{$user->music}}</option>
                                             <option>Rock</option>
                                             <option>Metal</option>
@@ -157,9 +157,9 @@
                                         @else
                                         <td><p>User</p></td>
                                         @endif
-                            <td><input style="color:black" name="nombre" value="{{$user->name}}"></td>
+                            <td><input style="color:black" class="nombre" name="nombre" value="{{$user->name}}"></td>
                             <td>
-                                <button style="background-color:transparent;border:none;" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="glyphicon glyphicon-pencil"></i></button>
+                                <button style="background-color:transparent;border:none;" class="text-info editUser" data-toggle="tooltip" title="" data-original-title="Edit"><i class="glyphicon glyphicon-pencil"></i></button>
                             </form>
                                 <form action="{{route('users.destroy',[$user->id])}}" method="POST">
                                     @csrf
