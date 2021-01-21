@@ -9,9 +9,11 @@ class Bands extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nombre', 'music', 'description'];
+
     public function users()
    {
-      return $this->hasMany('App\Models\User', 'band_id');
+      return $this->hasMany('App\Models\User');
    }
 }
 

@@ -33,6 +33,9 @@ Route::get('/finder/all', function () {
 //USER
 Route::resource('users', UserController::class);
 
+//BAND
+Route::resource('bandcont', BandController::class);
+
 
 
 //JETSTREAM

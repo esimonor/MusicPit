@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use Auth;
+use App\Models\Bands;
 
-class UserController extends Controller
+class BandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,6 +35,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'name' => 'required',
+            'music' => 'required',
+            'description' => 'required',
+        ]);
+
+        $band = new Bands;
+
+        $band->name = $request->input('name');
+        $band->music = $request->input('music');
+        $band->description = $request->input('description');
+
+        return redirect('/finder')->with('success', 'Data saved');
+
 
     }
 
@@ -47,7 +60,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -70,35 +83,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-
-        // Coge el archivo enviado
-        $file=$request->file('archivo');
-        // detectar si hay archivo o no
-        if($file != ""){
-            // Se le da un nombre distinto para que no haya nombres repetidos y confictos
-            $name=time().$file->getClientOriginalName();
-            // Se mueve a la carpeta public/img
-            $file->move(public_path().'/video',$name);
-            // Se especifica la ruta y se guarda en la base de datos
-            $user->archivo = "/video"."/".$name;
-        }
-
-        $audio=$request->file('audio');
-        if($audio != ""){
-            $nombre=time().$audio->getClientOriginalName();
-            $audio->move(public_path().'/audio',$nombre);
-            $user->audio = "/audio"."/".$nombre;
-        }
-        $user->name = $request->input('nombre');
-        $user->email = $request->input('email');
-        $user->instrument = $request->input('instrument');
-        $user->music = $request->input('music');
-
-
-        // Lo guarda
-        $user->save();
-        return redirect('/user/profile');
+        //
     }
 
     /**
@@ -109,11 +94,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-
-        return redirect('/')->with('success', 'User deleted!');
+        //
     }
-
-
 }

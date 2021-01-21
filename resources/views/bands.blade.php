@@ -37,7 +37,10 @@
                     <a class="nav-link" href="{{ route('welcome') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('finder') }}">All Users</a>
+                    <a class="nav-link" href="{{ route('finder') }}">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('bands') }}">Bands</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,7 +89,57 @@
 
             <!-- CONTENT -->
             <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-            <hr>
+            <button type="button" class="btn-large btn-success" data-toggle="modal" data-target="#BandsModal">Form a Band</button>
+
+            <!-- BAND MODAL -->
+            <div class="modal fade" id="BandsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle" style="color:red">Create a Band</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form method="POST" action="{{ route('bandcont.store') }}">
+                                            @csrf
+                                                <div class="modal-body">
+                                                <div class="form-group">
+                                                <x-jet-label for="name" style="color:red" value="Nombre"/>
+                                                <x-jet-input id="InputUsername" class="block mt-1 w-full modal-form-input" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                    <label for="image" value="Band Image" style="color:red"/>Band Image<br>
+                                                    <input type="file" name="image" value="image1" accept="video/*" id="image">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                    <label for="musicgenre" value="musicgenre" style="color:red"/>Music Genre<br>
+                                                    <select style="color:black" id="music" name="music">
+                                        
+                                                        <option>Rock</option>
+                                                        <option>Metal</option>
+                                                        <option>Hip-hop</option>
+                                                        <option>Jazz</option>
+                                                        <option>Blues</option>
+                                                    <select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                <label for="description" value="description" style="color:red"/>Description<br>
+                                                <textarea id="banddescription" name="banddescription" class="block mt-1 w-full">
+                                                   
+                                                    </textarea>
+                                                    </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                                    <button id="AccountButton" type="button" class="btn btn-dark">Create</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
             <div class="container navbar-styles">
                 <div class="row">
                     <div class="col-lg-12">
@@ -118,7 +171,6 @@
                                                     <a style="color:#f23a2e" href="#">marlon@brando.com</a>
                                                 </td>
                                                 <td style="width: 20%;">
-                                                    
                                                     <a href="#" class="table-link danger">
                                                         <span class="fa-stack text-danger">
                                                             <i class="fa fa-square fa-stack-2x"></i>

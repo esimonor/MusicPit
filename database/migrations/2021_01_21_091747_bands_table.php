@@ -17,7 +17,8 @@ class BandsTable extends Migration
             $table->bigIncrements('id')->unsigned();
             $table->string('name');
             $table->string('members');
-            $table->string('media');
+            $table->string('media')->nullable();
+            $table->string('music')->nullable();
             $table->string('description');
             $table->rememberToken();
             $table->timestamps();

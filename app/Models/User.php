@@ -69,6 +69,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function band()
     {
-       return $this->belongsTo('App\Models\Bands', 'band_id');
+       return $this->belongsTo('App\Models\Bands');
     }
 }
