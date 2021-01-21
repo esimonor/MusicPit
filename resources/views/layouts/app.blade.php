@@ -26,6 +26,7 @@
 
         function inicio() {
             document.getElementById("prueba").addEventListener("click", confirmDelete);
+            document.getElementById("SearchForm").addEventListener("click", buscar);
         }
 
         function confirmDelete(event){
@@ -35,6 +36,17 @@
             } else {
 
             }
+        }
+
+        function buscar(){
+            //inst mus loc
+            var instrumento = document.getElementById("inst").value;
+            var musica = document.getElementById("mus").value;
+            var localizacion = document.getElementById("loc").value;
+
+            document.getElementById('instrument').value = instrumento;
+            document.getElementById('music').value = musica;
+            document.getElementById('location').value = localizacion;
         }
     </script>
         <script src="{{ mix('js/app.js') }}" defer></script>
@@ -69,28 +81,31 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filter by:
                     </a>
-                    <form class="form-inline my-2 my-lg-0">
+                    <form id="SearchForm" class="form-inline my-2 my-lg-0">
                     <div id="filterDropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <h6 class="dropdown-header text-dark">Instrument</h6>
-                        <select>
+                        <select id="inst">
                             <option>Any</option>
                             <option>Bass</option>
                             <option>Guitar</option>
                         </select>
+                        <input type="hidden" id="instrument" name="instrument">
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header text-dark">Music genre</h6>
-                        <select>
+                        <select id="mus">
                             <option>Any</option>
                             <option>Rock</option>
                             <option>Metal</option>
                         </select>
+                        <input type="hidden" id="music" name="music">
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header text-dark">Localization</h6>
-                        <select>
+                        <select id="loc">
                             <option>Any</option>
                             <option>Gipuzkoa</option>
                             <option>Bizkaia</option>
                         </select>
+                        <input type="hidden" id="location" name="location">
                     </div>
                 </li>
                 </ul>
@@ -208,9 +223,9 @@
                                         @endif
                                     </div>
                                 </div>
-                                @foreach($users as $user)
+                                {{-- @foreach($users as $user)
                                 <p>{{$user->id}} </p>
-                                @endforeach
+                                @endforeach --}}
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Edit or Delete your account</h6>
                                     <hr class="border border-danger">

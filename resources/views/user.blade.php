@@ -193,7 +193,7 @@
                                         <input type="file" name="audio" value="{{Auth::user()->audio}}" accept="audio/*" id="audio">
                                     </div>
                                 </div>
-                               
+                                
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Update or Delete your account</h6>
                                     <hr class="border border-danger">
