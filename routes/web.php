@@ -45,6 +45,11 @@ Route::get('/user/profile/edit', function(){
     return view('user');
 })->name('adminUser');
 
+//Band test
+Route::get('/bands/all', function(){
+    return view('bands');
+})->name('bands');
+
 //ADMIN
 Route::get('/admin/profile', function () {
     $users = \App\Models\User::all();
@@ -56,6 +61,7 @@ Route::get('/find/all', function(){
     $users = \App\Models\User::all();
     return view('finder', ['users'=>$users]);
 })->name('finder');
+
 
 //UPLOAD
 Route::post('/upload-file', [UploadController::class, 'fileUpload'])->name('fileUpload');
