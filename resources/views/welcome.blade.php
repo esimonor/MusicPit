@@ -79,7 +79,7 @@
                                 <a href=""class="nav-link " data-toggle="modal" data-target="#exampleModalCenter"><span style="color:white">@lang('landing.login')</span></a>
                                 @endauth
                                 @endif
-                                
+
                                 </li>
                             </ul>
                         </nav>
