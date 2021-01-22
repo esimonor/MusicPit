@@ -85,8 +85,7 @@
         <!-- END NAVBAR -->
 
             <!-- CONTENT -->
-            <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-            <hr>
+            <input style="margin-left:82%;margin-bottom:1%" class="shadow-lg btn btn-success" type="button" value="Start a band">
             <div class="container navbar-styles">
                 <div class="row">
                     <div class="col-lg-12">
@@ -94,11 +93,11 @@
                             <div class="main-box-body clearfix">
                                 <div class="table-responsive">
                                     <table class="table user-list">
-                                        <thead>
+                                        <thead class="text-center">
                                             <tr>
                                             <th><span>Band</span></th>
                                             <th><span>Formed</span></th>
-                                            <th class="text-center"><span>Status</span></th>
+                                            <th><span>Status</span></th>
                                             <th><span>Owner</span></th>
                                             <th>&nbsp;</th>
                                             </tr>
