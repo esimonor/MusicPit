@@ -127,12 +127,10 @@
 
                                                     <div class="form-group">
                                                     <label for="description" value="description" style="color:black">Description<br>
-                                                    <textarea id="banddescription" name="banddescription" class="block mt-1 w-full">
-                                                   
-                                                    </textarea>
+                                                    <textarea id="banddescription" name="banddescription" class="block mt-1 w-full"></textarea>
                                                     </div>
                                                 </div>
-                                                
+                                                <input type="hidden" value="{{Auth::user()->id}}" name="member">
                                                 <div class="modal-footer">
                                                     <button class="btn btn-light" data-dismiss="modal">Close</button>
                                                     <button id="AccountButton" class="btn btn-dark">Create</button>
@@ -159,17 +157,19 @@
                                         </thead>
                                         <tbody>
                                             <tr>
+                                            {{-- LOOP STARTS HERE --}}
+                                            @foreach($bands as $band)
                                                 <td>
-                                                    <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
-                                                    <a href="#" class="text-danger">Full name 1</a>
-                                                    <span class="user-subhead">Member</span>
+                                                    <img src="{{$band->media}}" alt="">
+                                                    <a href="#" class="text-danger">{{$band->name}}</a>
+                                                    <span class="user-subhead">{{$band->description}}</span>
                                                 </td>
-                                                <td>2013/08/12</td>
+                                                <td>{{$band->created_at}}</td>
                                                 <td class="text-center">
                                                     <span class="label label-default">pending</span>
                                                 </td>
                                                 <td>
-                                                    <a style="color:#f23a2e" href="#">marlon@brando.com</a>
+                                                    <a style="color:#f23a2e" href="#">{{$band->members}}</a>
                                                 </td>
                                                 <td style="width: 20%;">
                                                     <a href="#" class="table-link danger">
@@ -180,52 +180,9 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <img src="https://bootdey.com/img/Content/user_3.jpg" alt="">
-                                                    <a href="#" class="text-danger">Full name 2</a>
-                                                    <span class="user-subhead">Admin</span>
-                                                </td>
-                                                <td>2013/08/12</td>
-                                                <td class="text-center">
-                                                    <span class="label label-success">Active</span>
-                                                </td>
-                                                <td>
-                                                    <a style="color:#f23a2e" href="#">marlon@brando.com</a>
-                                                </td>
-                                                <td style="width: 20%;">
-                                                   
-                                                    <a href="#" class="table-link danger">
-                                                        <span class="fa-stack text-danger">
-                                                            <i class="fa fa-square fa-stack-2x"></i>
-                                                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                                        </span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <img src="https://bootdey.com/img/Content/user_2.jpg" alt="">
-                                                    <a href="#" class="text-danger">Full name 3</a>
-                                                    <span class="user-subhead">Member</span>
-                                                </td>
-                                                <td>2013/08/12</td>
-                                                <td class="text-center">
-                                                    <span class="label label-danger">inactive</span>
-                                                </td>
-                                                <td>
-                                                    <a style="color:#f23a2e" href="#">marlon@brando.com</a>
-                                                </td>
-                                                <td style="width: 20%;">
-                                                   
-                                                    <a href="#" class="table-link danger">
-                                                        <span class="fa-stack text-danger">
-                                                            <i class="fa fa-square fa-stack-2x"></i>
-                                                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                                        </span>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                            @endforeach
+                                            {{-- LOOP ENDS HERE --}}
+                                            
                                         </tbody>
                                     </table>
                                 </div>
