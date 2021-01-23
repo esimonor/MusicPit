@@ -45,9 +45,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Request $request)
     {
-        //
+        $instrument = $request->input('instrument');
+        $music = $request->input('music');
+        $users=\App\Models\User::get()->where('instrument',$instrument)->where('music',$music);
+        return view('finder', ['users'=>$users]);
     }
 
     /**

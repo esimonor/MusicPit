@@ -47,6 +47,8 @@
             document.getElementById('instrument').value = instrumento;
             document.getElementById('music').value = musica;
             document.getElementById('location').value = localizacion;
+
+            //document.getElementById("SearchForm").action = "http://127.0.0.1:8000/"+instrumento+"/"+musica;
         }
         </script>
 
@@ -85,13 +87,16 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filter by:
                     </a>
-                    <form id="SearchForm" class="form-inline my-2 my-lg-0">
+                    <form id="SearchForm" action="{{ route('users.show', Auth::user()->id) }}" class="form-inline my-2 my-lg-0">
                     <div id="filterDropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <h6 class="dropdown-header text-dark">Instrument</h6>
                         <select id="inst">
                             <option>Any</option>
-                            <option>Bass</option>
-                            <option>Guitar</option>
+                            <option>bass</option>
+                            <option>guitar</option>
+                            <option>drums</option>
+                            <option>vocals</option>
+                            <option>saxophone</option>
                         </select>
                         <input type="hidden" id="instrument" name="instrument">
                         <div class="dropdown-divider"></div>
@@ -100,6 +105,9 @@
                             <option>Any</option>
                             <option>Rock</option>
                             <option>Metal</option>
+                            <option>Blues</option>
+                            <option>Jazz</option>
+                            <option>Hip-Hop</option>
                         </select>
                         <input type="hidden" id="music" name="music">
                         <div class="dropdown-divider"></div>

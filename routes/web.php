@@ -64,7 +64,8 @@ Route::get('/find/all', function(){
     $users = \App\Models\User::all();
     return view('finder', ['users'=>$users]);
 })->name('finder');
-
+// ESTO FUNCIONA BIEN DE
+Route::get('/find/{instrument}/{music}', 'UserController@show')->name('drums');
 
 //UPLOAD
 Route::post('/upload-file', [UploadController::class, 'fileUpload'])->name('fileUpload');
