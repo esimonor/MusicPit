@@ -35,19 +35,21 @@ class BandController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        /*$this->validate($request,[
             'name' => 'required',
             'music' => 'required',
             'description' => 'required',
-        ]);
+        ]);*/
 
         $band = new Bands;
 
         $band->name = $request->input('name');
+        $band->members = $request->input('member');
         $band->music = $request->input('music');
-        $band->description = $request->input('description');
-
-        return redirect('/finder')->with('success', 'Data saved');
+        $band->description = $request->input('banddescription');
+        
+        $band->save();
+        return redirect('/bands/all')->with('success', 'Data saved');
 
 
     }

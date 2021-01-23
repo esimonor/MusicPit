@@ -88,15 +88,14 @@
         <!-- END NAVBAR -->
 
             <!-- CONTENT -->
-            <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-            <button type="button" class="btn-large btn-success" data-toggle="modal" data-target="#BandsModal">Form a Band</button>
+            <button type="button"  style="margin-left:82%;margin-bottom:1%" class="shadow-lg btn btn-success" data-toggle="modal" data-target="#BandsModal">Form a Band</button>
 
             <!-- BAND MODAL -->
             <div class="modal fade" id="BandsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle" style="color:red">Create a Band</h5>
+                                                <h5 class="modal-title" id="exampleModalLongTitle" style="color:black">Create a Band</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -105,17 +104,17 @@
                                             @csrf
                                                 <div class="modal-body">
                                                 <div class="form-group">
-                                                <x-jet-label for="name" style="color:red" value="Nombre"/>
+                                                <x-jet-label for="name" style="color:black" value="Nombre"/>
                                                 <x-jet-input id="InputUsername" class="block mt-1 w-full modal-form-input" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                                                     </div>
 
                                                     <div class="form-group">
-                                                    <label for="image" value="Band Image" style="color:red"/>Band Image<br>
+                                                    <label for="image" value="Band Image" style="color:black">Band Image<br>
                                                     <input type="file" name="image" value="image1" accept="video/*" id="image">
                                                     </div>
 
                                                     <div class="form-group">
-                                                    <label for="musicgenre" value="musicgenre" style="color:red"/>Music Genre<br>
+                                                    <label for="musicgenre" value="musicgenre" style="color:black">Music Genre<br>
                                                     <select style="color:black" id="music" name="music">
                                         
                                                         <option>Rock</option>
@@ -125,16 +124,16 @@
                                                         <option>Blues</option>
                                                     <select>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                <label for="description" value="description" style="color:red"/>Description<br>
-                                                <textarea id="banddescription" name="banddescription" class="block mt-1 w-full">
-                                                   
-                                                    </textarea>
+
+                                                    <div class="form-group">
+                                                    <label for="description" value="description" style="color:black">Description<br>
+                                                    <textarea id="banddescription" name="banddescription" class="block mt-1 w-full"></textarea>
                                                     </div>
+                                                </div>
+                                                <input type="hidden" value="{{Auth::user()->id}}" name="member">
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                                                    <button id="AccountButton" type="button" class="btn btn-dark">Create</button>
+                                                    <button class="btn btn-light" data-dismiss="modal">Close</button>
+                                                    <button id="AccountButton" class="btn btn-dark">Create</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -147,28 +146,30 @@
                             <div class="main-box-body clearfix">
                                 <div class="table-responsive">
                                     <table class="table user-list">
-                                        <thead>
+                                        <thead class="text-center">
                                             <tr>
                                             <th><span>Band</span></th>
                                             <th><span>Formed</span></th>
-                                            <th class="text-center"><span>Status</span></th>
+                                            <th><span>Status</span></th>
                                             <th><span>Owner</span></th>
                                             <th>&nbsp;</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
+                                            {{-- LOOP STARTS HERE --}}
+                                            @foreach($bands as $band)
                                                 <td>
-                                                    <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
-                                                    <a href="#" class="text-danger">Full name 1</a>
-                                                    <span class="user-subhead">Member</span>
+                                                    <img src="{{$band->media}}" alt="">
+                                                    <a href="#" class="text-danger">{{$band->name}}</a>
+                                                    <span class="user-subhead">{{$band->description}}</span>
                                                 </td>
-                                                <td>2013/08/12</td>
+                                                <td>{{$band->created_at}}</td>
                                                 <td class="text-center">
                                                     <span class="label label-default">pending</span>
                                                 </td>
                                                 <td>
-                                                    <a style="color:#f23a2e" href="#">marlon@brando.com</a>
+                                                    <a style="color:#f23a2e" href="#">{{$band->members}}</a>
                                                 </td>
                                                 <td style="width: 20%;">
                                                     <a href="#" class="table-link danger">
@@ -179,52 +180,9 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <img src="https://bootdey.com/img/Content/user_3.jpg" alt="">
-                                                    <a href="#" class="text-danger">Full name 2</a>
-                                                    <span class="user-subhead">Admin</span>
-                                                </td>
-                                                <td>2013/08/12</td>
-                                                <td class="text-center">
-                                                    <span class="label label-success">Active</span>
-                                                </td>
-                                                <td>
-                                                    <a style="color:#f23a2e" href="#">marlon@brando.com</a>
-                                                </td>
-                                                <td style="width: 20%;">
-                                                   
-                                                    <a href="#" class="table-link danger">
-                                                        <span class="fa-stack text-danger">
-                                                            <i class="fa fa-square fa-stack-2x"></i>
-                                                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                                        </span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <img src="https://bootdey.com/img/Content/user_2.jpg" alt="">
-                                                    <a href="#" class="text-danger">Full name 3</a>
-                                                    <span class="user-subhead">Member</span>
-                                                </td>
-                                                <td>2013/08/12</td>
-                                                <td class="text-center">
-                                                    <span class="label label-danger">inactive</span>
-                                                </td>
-                                                <td>
-                                                    <a style="color:#f23a2e" href="#">marlon@brando.com</a>
-                                                </td>
-                                                <td style="width: 20%;">
-                                                   
-                                                    <a href="#" class="table-link danger">
-                                                        <span class="fa-stack text-danger">
-                                                            <i class="fa fa-square fa-stack-2x"></i>
-                                                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                                        </span>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                            @endforeach
+                                            {{-- LOOP ENDS HERE --}}
+                                            
                                         </tbody>
                                     </table>
                                 </div>
