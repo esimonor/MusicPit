@@ -36,8 +36,6 @@ Route::resource('users', UserController::class);
 //BAND
 Route::resource('bandcont', BandController::class);
 
-
-
 //JETSTREAM
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
