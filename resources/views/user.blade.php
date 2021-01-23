@@ -93,7 +93,17 @@
                             <div class="account-settings">
                                 <div class="user-profile">
                                     <div class="user-avatar">
-                                        <img src="{{Auth::user()->profile_photo_path}}" alt="{{Auth::user()->name}}">
+                                    {{-- When clicking on an image it will use the file upload --}}
+                                    <form method="POST" action="{{ route('users.update', Auth::user()->id) }}" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                                    <div class="image-upload">
+                                        <label for="file-input">
+                                            <img src="{{Auth::user()->profile_photo_path}}" alt="{{Auth::user()->name}}">
+                                        </label>
+                                        <input id="file-input" name="profilePhoto" type="file" accept="image/*" />
+                                        </div>
+                                        
                                     </div>
                                     <h5 class="user-name">{{Auth::user()->name}}</h5>
                                     <h6 class="user-email">{{Auth::user()->email}}</h6>
@@ -109,9 +119,7 @@
                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="card h-100">
                         <div class="card-body">
-                        <form method="POST" action="{{ route('users.update', Auth::user()->id) }}" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
+                       
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Details</h6>

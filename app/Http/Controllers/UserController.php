@@ -90,6 +90,14 @@ class UserController extends Controller
             $audio->move(public_path().'/audio',$nombre);
             $user->audio = "/audio"."/".$nombre;
         }
+
+        $profile=$request->file('profilePhoto');
+        if($profile != ""){
+            $nombre=time().$profile->getClientOriginalName();
+            $profile->move(public_path().'/images',$nombre);
+            $user->profile_photo_path = "/images"."/".$nombre;
+        }
+
         $user->name = $request->input('nombre');
         $user->email = $request->input('email');
         $user->instrument = $request->input('instrument');
