@@ -102,6 +102,7 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->instrument = $request->input('instrument');
         $user->music = $request->input('music');
+        $user->description = $request->input('description');
 
 
         // Lo guarda

@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="{{ URL::asset('/css/botones.css') }}">
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"/> -->
         <link rel="stylesheet" href="{{ URL::asset('/css/profile.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
 
     </head>
     <body id="background-image">
@@ -95,14 +96,15 @@
                                     <div class="user-avatar">
                                     {{-- When clicking on an image it will use the file upload --}}
                                     <form method="POST" action="{{ route('users.update', Auth::user()->id) }}" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
+                                    @csrf
+                                    @method('PUT')
                                     <div class="image-upload">
                                         <label for="file-input">
                                             <img src="{{Auth::user()->profile_photo_path}}" alt="{{Auth::user()->name}}">
+                                            <i class="fas fa-edit"></i>
                                         </label>
                                         <input id="file-input" name="profilePhoto" type="file" accept="image/*" />
-                                        </div>
+                                    </div>
                                         
                                     </div>
                                     <h5 class="user-name">{{Auth::user()->name}}</h5>
@@ -110,7 +112,7 @@
                                 </div>
                                 <div class="about">
                                     <h5 class="mb-2 text-danger">About</h5>
-                                    <p>User description (gear, what kind of band, years of experience, etc)</p>
+                                    <textarea name="description">{{Auth::user()->description}}</textarea>
                                 </div>
                             </div>
                         </div>

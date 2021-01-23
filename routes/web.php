@@ -49,7 +49,8 @@ Route::get('/user/profile/edit', function(){
 //Band test
 Route::get('/bands/all', function(){
     $bands = \App\Models\Bands::all();
-    return view('bands', ['bands'=>$bands]);
+    $users = \App\Models\User::all();
+    return view('bands', compact('bands', 'users'));
 })->name('bands');
 
 //ADMIN

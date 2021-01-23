@@ -160,6 +160,7 @@
                                             <tr>
                                             {{-- LOOP STARTS HERE --}}
                                             @foreach($bands as $band)
+                                                
                                                 <td>
                                                     <img style="width:50%" src="{{$band->media}}" alt="{{$band->name}}">
                                                     <a href="#" class="text-danger">{{$band->name}}</a>
@@ -170,7 +171,11 @@
                                                     <span class="label label-default">pending</span>
                                                 </td>
                                                 <td>
-                                                    <a style="color:#f23a2e" href="#">{{$band->members}}</a>
+                                                @foreach($users as $user)
+                                                    @if($band->members == $user->id)
+                                                    <a style="color:#f23a2e" href="#">{{$user->name}}</a>
+                                                    @endif
+                                                @endforeach
                                                 </td>
                                                 <td style="width: 20%;">
                                                     <a href="#" class="table-link danger">
@@ -180,7 +185,7 @@
                                                         </span>
                                                     </a>
                                                 </td>
-                                            </tr>
+                                            </tr>     
                                             @endforeach
                                             {{-- LOOP ENDS HERE --}}
                                             

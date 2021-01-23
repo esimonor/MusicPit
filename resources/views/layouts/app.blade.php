@@ -142,7 +142,7 @@
                                 </div>
                                 <div class="about">
                                     <h5 class="mb-2 text-danger">About</h5>
-                                    <p>User description (gear, what kind of band, years of experience, etc)</p>
+                                    <p>{{Auth::user()->description}}</p>
                                 </div>
                                 <div class="about">
                                 <h6>Bandmates</h6>
