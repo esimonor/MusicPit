@@ -42,6 +42,13 @@ class BandController extends Controller
         ]);*/
 
         $band = new Bands;
+        
+        $file=$request->file('image');
+        
+        $nombre=time().$file->getClientOriginalName();
+        $file->move(public_path().'/images',$nombre);
+        $band->media = "/images"."/".$nombre;
+        
 
         $band->name = $request->input('name');
         $band->members = $request->input('member');

@@ -100,7 +100,8 @@
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
-                                            <form method="POST" action="{{ route('bandcont.store') }}">
+                                            <!-- IMPORTANT enctype=multipart/form-data -->
+                                            <form enctype=multipart/form-data method="POST" action="{{ route('bandcont.store') }}">
                                             @csrf
                                                 <div class="modal-body">
                                                 <div class="form-group">
@@ -110,7 +111,7 @@
 
                                                     <div class="form-group">
                                                     <label for="image" value="Band Image" style="color:black">Band Image<br>
-                                                    <input type="file" name="image" value="image1" accept="video/*" id="image">
+                                                    <input type="file" name="image" value="image1" accept="image/*" id="image">
                                                     </div>
 
                                                     <div class="form-group">
@@ -160,7 +161,7 @@
                                             {{-- LOOP STARTS HERE --}}
                                             @foreach($bands as $band)
                                                 <td>
-                                                    <img src="{{$band->media}}" alt="">
+                                                    <img style="width:50%" src="{{$band->media}}" alt="{{$band->name}}">
                                                     <a href="#" class="text-danger">{{$band->name}}</a>
                                                     <span class="user-subhead">{{$band->description}}</span>
                                                 </td>
