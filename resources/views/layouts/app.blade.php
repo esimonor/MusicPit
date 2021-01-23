@@ -39,7 +39,6 @@
         }
 
         function buscar(){
-            //inst mus loc
             var instrumento = document.getElementById("inst").value;
             var musica = document.getElementById("mus").value;
             var localizacion = document.getElementById("loc").value;
@@ -47,8 +46,6 @@
             document.getElementById('instrument').value = instrumento;
             document.getElementById('music').value = musica;
             document.getElementById('location').value = localizacion;
-
-            //document.getElementById("SearchForm").action = "http://127.0.0.1:8000/"+instrumento+"/"+musica;
         }
         </script>
 

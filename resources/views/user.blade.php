@@ -19,6 +19,7 @@
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"/> -->
         <link rel="stylesheet" href="{{ URL::asset('/css/profile.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
+        
 
     </head>
     <body id="background-image">
@@ -48,10 +49,10 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filter by:
                     </a>
-                    <form class="form-inline my-2 my-lg-0" action="{{ route('welcome') }}/find/bass/Metal">
+                    <form id="SearchForm" action="{{ route('users.show', Auth::user()->id) }}" class="form-inline my-2 my-lg-0">
                     <div id="filterDropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <h6 class="dropdown-header text-dark">Instrument</h6>
-                        <select>
+                        <select id="inst">
                             <option>Any</option>
                             <option>bass</option>
                             <option>guitar</option>
@@ -59,9 +60,10 @@
                             <option>vocals</option>
                             <option>saxophone</option>
                         </select>
+                        <input type="hidden" id="instrument" name="instrument">
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header text-dark">Music genre</h6>
-                        <select>
+                        <select id="mus">
                             <option>Any</option>
                             <option>Rock</option>
                             <option>Metal</option>
@@ -69,17 +71,19 @@
                             <option>Jazz</option>
                             <option>Hip-Hop</option>
                         </select>
+                        <input type="hidden" id="music" name="music">
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header text-dark">Localization</h6>
-                        <select>
+                        <select id="loc">
                             <option>Any</option>
                             <option>Gipuzkoa</option>
                             <option>Bizkaia</option>
                         </select>
+                        <input type="hidden" id="location" name="location">
                     </div>
                 </li>
                 </ul>
-                
+
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <form style="margin-left:30%" method="POST" action="{{ route('logout') }}">
