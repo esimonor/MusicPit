@@ -35,11 +35,11 @@ class BandController extends Controller
      */
     public function store(Request $request)
     {
-        /*$this->validate($request,[
-            'name' => 'required',
+        request()->validate([
+            'name'=> 'required',
             'music' => 'required',
             'description' => 'required',
-        ]);*/
+        ]);
 
         $band = new Bands;
         

@@ -118,13 +118,16 @@
                                                 <form method="POST" action="{{ route('login') }}">
                                                 @csrf
                                                     <div class="modal-body">
+                                                    
                                                         <div class="form-group">
                                                         <x-jet-label for="email" value="{{ __('Email') }}" />
                                                         <x-jet-input id="email" class="block mt-1 w-full modal-form-input" type="email" name="email" :value="old('email')" required autofocus />
+                                                        {{ $errors->first('email')}}<br>
                                                     </div>
                                                     <div class="form-group">
                                                     <x-jet-label for="password" value="{{ __('Password') }}" />
                                                     <x-jet-input id="password" class="block mt-1 w-full modal-form-input" type="password" name="password" required autocomplete="current-password" />
+                                                    {{ $errors->first('password')}}<br>
                                                     </div>
                                                     <div class="form-check">
                                                         <input type="checkbox" class="form-check-input" id="exampleCheck1">

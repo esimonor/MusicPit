@@ -116,6 +116,7 @@
                                                 <div class="form-group">
                                                 <x-jet-label for="name" style="color:black" value="Nombre"/>
                                                 <x-jet-input id="InputUsername" class="block mt-1 w-full modal-form-input" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                                                {{ $errors->first('name')}}<br>
                                                     </div>
 
                                                     <div class="form-group">
@@ -124,7 +125,8 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                    <label for="musicgenre" value="musicgenre" style="color:black">Music Genre<br>
+                                                    <label for="musicgenre" name="music" value="musicgenre" style="color:black">Music Genre<br>
+                                                    {{ $errors->first('music')}}<br>
                                                     <select style="color:black" id="music" name="music">
                                         
                                                         <option>Rock</option>
@@ -138,6 +140,7 @@
                                                     <div class="form-group">
                                                     <label for="description" value="description" style="color:black">Description<br>
                                                     <textarea id="banddescription" name="banddescription" class="block mt-1 w-full"></textarea>
+                                                    {{ $errors->first('description')}}<br>
                                                     </div>
                                                 </div>
                                                 <input type="hidden" value="{{Auth::user()->id}}" name="member">
