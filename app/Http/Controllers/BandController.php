@@ -35,11 +35,11 @@ class BandController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
+        /*request()->validate([
             'name'=> 'required',
             'music' => 'required',
             'description' => 'required',
-        ]);
+        ]);*/
 
         $band = new Bands;
         
@@ -103,6 +103,9 @@ class BandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $band = Bands::find($id);
+        $band->delete();
+
+        return redirect('bands/all')->with('success', 'Band deleted!');
     }
 }

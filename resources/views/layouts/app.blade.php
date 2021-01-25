@@ -22,13 +22,8 @@
 
         <!-- Scripts -->
         <script>
-        window.onload=inicio;
-
-        function inicio() {
-            document.getElementById("prueba").addEventListener("click", confirmDelete);
-        }
-
         function confirmDelete(event){
+            console.log("Entra2");
             event.preventDefault();
             if (confirm("Are you sure you want to delte your profile?")) {
                 document.getElementById('deleteForm').submit();
@@ -243,7 +238,7 @@
                                     <form id="deleteForm" action="{{ route('users.destroy', Auth::user()->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" id="prueba" name="submitbtn" class="btn btn-danger" value="Delete">
+                                    <input type="button" onclick="confirmDelete(event)" id="prueba" name="submitbtn" class="btn btn-danger" value="Delete">
                                     </form>
 
                                     </div>

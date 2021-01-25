@@ -17,8 +17,10 @@ function validate(){
     var boton = document.getElementById("submit");
     
     if(username == "" || email == "" || instrument == "" || music == "" ){
-        boton.disabled = true;
+        // boton.disabled = true;
+        console.log("Esta disabled");
     }else{
         boton.disabled = false;
+        console.log("No esta disabled");
     }
 }

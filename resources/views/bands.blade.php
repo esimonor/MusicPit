@@ -192,12 +192,18 @@
                                                 @endforeach
                                                 </td>
                                                 <td style="width: 20%;">
+                                                <form action="{{route('bandcont.destroy', [$band->id])}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
                                                     <a href="#" class="table-link danger">
                                                         <span class="fa-stack text-danger">
-                                                            <i class="fa fa-square fa-stack-2x"></i>
-                                                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                        <button style="color:red">Delete
+                                                            <!--<i class="fa fa-square fa-stack-2x"></i>
+                                                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>-->
+                                                        </button>
                                                         </span>
                                                     </a>
+                                                <form>
                                                 </td>
                                             </tr>     
                                             @endforeach

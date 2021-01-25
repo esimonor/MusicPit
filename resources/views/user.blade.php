@@ -22,6 +22,17 @@
         <!-- Scripts -->
         <script src="{{URL::asset('/js/filterscript.js')}}"></script>
 
+        <script>
+            function confirmDelete(event){
+                event.preventDefault();
+                if (confirm("Are you sure you want to delte your profile?")) {
+                    document.getElementById('deleteForm').submit();
+                } else {
+
+                }
+            }
+        </script>
+
     </head>
     <body id="background-image">
          <!-- NAVBAR -->
@@ -234,7 +245,7 @@
                                     <form action="{{ route('users.destroy', Auth::user()->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" id="submit" name="submit" class="btn btn-danger">Delete</button>
+                                    <input type="button" onclick="confirmDelete(event)" id="prueba" name="submitbtn" class="btn btn-danger" value="Delete">
                                     </form>
 
                                     </div>
@@ -259,6 +270,7 @@
     <script src="{{ URL::asset('/js/jquery-ui.js') }}"></script>
     <script src="{{ URL::asset('/js/popper.min.js') }}"></script>
     <script src="{{ URL::asset('/js/bootstrap.min.js') }}"></script>
+    <!-- 
     <script src="{{ URL::asset('/js/owl.carousel.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery.stellar.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery.countdown.min.js') }}"></script>
@@ -267,7 +279,8 @@
     <script src="{{ URL::asset('/js/aos.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery.fancybox.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery.sticky.js') }}"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+    -->
     <script src="{{ URL::asset('/js/main.js') }}"></script>
     <script src="{{ URL::asset('/js/updateValidator.js') }}"></script>
     </body>
