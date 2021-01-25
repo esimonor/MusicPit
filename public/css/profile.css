@@ -9,7 +9,10 @@ body{
     background-repeat: no-repeat;
     background-color: black;
 }
-
+/*Makes the image/file thing work on profile*/
+.image-upload>input {
+    display: none;
+  }
 .account-settings .user-profile {
     margin: 0 0 1rem 0;
     padding-bottom: 1rem;

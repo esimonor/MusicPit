@@ -36,8 +36,6 @@ Route::resource('users', UserController::class);
 //BAND
 Route::resource('bandcont', BandController::class);
 
-
-
 //JETSTREAM
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -51,7 +49,8 @@ Route::get('/user/profile/edit', function(){
 //Band test
 Route::get('/bands/all', function(){
     $bands = \App\Models\Bands::all();
-    return view('bands', ['bands'=>$bands]);
+    $users = \App\Models\User::all();
+    return view('bands', compact('bands', 'users'));
 })->name('bands');
 
 //ADMIN
@@ -65,7 +64,8 @@ Route::get('/find/all', function(){
     $users = \App\Models\User::all();
     return view('finder', ['users'=>$users]);
 })->name('finder');
-
+// ESTO FUNCIONA BIEN DE
+Route::get('/find/{instrument}/{music}', 'UserController@show')->name('drums');
 
 //UPLOAD
 Route::post('/upload-file', [UploadController::class, 'fileUpload'])->name('fileUpload');

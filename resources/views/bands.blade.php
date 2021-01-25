@@ -8,6 +8,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <!-- Scripts -->
+        <script src="{{URL::asset('/js/filterscript.js')}}"></script>
         <!-- Fonts -->
         <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Muli:300,400,700,900') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ URL::asset('/fonts/icomoon/style.css') }}">
@@ -46,28 +48,37 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filter by:
                     </a>
-                    <form class="form-inline my-2 my-lg-0">
+                    <form id="SearchForm" action="{{ route('users.show', Auth::user()->id) }}" class="form-inline my-2 my-lg-0">
                     <div id="filterDropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <h6 class="dropdown-header text-dark">Instrument</h6>
-                        <select>
+                        <select id="inst">
                             <option>Any</option>
-                            <option>Bass</option>
-                            <option>Guitar</option>
+                            <option>bass</option>
+                            <option>guitar</option>
+                            <option>drums</option>
+                            <option>vocals</option>
+                            <option>saxophone</option>
                         </select>
+                        <input type="hidden" id="instrument" name="instrument">
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header text-dark">Music genre</h6>
-                        <select>
+                        <select id="mus">
                             <option>Any</option>
                             <option>Rock</option>
                             <option>Metal</option>
+                            <option>Blues</option>
+                            <option>Jazz</option>
+                            <option>Hip-Hop</option>
                         </select>
+                        <input type="hidden" id="music" name="music">
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header text-dark">Localization</h6>
-                        <select>
+                        <select id="loc">
                             <option>Any</option>
                             <option>Gipuzkoa</option>
                             <option>Bizkaia</option>
                         </select>
+                        <input type="hidden" id="location" name="location">
                     </div>
                 </li>
                 </ul>
@@ -100,21 +111,24 @@
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
-                                            <form method="POST" action="{{ route('bandcont.store') }}">
+                                            <!-- IMPORTANT enctype=multipart/form-data -->
+                                            <form enctype=multipart/form-data method="POST" action="{{ route('bandcont.store') }}">
                                             @csrf
                                                 <div class="modal-body">
                                                 <div class="form-group">
                                                 <x-jet-label for="name" style="color:black" value="Nombre"/>
                                                 <x-jet-input id="InputUsername" class="block mt-1 w-full modal-form-input" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                                                {{ $errors->first('name')}}<br>
                                                     </div>
 
                                                     <div class="form-group">
                                                     <label for="image" value="Band Image" style="color:black">Band Image<br>
-                                                    <input type="file" name="image" value="image1" accept="video/*" id="image">
+                                                    <input type="file" name="image" value="image1" accept="image/*" id="image">
                                                     </div>
 
                                                     <div class="form-group">
-                                                    <label for="musicgenre" value="musicgenre" style="color:black">Music Genre<br>
+                                                    <label for="musicgenre" name="music" value="musicgenre" style="color:black">Music Genre<br>
+                                                    {{ $errors->first('music')}}<br>
                                                     <select style="color:black" id="music" name="music">
                                         
                                                         <option>Rock</option>
@@ -128,6 +142,7 @@
                                                     <div class="form-group">
                                                     <label for="description" value="description" style="color:black">Description<br>
                                                     <textarea id="banddescription" name="banddescription" class="block mt-1 w-full"></textarea>
+                                                    {{ $errors->first('description')}}<br>
                                                     </div>
                                                 </div>
                                                 <input type="hidden" value="{{Auth::user()->id}}" name="member">
@@ -159,8 +174,9 @@
                                             <tr>
                                             {{-- LOOP STARTS HERE --}}
                                             @foreach($bands as $band)
+                                                
                                                 <td>
-                                                    <img src="{{$band->media}}" alt="">
+                                                    <img style="width:50%" src="{{$band->media}}" alt="{{$band->name}}">
                                                     <a href="#" class="text-danger">{{$band->name}}</a>
                                                     <span class="user-subhead">{{$band->description}}</span>
                                                 </td>
@@ -169,7 +185,11 @@
                                                     <span class="label label-default">pending</span>
                                                 </td>
                                                 <td>
-                                                    <a style="color:#f23a2e" href="#">{{$band->members}}</a>
+                                                @foreach($users as $user)
+                                                    @if($band->members == $user->id)
+                                                    <a style="color:#f23a2e" href="#">{{$user->name}}</a>
+                                                    @endif
+                                                @endforeach
                                                 </td>
                                                 <td style="width: 20%;">
                                                     <a href="#" class="table-link danger">
@@ -179,7 +199,7 @@
                                                         </span>
                                                     </a>
                                                 </td>
-                                            </tr>
+                                            </tr>     
                                             @endforeach
                                             {{-- LOOP ENDS HERE --}}
                                             

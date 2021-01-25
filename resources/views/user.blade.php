@@ -18,6 +18,9 @@
         <link rel="stylesheet" href="{{ URL::asset('/css/botones.css') }}">
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"/> -->
         <link rel="stylesheet" href="{{ URL::asset('/css/profile.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
+        <!-- Scripts -->
+        <script src="{{URL::asset('/js/filterscript.js')}}"></script>
 
     </head>
     <body id="background-image">
@@ -47,32 +50,41 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filter by:
                     </a>
-                    <form class="form-inline my-2 my-lg-0">
+                    <form id="SearchForm" action="{{ route('users.show', Auth::user()->id) }}" class="form-inline my-2 my-lg-0">
                     <div id="filterDropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <h6 class="dropdown-header text-dark">Instrument</h6>
-                        <select>
+                        <select id="inst">
                             <option>Any</option>
-                            <option>Bass</option>
-                            <option>Guitar</option>
+                            <option>bass</option>
+                            <option>guitar</option>
+                            <option>drums</option>
+                            <option>vocals</option>
+                            <option>saxophone</option>
                         </select>
+                        <input type="hidden" id="instrument" name="instrument">
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header text-dark">Music genre</h6>
-                        <select>
+                        <select id="mus">
                             <option>Any</option>
                             <option>Rock</option>
                             <option>Metal</option>
+                            <option>Blues</option>
+                            <option>Jazz</option>
+                            <option>Hip-Hop</option>
                         </select>
+                        <input type="hidden" id="music" name="music">
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header text-dark">Localization</h6>
-                        <select>
+                        <select id="loc">
                             <option>Any</option>
                             <option>Gipuzkoa</option>
                             <option>Bizkaia</option>
                         </select>
+                        <input type="hidden" id="location" name="location">
                     </div>
                 </li>
                 </ul>
-                
+
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <form style="margin-left:30%" method="POST" action="{{ route('logout') }}">
@@ -93,14 +105,25 @@
                             <div class="account-settings">
                                 <div class="user-profile">
                                     <div class="user-avatar">
-                                        <img src="{{Auth::user()->profile_photo_path}}" alt="{{Auth::user()->name}}">
+                                    {{-- When clicking on an image it will use the file upload --}}
+                                    <form method="POST" action="{{ route('users.update', Auth::user()->id) }}" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="image-upload">
+                                        <label for="file-input">
+                                            <img src="{{Auth::user()->profile_photo_path}}" alt="{{Auth::user()->name}}">
+                                            <i class="fas fa-edit"></i>
+                                        </label>
+                                        <input id="file-input" name="profilePhoto" type="file" accept="image/*" />
+                                    </div>
+                                        
                                     </div>
                                     <h5 class="user-name">{{Auth::user()->name}}</h5>
                                     <h6 class="user-email">{{Auth::user()->email}}</h6>
                                 </div>
                                 <div class="about">
                                     <h5 class="mb-2 text-danger">About</h5>
-                                    <p>User description (gear, what kind of band, years of experience, etc)</p>
+                                    <textarea name="description">{{Auth::user()->description}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -109,9 +132,7 @@
                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="card h-100">
                         <div class="card-body">
-                        <form method="POST" action="{{ route('users.update', Auth::user()->id) }}" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
+                       
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Details</h6>

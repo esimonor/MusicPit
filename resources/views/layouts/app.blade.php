@@ -26,7 +26,6 @@
 
         function inicio() {
             document.getElementById("prueba").addEventListener("click", confirmDelete);
-            document.getElementById("SearchForm").addEventListener("click", buscar);
         }
 
         function confirmDelete(event){
@@ -37,19 +36,8 @@
 
             }
         }
-
-        function buscar(){
-            //inst mus loc
-            var instrumento = document.getElementById("inst").value;
-            var musica = document.getElementById("mus").value;
-            var localizacion = document.getElementById("loc").value;
-
-            document.getElementById('instrument').value = instrumento;
-            document.getElementById('music').value = musica;
-            document.getElementById('location').value = localizacion;
-        }
         </script>
-
+        <script src="{{URL::asset('/js/filterscript.js')}}"></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
 
     </head>
@@ -85,13 +73,16 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filter by:
                     </a>
-                    <form id="SearchForm" class="form-inline my-2 my-lg-0">
+                    <form id="SearchForm" action="{{ route('users.show', Auth::user()->id) }}" class="form-inline my-2 my-lg-0">
                     <div id="filterDropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <h6 class="dropdown-header text-dark">Instrument</h6>
                         <select id="inst">
                             <option>Any</option>
-                            <option>Bass</option>
-                            <option>Guitar</option>
+                            <option>bass</option>
+                            <option>guitar</option>
+                            <option>drums</option>
+                            <option>vocals</option>
+                            <option>saxophone</option>
                         </select>
                         <input type="hidden" id="instrument" name="instrument">
                         <div class="dropdown-divider"></div>
@@ -100,6 +91,9 @@
                             <option>Any</option>
                             <option>Rock</option>
                             <option>Metal</option>
+                            <option>Blues</option>
+                            <option>Jazz</option>
+                            <option>Hip-Hop</option>
                         </select>
                         <input type="hidden" id="music" name="music">
                         <div class="dropdown-divider"></div>
@@ -142,7 +136,7 @@
                                 </div>
                                 <div class="about">
                                     <h5 class="mb-2 text-danger">About</h5>
-                                    <p>User description (gear, what kind of band, years of experience, etc)</p>
+                                    <p>{{Auth::user()->description}}</p>
                                 </div>
                                 <div class="about">
                                 <h6>Bandmates</h6>

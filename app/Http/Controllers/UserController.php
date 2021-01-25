@@ -36,7 +36,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
+        request()->validate([
+            'email'=> 'required',
+            'password' => 'required',
+        ]);
     }
 
     /**
@@ -45,9 +48,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-
+        $instrument = $request->input('instrument');
+        $music = $request->input('music');
+        $users=\App\Models\User::get()->where('instrument',$instrument)->where('music',$music);
+        return view('finder', ['users'=>$users]);
     }
 
     /**
@@ -90,10 +96,19 @@ class UserController extends Controller
             $audio->move(public_path().'/audio',$nombre);
             $user->audio = "/audio"."/".$nombre;
         }
+
+        $profile=$request->file('profilePhoto');
+        if($profile != ""){
+            $nombre=time().$profile->getClientOriginalName();
+            $profile->move(public_path().'/images',$nombre);
+            $user->profile_photo_path = "/images"."/".$nombre;
+        }
+
         $user->name = $request->input('nombre');
         $user->email = $request->input('email');
         $user->instrument = $request->input('instrument');
         $user->music = $request->input('music');
+        $user->description = $request->input('description');
 
 
         // Lo guarda
