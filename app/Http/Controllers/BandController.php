@@ -35,6 +35,7 @@ class BandController extends Controller
      */
     public function store(Request $request)
     {
+        // Lo comento porque si no no deja guardar
         /*$this->validate($request,[
             'name' => 'required',
             'music' => 'required',
