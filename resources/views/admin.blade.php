@@ -25,7 +25,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="{{URL::asset('/js/AdminValidate.js')}}"></script>
+        <script scr="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+        <script src="{{URL::asset('js/Chart.min.js')}}"></script>
         <script src="{{URL::asset('/js/ApiCallAdmin.js')}}"></script>
+        
         
 
     </head>
@@ -129,8 +132,9 @@
                             </div>
 
                         </div><!--/panel-body-->
-                    </div><!--/panel--> 
-                    <p id="demo"></p> 
+                    </div><!--/panel-->
+                    <canvas id="myChart" width="400" height="400"></canvas>
+
                     <div class="panel-heading"><h4>All users</h4></div>                 
                     <table style="border:1px solid white; width:150%;text-align:center;">
                         <tr>
@@ -223,31 +227,6 @@
         <!-- /upper section -->
         </div><!--/container-->
         <!-- /Main -->  
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script>
-        // Load google charts
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-// Draw the chart and set the chart values
-function drawChart() {
-var data = google.visualization.arrayToDataTable([
-['Music', 'Users'],
-['Blues', 10],
-['Jazz', 11],
-['Rock', 12],
-['Metal', 56],
-['Hip-Hop', 3]
-]);
-
-// Optional; add a title and set the width and height of the chart
-var options = {'title':'Music preferences', 'width':550, 'height':400};
-
-// Display the chart inside the <div> element with id="piechart"
-var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-chart.draw(data, options);
-}
-        </script>
     </body>
     @endif
 </html>
