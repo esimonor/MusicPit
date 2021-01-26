@@ -14,6 +14,11 @@
         <link rel="stylesheet" href="{{ URL::asset('/fonts/flaticon/font/flaticon.css') }}">
 
         <!-- Admin styles and scripts -->
+        <style>
+            option{
+                color:black;
+            }
+        </style>
         <link rel="stylesheet" href="{{ URL::asset('/css/profile.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('/css/listUsers.css') }}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -137,7 +142,7 @@
                         @csrf
                         @method('PUT')
                         <tr>
-                            <td><img class="img-fluid" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"><input style="color:black;width:100%" name="email" class="email" value="{{$user->email}}"></td>
+                            <td><img class="img-fluid" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"><input style="color:black;" name="email" class="email" value="{{$user->email}}"></td>
                             <td><select style="color:black" class="instrument" name="instrument">
                                             <option>{{$user->instrument}}</option>
                                             <option>Bass</option>

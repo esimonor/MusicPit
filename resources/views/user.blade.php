@@ -279,8 +279,9 @@
     <script src="{{ URL::asset('/js/aos.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery.fancybox.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery.sticky.js') }}"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
     -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+    
     <script src="{{ URL::asset('/js/main.js') }}"></script>
     <script src="{{ URL::asset('/js/updateValidator.js') }}"></script>
     </body>

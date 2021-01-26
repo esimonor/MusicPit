@@ -135,9 +135,9 @@
                                 </div>
                                 <div class="about">
                                 <h6>Bandmates</h6>
-                                @foreach(\App\Models\User::all() as $user)
+                                {{-- @foreach(\App\Models\User::all() as $user)
                                 <p>{{$user->name}} </p>
-                                @endforeach
+                                @endforeach --}}
                                 </div>
                             </div>
                         </div>

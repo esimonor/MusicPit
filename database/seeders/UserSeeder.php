@@ -14,12 +14,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $names = ['Oliver', 'Harry', 'George', 'Noah', 'Jack', 'Jacob', 'Leo', 'Oscar', 'Charlie', 'Muhammad'];
-        $lastnames = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor'];
+        $names = ['Oliver', 'Harry', 'George', 'Noah', 'Jack', 'Jacob', 'Leo', 'Oscar', 'Charlie', 'Muhammad', 'Jarvis', 'Jimmy'];
+        $lastnames = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor', 'Johnson', 'Neutron'];
         $instruments = ['guitar', 'drums', 'vocals', 'bass', 'saxophone'];
         $music = ['Blues', 'Jazz', 'Rock', 'Metal', 'Hip-Hop'];
 
-    for ($i = 0; $i < 5; $i++) {
+    for ($i = 0; $i < 7; $i++) {
         DB::table('users')->insert([
             'name' => $names[random_int(0, 9)],
             'email' => $lastnames[random_int(0, 9)].random_int(0, 99).'@email.com',
