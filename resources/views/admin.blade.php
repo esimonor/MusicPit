@@ -100,34 +100,36 @@
                         <div class="panel-heading"><h4>Processing Status</h4></div>
                         <div class="panel-body">
                             
-                            <small>Complete</small>
+                            <small style="color:black">Verified users</small>
                             <div class="progress">
                             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%">
                                 <span style="color:lime" class="sr-only">72% Complete</span>
                             </div>
                             </div>
-                            <small>In Progress</small>
+                            <small style="color:black">Uncomplete profiles</small>
                             <div class="progress">
                             <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
                                 <span style="color:lightyellow" class="sr-only">35% Complete</span>
                             </div>
                             </div>
-                            <small>At Risk</small>
+                            <small style="color:black">Unverified users</small>
                             <div class="progress">
-                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 28%">
                                 <span style="color:red" class="sr-only">10% Complete</span>
                             </div>
                             </div>
 
                         </div><!--/panel-body-->
-                    </div><!--/panel-->                     
-                    <table style="border:1px solid white; width:140%;text-align:center">
+                    </div><!--/panel-->    
+                    <div class="panel-heading"><h4>All users</h4></div>                 
+                    <table style="border:1px solid white; width:150%;text-align:center;">
                         <tr>
                             <td>Email</td>
                             <td>Instrument</td>
                             <td>Music</td>
                             <td>Type</td>
                             <td>Name</td>
+                            <td>Description</td>
                             <td>Action</td>
                         </tr>
                         @foreach($users as $user)
@@ -135,7 +137,7 @@
                         @csrf
                         @method('PUT')
                         <tr>
-                            <td><img class="img-fluid" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"><input style="color:black" name="email" class="email" value="{{$user->email}}"></td>
+                            <td><img class="img-fluid" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"><input style="color:black;width:100%" name="email" class="email" value="{{$user->email}}"></td>
                             <td><select style="color:black" class="instrument" name="instrument">
                                             <option>{{$user->instrument}}</option>
                                             <option>Bass</option>
@@ -158,6 +160,7 @@
                                         <td><p>User</p></td>
                                         @endif
                             <td><input style="color:black" class="nombre" name="nombre" value="{{$user->name}}"></td>
+                            <td><textarea style="color:black" class="description" name="description">{{$user->description}}</textarea></td>
                             <td>
                                 <button style="background-color:transparent;border:none;" class="text-info editUser" data-toggle="tooltip" title="" data-original-title="Edit"><i class="glyphicon glyphicon-pencil"></i></button>
                             </form>

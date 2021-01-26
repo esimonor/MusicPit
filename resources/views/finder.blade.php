@@ -7,6 +7,9 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- Script -->
+        <script src="{{URL::asset('/js/filterscript.js')}}"></script>
 
         <!-- Fonts -->
         <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Muli:300,400,700,900') }}" rel="stylesheet">
@@ -105,7 +108,11 @@
                 <div class="card">
                     <img class="card-img-top" style="width:30%;" src="{{$user->profile_photo_path}}" alt="{{$user->name}}">
                     <div class="card-body">
-                        <h5 class="card-title">{{$user->name}}</h5>
+                    @if(Auth::user()->id == $user->id)
+                        <a href="{{ URL::ROUTE('welcome') }}/user/profile""><h5 class="card-title">{{$user->name}}</h5></a>
+                    @else
+                        <a href="{{route('users.showProfile',[$user->id]) }}"><h5 class="card-title">{{$user->name}}</h5></a>
+                    @endif
                         <p class="card-text">Instrument: {{$user->instrument}}</p>
                         <p class="card-text">Music: {{$user->music}}</p>
                     </div>

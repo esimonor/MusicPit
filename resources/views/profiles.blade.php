@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <title>MusicPit</title>
-        <link rel="shortcut icon" href="{{URL::asset('images/logo-transparent.png')}}"/>
-
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
         <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Muli:300,400,700,900') }}" rel="stylesheet">
@@ -17,24 +17,15 @@
         <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('/css/botones.css') }}">
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"/> -->
+        <link rel="stylesheet" href="{{ URL::asset('/fonts/flaticon/font/flaticon.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('/css/profile.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
+
         <!-- Scripts -->
         <script src="{{URL::asset('/js/filterscript.js')}}"></script>
-
-        <script>
-            function confirmDelete(event){
-                event.preventDefault();
-                if (confirm("Are you sure you want to delte your profile?")) {
-                    document.getElementById('deleteForm').submit();
-                } else {
-
-                }
-            }
-        </script>
+        <script src="{{ mix('js/app.js') }}" defer></script>
 
     </head>
-    <body id="background-image">
+    <body id="background-image" class="font-sans antialiased">
          <!-- NAVBAR -->
          <nav class="navbar navbar-expand-lg navbar-dark navbar-styles p-2">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,8 +97,8 @@
             </div>
         </nav>
         <!-- END NAVBAR -->
-
         <!--Profile body-->
+        
         <div class="container">
             <div class="row gutters">
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -115,26 +106,25 @@
                         <div class="card-body">
                             <div class="account-settings">
                                 <div class="user-profile">
+                                @foreach($users as $user)
                                     <div class="user-avatar">
-                                    {{-- When clicking on an image it will use the file upload --}}
-                                    <form method="POST" action="{{ route('users.update', Auth::user()->id) }}" enctype="multipart/form-data">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="image-upload">
-                                        <label for="file-input">
-                                            <img src="{{Auth::user()->profile_photo_path}}" alt="{{Auth::user()->name}}">
-                                            <i class="fas fa-edit"></i>
-                                        </label>
-                                        <input id="file-input" name="profilePhoto" type="file" accept="image/*" />
+                                        <img src="{{$user->profile_photo_path}}" alt="{{$user->name}}">
                                     </div>
+                               
+                                    <h5 class="user-name">{{$user->name}}</h5>
+                                    <h6 class="user-email">{{$user->email}}</h6>
 
-                                    </div>
-                                    <h5 class="user-name">{{Auth::user()->name}}</h5>
-                                    <h6 class="user-email">{{Auth::user()->email}}</h6>
                                 </div>
                                 <div class="about">
                                     <h5 class="mb-2 text-danger">About</h5>
-                                    <textarea name="description">{{Auth::user()->description}}</textarea>
+                                    <p>{{$user->description}}</p>
+                                </div>
+                                <div class="about">
+                                <h6>Bandmates</h6>
+                                {{--@foreach(\App\Models\User::all() as $user)
+                                <p>{{$user->name}} </p>
+                                @endforeach--}}
+                                
                                 </div>
                             </div>
                         </div>
@@ -143,69 +133,48 @@
                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="card h-100">
                         <div class="card-body">
-
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Details</h6>
                                     <hr class="border border-danger">
                                 </div>
+
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
 
-                                        <label for="fullName">Name</label><br>
-                                        <input type="text" name="nombre" value="{{Auth::user()->name}}" id="fullName">
+                                        <label for="fullName">Name</label>
+                                        <h4 id="fullName">{{$user->name}}</h4>
 
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="eMail">Email</label><br>
-                                        <input type="text" name="email" value="{{Auth::user()->email}}" id="eMail">
+                                        <label for="eMail">Email</label>
+                                        <h4 id="eMail">{{$user->email}}</h4>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="instrument">Instrument</label><br>
-                                        <select id="instrument" name="instrument">
-                                            <option>{{Auth::user()->instrument}}</option>
-                                            <option>Bass</option>
-                                            <option>Guitar</option>
-                                            <option>Drums</option>
-                                            <option>Flute</option>
-                                            <option>Keyboard</option>
-                                        <select>
+                                        <label for="phone">Instrument</label>
+                                        <h4 id="instrument">{{$user->instrument}}</h4>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="music">Music</label><br>
-                                        <select id="music" name="music">
-                                            <option>{{Auth::user()->music}}</option>
-                                            <option>Rock</option>
-                                            <option>Metal</option>
-                                            <option>Hip-hop</option>
-                                            <option>Jazz</option>
-                                            <option>Blues</option>
-                                        <select>
+                                        <label for="website">Music</label>
+                                        <h4 id="music">{{$user->music}}</h4>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="sTate">Localization</label><br>
-                                        <select id="localization">
-                                            <option>{{Auth::user()->localization}}</option>
-                                            <option>Gipuzkoa</option>
-                                            <option>Bizkaia</option>
-                                            <option>Sevilla</option>
-                                            <option>Murcia</option>
-                                            <option>Barcelona</option>
-                                        <select>
+                                        <label for="sTate">Localization</label>
+                                        <h4 id="localization">No localization set</h4>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="zIp">On a band?</label><br>
-                                        <input type="text" value="" id="band">
+                                        <label for="zIp">On a band?</label>
+                                        <h4 id="band">No</h4>
                                     </div>
                                 </div>
                             </div>
@@ -217,39 +186,31 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
 
-
-                                        <label for="archivo">Video</label><br>
-                                        <input type="file" name="archivo" value="{{Auth::user()->archivo}} "accept="video/*" id="archivo">
+                                        <label for="Street" name="archivo">Video</label>
+                                        @if($user->archivo == "")
+                                        <h4>No video yet</h4>
+                                        @else
+                                        <video style="width:100%;" controls>
+                                            <source src="{{$user->archivo}}" type='video/mp4'>
+                                        </video>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="audio">Audio</label><br>
-                                        <input type="file" name="audio" value="{{Auth::user()->audio}}" accept="audio/*" id="audio">
+                                        <label for="ciTy">Audio</label>
+                                        @if($user->audio == "")
+                                        <h4 id="audio">No audio yet</h4>
+                                        @else
+                                        <br>
+                                        <audio style="width:100%" controls>
+                                            <source src="{{$user->audio}}" type="audio/mp3">
+                                        </audio>
+                                        @endif
                                     </div>
                                 </div>
-
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h6 class="mb-3 text-danger">Update or Delete your account</h6>
-                                    <hr class="border border-danger">
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                    <button type="submit" id="submit" name="submit" style="color:white" class="btn btn-success">Update</button>
-
-                                    </div>
-                                </div>
-                        </form>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                    <form action="{{ route('users.destroy', Auth::user()->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="button" onclick="confirmDelete(event)" id="prueba" name="submitbtn" class="btn btn-danger" value="Delete">
-                                    </form>
-
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                             </div>
                         </div>
@@ -258,13 +219,13 @@
             </div>
         </div>
     <!-- end profile body -->
-
     <!-- Scripts -->
-    <script>
+   <script>
     $("#filterDropdown").click(function(e){
         e.stopPropagation();
     })
    </script>
+
     <script src="{{ URL::asset('/js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery-ui.js') }}"></script>
@@ -282,6 +243,7 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
     -->
     <script src="{{ URL::asset('/js/main.js') }}"></script>
-    <script src="{{ URL::asset('/js/updateValidator.js') }}"></script>
+    <!-- <script src="{{ URL::asset('/js/validate.js') }}"></script> -->
+        @livewireScripts
     </body>
 </html>

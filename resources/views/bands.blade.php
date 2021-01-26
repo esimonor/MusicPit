@@ -8,6 +8,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <!-- Scripts -->
+        <script src="{{URL::asset('/js/filterscript.js')}}"></script>
         <!-- Fonts -->
         <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Muli:300,400,700,900') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ URL::asset('/fonts/icomoon/style.css') }}">
@@ -190,12 +192,18 @@
                                                 @endforeach
                                                 </td>
                                                 <td style="width: 20%;">
+                                                <form action="{{route('bandcont.destroy', [$band->id])}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
                                                     <a href="#" class="table-link danger">
                                                         <span class="fa-stack text-danger">
-                                                            <i class="fa fa-square fa-stack-2x"></i>
-                                                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                        <button style="color:red">Delete
+                                                            <!--<i class="fa fa-square fa-stack-2x"></i>
+                                                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>-->
+                                                        </button>
                                                         </span>
                                                     </a>
+                                                <form>
                                                 </td>
                                             </tr>     
                                             @endforeach
