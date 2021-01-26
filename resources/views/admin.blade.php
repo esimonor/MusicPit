@@ -53,10 +53,11 @@
                 <ul id="g-account-menu" class="dropdown-menu" role="menu">
                     <li><a href="{{ route('adminUser') }}">My Profile</a></li>
                     <!-- Authentication -->
-                    <li><form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <a id="logout" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
-                        </form>
+                    <li>
+                    <form style="margin-left:30%" method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a style="color:white;float:right;" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                    </form>
                     </li>
                 </ul>
                 </li>

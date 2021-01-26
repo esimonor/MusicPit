@@ -110,7 +110,7 @@
                                     <div class="user-avatar">
                                         <img src="{{$user->profile_photo_path}}" alt="{{$user->name}}">
                                     </div>
-                                                              <h5 class="user-name">{{$user->name}}</h5>
+                                    <h5 class="user-name">{{$user->name}}</h5>
                                     <h6 class="user-email">{{$user->email}}</h6>
 
                                 </div>

@@ -36,6 +36,9 @@ Route::resource('users', UserController::class);
 //BAND
 Route::resource('bandcont', BandController::class);
 
+// Perfiles de usuario
+Route::get('/user/{id}', [ 'as' => 'users.showProfile', 'uses' => 'UserController@showProfile']);
+
 //JETSTREAM
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -66,11 +69,6 @@ Route::get('/find/all', function(){
 })->name('finder');
 // ESTO FUNCIONA BIEN DE
 Route::get('/find/{instrument}/{music}', 'UserController@show')->name('advfilter');
-
-// Perfiles de usuario
-// Route::get('/user/{id}', 'UserController@showProfile')->name('UserProfile');
-Route::get('/user/{id}', [ 'as' => 'users.showProfile', 'uses' => 'UserController@showProfile']);
-
 
 //UPLOAD
 Route::post('/upload-file', [UploadController::class, 'fileUpload'])->name('fileUpload');
