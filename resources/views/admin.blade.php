@@ -25,6 +25,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="{{URL::asset('/js/AdminValidate.js')}}"></script>
+        <script src="{{URL::asset('/js/ApiCallAdmin.js')}}"></script>
+        
+
     </head>
     @if(Auth::user()->type == 0)
     <!-- <img src="https://i.ytimg.com/vi/4WS2nAx7e54/hqdefault.jpg">
@@ -67,7 +70,7 @@
         <!-- /container -->
         </div>
         <!-- /Header -->
-
+        
         <!-- Main -->
         <div class="container bootstrap snippets bootdey">
         
@@ -101,7 +104,7 @@
                     <div class="well" style="color:black">Welcome {{Auth::user()->name}} </div>
                     
                     <hr>
-                    
+                    <div id="piechart"></div>
                     <div class="panel panel-default">
                         <div class="panel-heading"><h4>Processing Status</h4></div>
                         <div class="panel-body">
@@ -126,7 +129,8 @@
                             </div>
 
                         </div><!--/panel-body-->
-                    </div><!--/panel-->    
+                    </div><!--/panel--> 
+                    <p id="demo"></p> 
                     <div class="panel-heading"><h4>All users</h4></div>                 
                     <table style="border:1px solid white; width:150%;text-align:center;">
                         <tr>
@@ -219,6 +223,31 @@
         <!-- /upper section -->
         </div><!--/container-->
         <!-- /Main -->  
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+        // Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+var data = google.visualization.arrayToDataTable([
+['Music', 'Users'],
+['Blues', 10],
+['Jazz', 11],
+['Rock', 12],
+['Metal', 56],
+['Hip-Hop', 3]
+]);
+
+// Optional; add a title and set the width and height of the chart
+var options = {'title':'Music preferences', 'width':550, 'height':400};
+
+// Display the chart inside the <div> element with id="piechart"
+var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+chart.draw(data, options);
+}
+        </script>
     </body>
     @endif
 </html>
