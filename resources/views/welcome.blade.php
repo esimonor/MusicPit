@@ -118,7 +118,7 @@
                                                 <form method="POST" action="{{ route('login') }}">
                                                 @csrf
                                                     <div class="modal-body">
-                                                    
+
                                                         <div class="form-group">
                                                         <x-jet-label for="email" value="{{ __('Email') }}" />
                                                         <x-jet-input id="email" class="block mt-1 w-full modal-form-input" type="email" name="email" :value="old('email')" required autofocus />

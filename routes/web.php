@@ -65,7 +65,12 @@ Route::get('/find/all', function(){
     return view('finder', ['users'=>$users]);
 })->name('finder');
 // ESTO FUNCIONA BIEN DE
-Route::get('/find/{instrument}/{music}', 'UserController@show')->name('drums');
+Route::get('/find/{instrument}/{music}', 'UserController@show')->name('advfilter');
+
+// Perfiles de usuario
+// Route::get('/user/{id}', 'UserController@showProfile')->name('UserProfile');
+Route::get('/user/{id}', [ 'as' => 'users.showProfile', 'uses' => 'UserController@showProfile']);
+
 
 //UPLOAD
 Route::post('/upload-file', [UploadController::class, 'fileUpload'])->name('fileUpload');

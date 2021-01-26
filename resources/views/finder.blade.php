@@ -106,9 +106,13 @@
 
                 @else
                 <div class="card">
-                    <img class="card-img-top" style="width:30%;" src="{{$user->profile_photo_path}}" alt="{{$user->name}}">
+                <a href="{{route('users.showProfile',[$user->id]) }}"><img class="card-img-top" style="width:30%;" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"></a>
                     <div class="card-body">
-                        <h5 class="card-title">{{$user->name}}</h5>
+                    @if(Auth::user()->id == $user->id)
+                        <a href="{{ URL::ROUTE('welcome') }}/user/profile""><h5 class="card-title">{{$user->name}}</h5></a>
+                    @else
+                        <a href="{{route('users.showProfile',[$user->id]) }}"><h5 class="card-title">{{$user->name}}</h5></a>
+                    @endif
                         <p class="card-text">Instrument: {{$user->instrument}}</p>
                         <p class="card-text">Music: {{$user->music}}</p>
                     </div>

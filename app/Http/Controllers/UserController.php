@@ -56,6 +56,13 @@ class UserController extends Controller
         return view('finder', ['users'=>$users]);
     }
 
+    // User profile
+    public function showProfile($id)
+    {
+        $users = User::get()->where('id', $id);
+        return view('profiles', ['users'=>$users]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
