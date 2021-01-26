@@ -98,7 +98,7 @@
         </nav>
         <!-- END NAVBAR -->
         <!--Profile body-->
-        
+
         <div class="container">
             <div class="row gutters">
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -110,8 +110,7 @@
                                     <div class="user-avatar">
                                         <img src="{{$user->profile_photo_path}}" alt="{{$user->name}}">
                                     </div>
-                               
-                                    <h5 class="user-name">{{$user->name}}</h5>
+                                                              <h5 class="user-name">{{$user->name}}</h5>
                                     <h6 class="user-email">{{$user->email}}</h6>
 
                                 </div>
@@ -124,7 +123,6 @@
                                 {{--@foreach(\App\Models\User::all() as $user)
                                 <p>{{$user->name}} </p>
                                 @endforeach--}}
-                                
                                 </div>
                             </div>
                         </div>

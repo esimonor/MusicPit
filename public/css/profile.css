@@ -48,9 +48,11 @@ body{
     border-radius: 5px;
     border: 0;
     margin-bottom: 1rem;
+    text-align: center;
 }
 .card img{
     filter:drop-shadow(0px 0px 10px rgb(56, 55, 55));
+    margin-top: 1rem;
 }
 .form-control {
     border: 1px solid #360a0a;
