@@ -35,26 +35,26 @@ class BandController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
+       /* request()->validate([
             'name'=> 'required',
             'music' => 'required',
             'description' => 'required',
-        ]);
+        ]); */
 
         $band = new Bands;
-        
+
         $file=$request->file('image');
-        
+
         $nombre=time().$file->getClientOriginalName();
         $file->move(public_path().'/images',$nombre);
         $band->media = "/images"."/".$nombre;
-        
+
 
         $band->name = $request->input('name');
         $band->members = $request->input('member');
         $band->music = $request->input('music');
         $band->description = $request->input('banddescription');
-        
+
         $band->save();
         return redirect('/bands/all')->with('success', 'Data saved');
 

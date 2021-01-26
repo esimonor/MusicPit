@@ -115,7 +115,7 @@
                                         </label>
                                         <input id="file-input" name="profilePhoto" type="file" accept="image/*" />
                                     </div>
-                                        
+
                                     </div>
                                     <h5 class="user-name">{{Auth::user()->name}}</h5>
                                     <h6 class="user-email">{{Auth::user()->email}}</h6>
@@ -131,7 +131,7 @@
                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="card h-100">
                         <div class="card-body">
-                       
+
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Details</h6>
@@ -216,7 +216,7 @@
                                         <input type="file" name="audio" value="{{Auth::user()->audio}}" accept="audio/*" id="audio">
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Update or Delete your account</h6>
                                     <hr class="border border-danger">
@@ -224,7 +224,7 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                     <button type="submit" id="submit" name="submit" style="color:white" class="btn btn-success">Update</button>
-    
+
                                     </div>
                                 </div>
                         </form>
