@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('description')->default('User description (gear, what kind of band, years of experience, etc)');
             $table->string('type')->default(0);
+            $table->string('localization')->nullable();
             $table->string('instrument')->nullable();
             $table->string('music')->nullable();
             $table->string('archivo')->nullable();

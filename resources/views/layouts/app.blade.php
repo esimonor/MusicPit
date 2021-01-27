@@ -181,14 +181,18 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="sTate">Localization</label>
-                                        <h4 id="localization">No localization set</h4>
+                                        <h4 id="localization">{{Auth::user()->localization}}</h4>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+
                                     <div class="form-group">
+                                    {{-- @foreach(\App\Models\Bands::all() as $band)
                                         <label for="zIp">On a band?</label>
-                                        <h4 id="band">No</h4>
+                                        <p>{{$band->name}}</p>
+                                        @endforeach --}}
                                     </div>
+
                                 </div>
                             </div>
                             <div class="row gutters">

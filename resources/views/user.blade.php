@@ -192,7 +192,7 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="sTate">Localization</label><br>
-                                        <select id="localization">
+                                        <select id="localization" name="localization">
                                             <option>{{Auth::user()->localization}}</option>
                                             <option>Gipuzkoa</option>
                                             <option>Bizkaia</option>
