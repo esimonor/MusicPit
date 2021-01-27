@@ -38,6 +38,8 @@ Route::resource('bandcont', BandController::class);
 
 // Perfiles de usuario
 Route::get('/user/{id}', [ 'as' => 'users.showProfile', 'uses' => 'UserController@showProfile']);
+//Llevar a perfil de banda
+Route::get('/bands/{id}', [ 'as' => 'bands.showBands', 'uses' => 'BandController@showBands']);
 //JETSTREAM
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
