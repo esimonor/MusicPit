@@ -188,7 +188,7 @@
 
                                     <div class="form-group">
                                         <label for="zIp">On a band?</label>
-                                        <h4 id="bandmember">{{Auth::user()->bandmember}}</h4>
+                                        <a href="{{ route('bands') }}"><h4 id="bandmember">{{Auth::user()->bandmember}}</h4></a>
                                     </div>
 
                                 </div>
