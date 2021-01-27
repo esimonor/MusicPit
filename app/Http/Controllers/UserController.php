@@ -52,7 +52,24 @@ class UserController extends Controller
     {
         $instrument = $request->input('instrument');
         $music = $request->input('music');
-        $users=\App\Models\User::get()->where('instrument',$instrument)->where('music',$music);
+
+        if($instrument == "Any" && $music == "Any"){
+            $users = \App\Models\User::all();
+            return view('finder', ['users'=>$users]);
+        }
+        if($instrument == "" && $music == ""){
+            $users = \App\Models\User::all();
+            return view('finder', ['users'=>$users]);
+        }
+
+        if($instrument != "Any" && $music != "Any"){
+            $users=\App\Models\User::get()->where('instrument',$instrument)->where('music',$music);
+        }elseif(!empty($instrument) && $music=="Any"){
+            $users=\App\Models\User::get()->where('instrument',$instrument);
+        }elseif($instrument=="Any" && !empty($music)){
+            $users=\App\Models\User::get()->where('music',$music);
+        }
+        //$users=\App\Models\User::get()->where('instrument',$instrument)->where('music',$music);
         return view('finder', ['users'=>$users]);
     }
 

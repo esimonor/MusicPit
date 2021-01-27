@@ -135,6 +135,7 @@
 
                         </div><!--/panel-body-->
                     </div><!--/panel-->
+                    <!-- GRAPH -->
                     <canvas id="myChart" width="400" height="400"></canvas>
 
                     <div class="panel-heading"><h4>All users</h4></div>

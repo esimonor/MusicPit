@@ -13,9 +13,10 @@ function getUsers(){
     }
 
     peticion_http.onreadystatechange = muestraUsuarios;
+    
     peticion_http.open('GET', 'http://127.0.0.1:8000/api/users', true);
     peticion_http.send(null);
-    console.log('antes de llamada a api');
+    
     function muestraUsuarios(){
         if(peticion_http.readyState == 4){
             if(peticion_http.status == 200){
