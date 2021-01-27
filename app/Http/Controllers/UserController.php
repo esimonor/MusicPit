@@ -55,24 +55,44 @@ class UserController extends Controller
      */
     public function show(Request $request)
     {
+        // Get all requests in variables
         $instrument = $request->input('instrument');
         $music = $request->input('music');
+        $location = $request->input('location');
 
-        if($instrument == "Any" && $music == "Any"){
+        // If the variables are empry or have a value of "Any" return all the users
+        if($instrument == "Any" && $music == "Any" && $location == "Any"){
             $users = \App\Models\User::all();
             return view('finder', ['users'=>$users]);
         }
-        if($instrument == "" && $music == ""){
+        if($instrument == "" && $music == "" && $location == ""){
             $users = \App\Models\User::all();
             return view('finder', ['users'=>$users]);
         }
 
-        if($instrument != "Any" && $music != "Any"){
-            $users=\App\Models\User::get()->where('instrument',$instrument)->where('music',$music);
-        }elseif(!empty($instrument) && $music=="Any"){
+        // Else we check what variables have valid value to return the view
+
+        //If instrument, music and location have value return with both values
+        if($instrument != "Any" && $music != "Any" && $location != "Any"){
+            $users=\App\Models\User::get()->where('instrument',$instrument)->where('music',$music)->where('localization', $location);
+        } // If instrument has value return with instrument
+        elseif(!empty($instrument) && $music=="Any" && $location == "Any"){
             $users=\App\Models\User::get()->where('instrument',$instrument);
-        }elseif($instrument=="Any" && !empty($music)){
+        } // If music has value return with only music
+        elseif($instrument=="Any" && !empty($music) && $location == "Any"){
             $users=\App\Models\User::get()->where('music',$music);
+        } // If location has value return with only location
+        elseif($instrument == "Any" && $music == "Any" && !empty($location)){
+            $users=\App\Models\User::get()->where('localization',$location);
+        } // If location and instrument have value return with both values
+        elseif($instrument != "Any" && $music == "Any" && $location != "Any"){
+            $users=\App\Models\User::get()->where('instrument',$instrument)->where('localization', $location);
+        } // If location and music have value return with both values
+        elseif($instrument == "Any" && $music != "Any" && $location != "Any"){
+            $users=\App\Models\User::get()->where('music',$music)->where('localization', $location);
+        } // If instrument and music have value return with both values
+        elseif($instrument != "Any" && $music != "Any" && $location == "Any"){
+            $users=\App\Models\User::get()->where('music',$music)->where('instrument', $instrument);
         }
         //$users=\App\Models\User::get()->where('instrument',$instrument)->where('music',$music);
         return view('finder', ['users'=>$users]);
