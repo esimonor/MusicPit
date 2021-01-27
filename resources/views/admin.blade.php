@@ -28,8 +28,9 @@
         <script scr="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
         <script src="{{URL::asset('js/Chart.min.js')}}"></script>
         <script src="{{URL::asset('/js/ApiCallAdmin.js')}}"></script>
-        
-        
+        <script src="{{ URL::asset('/js/main.js') }}"></script>
+
+
 
     </head>
     @if(Auth::user()->type == 0)
@@ -52,7 +53,7 @@
             </div>
             <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                
+
                 <li class="dropdown">
                 <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
                     <i class="glyphicon glyphicon-user"></i> {{Auth::user()->name}} <span class="caret"></span></a>
@@ -60,30 +61,31 @@
                     <li><a href="{{ route('adminUser') }}">My Profile</a></li>
                     <!-- Authentication -->
                     <li>
-                    <form style="margin-left:30%" method="POST" action="{{ route('logout') }}">
+                    <form  method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <a style="color:white;float:right;" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                        <a style="margin-left:14%; color:red;" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
                     </form>
                     </li>
                 </ul>
                 </li>
             </ul>
             </div>
+            
         </div>
         <!-- /container -->
         </div>
         <!-- /Header -->
-        
+
         <!-- Main -->
         <div class="container bootstrap snippets bootdey">
-        
+
         <!-- upper section -->
         <div class="row">
             <div class="col-md-3">
             <!-- left -->
             <a class="text" href="#"><strong><i class="glyphicon glyphicon-briefcase"></i> Toolbox</strong></a>
             <hr>
-            
+
             <ul class="nav nav-pills nav-stacked">
                 <li><a class="text" href="#"><i class="glyphicon glyphicon-flash"></i> Alerts</a></li>
                 <li><a class="text" href="#"><i class="glyphicon glyphicon-link"></i> Links</a></li>
@@ -93,25 +95,25 @@
                 <li><a class="text" href="#"><i class="glyphicon glyphicon-time"></i> Real-time</a></li>
                 <li><a class="text" href="#"><i class="glyphicon glyphicon-plus"></i> Advanced..</a></li>
             </ul>
-            
+
             <hr>
-            
+
             </div><!-- /span-3 -->
-            <div class="col-md-9">   	
-            <!-- column 2 -->	
+            <div class="col-md-9">
+            <!-- column 2 -->
             <a class="text" href="#"><strong><i class="glyphicon glyphicon-dashboard"></i> My Dashboard</strong></a>     
             <hr>
             <div class="row">
-                    <!-- center left-->	
+                    <!-- center left-->
                     <div class="col-md-7">
                     <div class="well" style="color:black">Welcome {{Auth::user()->name}} </div>
-                    
+
                     <hr>
                     <div id="piechart"></div>
                     <div class="panel panel-default">
                         <div class="panel-heading"><h4>Processing Status</h4></div>
                         <div class="panel-body">
-                            
+
                             <small style="color:black">Verified users</small>
                             <div class="progress">
                             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%">
@@ -135,7 +137,7 @@
                     </div><!--/panel-->
                     <canvas id="myChart" width="400" height="400"></canvas>
 
-                    <div class="panel-heading"><h4>All users</h4></div>                 
+                    <div class="panel-heading"><h4>All users</h4></div>
                     <table style="border:1px solid white; width:150%;text-align:center;">
                         <tr>
                             <td>Email</td>
@@ -189,19 +191,19 @@
                         @endforeach
                     </table>
                     </div><!--/col-->
-                
+
                     <!--center-right-->
                     <div class="col-md-5">
-                    
+
                         <ul class="nav nav-justified">
                             <li><a class="text" href="#"><i class="glyphicon glyphicon-cog"></i></a></li>
                             <li><a class="text" href="#"><i class="glyphicon glyphicon-heart"></i></a></li>
                             <li><a class="text" href="#"><i class="glyphicon glyphicon-user"></i></a></li>
-                        </ul>  
-                    
-                        <hr>  
+                        </ul>
+
                         <hr>
-                    
+                        <hr>
+
                         <div class="btn-group btn-group-justified">
                         <a href="#" class="btn btn-info col-sm-3 text">
                             <i class="glyphicon glyphicon-plus"></i><br>
@@ -219,14 +221,14 @@
                             <i class="glyphicon glyphicon-question-sign"></i><br>
                             Help
                         </a>
-                    </div>    
+                    </div>
                     </div><!--/col-span-6-->
             </div><!--/row-->
             </div><!--/col-span-9-->
         </div><!--/row-->
         <!-- /upper section -->
         </div><!--/container-->
-        <!-- /Main -->  
+        <!-- /Main -->
     </body>
     @endif
 </html>
