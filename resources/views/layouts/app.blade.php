@@ -187,10 +187,8 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 
                                     <div class="form-group">
-                                    {{-- @foreach(\App\Models\Bands::all() as $band)
                                         <label for="zIp">On a band?</label>
-                                        <p>{{$band->name}}</p>
-                                        @endforeach --}}
+                                        <h4 id="bandmember">{{Auth::user()->bandmember}}</h4>
                                     </div>
 
                                 </div>

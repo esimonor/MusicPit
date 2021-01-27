@@ -205,7 +205,11 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="zIp">On a band?</label><br>
-                                        <input type="text" value="" id="band">
+                                        <select id="bandmember" name="bandmember">
+                                            <option>{{Auth::user()->bandmember}}</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        <select>
                                     </div>
                                 </div>
                             </div>

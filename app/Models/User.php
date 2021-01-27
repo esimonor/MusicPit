@@ -33,6 +33,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'localization',
+        'bandmember',
         'instrument',
         'music',
         'archivo',

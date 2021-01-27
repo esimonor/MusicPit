@@ -136,6 +136,7 @@ class UserController extends Controller
         $user->name = $request->input('nombre');
         $user->email = $request->input('email');
         $user->localization = $request->input('localization');
+        $user->bandmember = $request->input('bandmember');
         $user->instrument = $request->input('instrument');
         $user->music = $request->input('music');
         $user->description = $request->input('description');

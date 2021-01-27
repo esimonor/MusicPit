@@ -72,12 +72,6 @@ class BandController extends Controller
         //
     }
 
-    public function showBands($id)
-    {
-    $band = Bands::get()->where('id', $id);
-        return view('bands', ['bands'=>$bands]);
-
-    }
     /**
      * Show the form for editing the specified resource.
      *
