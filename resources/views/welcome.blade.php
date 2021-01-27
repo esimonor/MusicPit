@@ -160,22 +160,27 @@
                                                 <div class="form-group">
                                                 <x-jet-label for="name" value="{{ __('Name') }}" />
                                                 <x-jet-input id="InputUsername" class="block mt-1 w-full modal-form-input" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                                                {{ $errors->first('name')}}
                                                     </div>
 
                                                     <div class="form-group">
                                                     <x-jet-label for="email" value="{{ __('Email') }}" />
                                                     <x-jet-input id="InputEmail" class="block mt-1 w-full modal-form-input" type="email" name="email" :value="old('email')" required />
+                                                    {{ $errors->first('email')}}
                                                     </div>
                                                     <div class="form-group">
                                                     <x-jet-label for="password" value="{{ __('Password') }}" />
                                                     <x-jet-input id="InputPassword1" class="block mt-1 w-full modal-form-input" type="password" name="password" required autocomplete="new-password" />
+                                                    {{ $errors->first('password')}}
                                                     </div>
                                                     <div class="form-group">
                                                     <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                                                     <x-jet-input id="InputPassword2" class="block mt-1 w-full modal-form-input" type="password" name="password_confirmation" required autocomplete="new-password" />
+                                                    {{ $errors->first('secpassword')}}
                                                     </div>
                                                     <div class="form-group">
                                                     <select style="color:black" id="instrument" name="instrument">
+                                                    {{ $errors->first('instrument')}}
                                                         <option>Select instrument</option>
                                                         <option>Bass</option>
                                                         <option>Guitar</option>
@@ -186,6 +191,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                     <select style="color:black" id="music" name="music">
+                                                    {{ $errors->first('music')}}
                                                         <option>Music genre</option>
                                                         <option>Rock</option>
                                                         <option>Metal</option>

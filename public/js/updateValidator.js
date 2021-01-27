@@ -15,7 +15,7 @@ function validate(){
     let instrument = document.getElementById("instrument").value;
     let music = document.getElementById("music").value;
     var boton = document.getElementById("submit");
-    
+
     if(username == "" || email == "" || instrument == "" || music == "" ){
         // boton.disabled = true;
         console.log("Esta disabled");

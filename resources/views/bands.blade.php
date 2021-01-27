@@ -130,7 +130,7 @@
                                                     <label for="musicgenre" name="music" value="musicgenre" style="color:black">Music Genre<br>
                                                     {{ $errors->first('music')}}<br>
                                                     <select style="color:black" id="music" name="music">
-                                        
+
                                                         <option>Rock</option>
                                                         <option>Metal</option>
                                                         <option>Hip-hop</option>
@@ -174,7 +174,7 @@
                                             <tr>
                                             {{-- LOOP STARTS HERE --}}
                                             @foreach($bands as $band)
-                                                
+                    
                                                 <td>
                                                     <img style="width:50%" src="{{$band->media}}" alt="{{$band->name}}">
                                                     <a href="#" class="text-danger">{{$band->name}}</a>
@@ -187,7 +187,7 @@
                                                 <td>
                                                 @foreach($users as $user)
                                                     @if($band->members == $user->id)
-                                                    <a style="color:#f23a2e" href="#">{{$user->name}}</a>
+                                                    <a style="color:#f23a2e" href="{{route('users.showProfile',[$user->id]) }}">{{$user->name}}</a>
                                                     @endif
                                                 @endforeach
                                                 </td>

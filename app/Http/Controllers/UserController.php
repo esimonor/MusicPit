@@ -37,8 +37,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
         request()->validate([
+            'name' => 'required|min:3|max:15',
             'email'=> 'required',
             'password' => 'required',
+            'secpassword' => 'required',
+            'instrument' => 'required',
+            'music' => 'required',
+
         ]);
     }
 
@@ -113,6 +118,7 @@ class UserController extends Controller
 
         $user->name = $request->input('nombre');
         $user->email = $request->input('email');
+        $user->localization = $request->input('localization');
         $user->instrument = $request->input('instrument');
         $user->music = $request->input('music');
         $user->description = $request->input('description');

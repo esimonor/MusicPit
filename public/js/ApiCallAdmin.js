@@ -20,23 +20,23 @@ function getUsers(){
         if(peticion_http.readyState == 4){
             if(peticion_http.status == 200){
                 var texto = peticion_http.responseText;
-                var respuesta = JSON.parse(texto); 
+                var respuesta = JSON.parse(texto);
                 for(let i = 0; i < respuesta.length; i++){
                     if(respuesta[i].music == 'Blues'){
                         blues++;
-                        
+
                     }else if(respuesta[i].music == 'Jazz'){
                         Jazz++;
-                        
+
                     }else if(respuesta[i].music == 'Rock'){
                         Rock++;
-                        
+
                     }else if(respuesta[i].music == 'Metal'){
                         Metal++;
-                        
+
                     }else if(respuesta[i].music == 'Hip-Hop')
                         HipHop++;
-                       
+
                     }
                 }
                 grafico();
