@@ -24,11 +24,9 @@ Route::get('/finder/all', function () {
 })->name('finder');
 
 //LOCALIZATION
-/*Route::get('/{lang}', function ($lang = 'en') {
-    App::setlocale($lang);
-    Session::put('locale', $lang);
-    return view('welcome');
-})->name('home');*/
+//Route::resource('language', );
+Route::get('/en', 'LangController@changeEn')->name('homeEn');
+Route::get('/es', 'LangController@changeEs')->name('homeEs');
 
 //USER
 Route::resource('users', UserController::class);
@@ -40,6 +38,7 @@ Route::resource('bandcont', BandController::class);
 Route::get('/user/{id}', [ 'as' => 'users.showProfile', 'uses' => 'UserController@showProfile']);
 //Llevar a perfil de banda
 Route::get('/bandas/{id}', [ 'as' => 'bands.showBands', 'uses' => 'BandController@showBands']);
+
 //JETSTREAM
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -72,4 +71,4 @@ Route::get('/find/all', function(){
 Route::get('/find/{instrument}/{music}', 'UserController@show')->name('advfilter');
 
 //UPLOAD
-Route::post('/upload-file', [UploadController::class, 'fileUpload'])->name('fileUpload');
+// Route::post('/upload-file', [UploadController::class, 'fileUpload'])->name('fileUpload');
