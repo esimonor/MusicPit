@@ -71,4 +71,9 @@ Route::get('/find/all', function(){
 Route::get('/find/{instrument}/{music}', 'UserController@show')->name('advfilter');
 
 //UPLOAD
-// Route::post('/upload-file', [UploadController::class, 'fileUpload'])->name('fileUpload');
+Route::post('/upload-file', [UploadController::class, 'fileUpload'])->name('fileUpload');
+
+// MAP
+Route::get('bands/map', function(){
+    return view('map');
+})->name('map');

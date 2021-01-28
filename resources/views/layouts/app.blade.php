@@ -64,6 +64,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('bands') }}">Bands</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('map') }}">Band map</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filter by:
@@ -135,6 +138,7 @@
                                 </div>
                                 <div class="about">
                                 <h6>Bandmates</h6>
+                                <p>@lang('landing.home')</p>
                                 {{-- @foreach(\App\Models\User::all() as $user)
                                 <p>{{$user->name}} </p>
                                 @endforeach --}}

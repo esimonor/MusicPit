@@ -7,10 +7,9 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-        <!-- Script -->
-        <script src="{{URL::asset('/js/filterscript.js')}}"></script>
 
+        <!-- Scripts -->
+        <script src="{{URL::asset('/js/filterscript.js')}}"></script>
         <!-- Fonts -->
         <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Muli:300,400,700,900') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ URL::asset('/fonts/icomoon/style.css') }}">
@@ -20,7 +19,37 @@
         <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('/css/profile.css') }}">
+        
+        <!-- Map scripts and styles -->
 
+        <!-- Load Leaflet from CDN -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+            crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+
+        <!-- Load Esri Leaflet from CDN -->
+        <script src="https://unpkg.com/esri-leaflet@2.5.3/dist/esri-leaflet.js"
+            integrity="sha512-K0Vddb4QdnVOAuPJBHkgrua+/A9Moyv8AQEWi0xndQ+fqbRfAFd47z4A9u1AW/spLO0gEaiE1z98PK1gl5mC5Q=="
+            crossorigin=""></script>
+
+        <!-- Load Esri Leaflet Geocoder from CDN -->
+        <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.css"
+            integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+            crossorigin="">
+        <script src="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.js"
+            integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
+            crossorigin=""></script>
+
+        <style>
+            #map {
+                position:absolute;
+                width:100%;
+                height:66em;
+                }
+        </style>
     </head>
     <body id="background-image">
          <!-- NAVBAR -->
@@ -102,40 +131,59 @@
         </nav>
         <!-- END NAVBAR -->
 
-            <!-- CONTENT -->
-            <div class="card-columns user-card">
-                @foreach($users as $user)
-                @if($user->name == "admin" || $user->type == "1")
+            <!-- MAP -->
+            <div id="map"></div>
 
-                @else
-                <div class="card">
-                <a href="{{route('users.showProfile',[$user->id]) }}"><img class="card-img-top" style="width:30%;" src="{{$user->profile_photo_path}}" alt="{{$user->name}}"></a>
-                    <div class="card-body">
-                    @if(Auth::user()->id == $user->id)
-                        <a href="{{ URL::ROUTE('welcome') }}/user/profile""><h5 class="card-title">{{$user->name}}</h5></a>
-                    @else
-                        <a href="{{route('users.showProfile',[$user->id]) }}"><h5 class="card-title">{{$user->name}}</h5></a>
-                    @endif
-                        <p class="card-text">Instrument: {{$user->instrument}}</p>
-                        <p class="card-text">Music: {{$user->music}}</p>
-                    </div>
-                </div>
-                @endif
-                @endforeach
-            </div>
+            <!-- scripts -->
+            <script>
+            var map = L.map('map', {doubleClickZoom: false}).locate({setView: true, maxZoom: 16});
 
-        <!-- scripts -->
-        <script>
-            $("#filterDropdown").click(function(e){
-                e.stopPropagation();
-            })
-        </script>
-    <script src="{{ URL::asset('/js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ URL::asset('/js/jquery-migrate-3.0.1.min.js') }}"></script>
-    <script src="{{ URL::asset('/js/jquery-ui.js') }}"></script>
-    <script src="{{ URL::asset('/js/popper.min.js') }}"></script>
-    <script src="{{ URL::asset('/js/bootstrap.min.js') }}"></script>
-    <script src="{{ URL::asset('/js/main.js') }}"></script>
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            var geocodeService = L.esri.Geocoding.geocodeService();
+
+            //
+            var popup = L.popup();
+
+                function onMapClick(e) {
+                    popup
+                        .setLatLng(e.latlng)
+                        // .setContent("You clicked the map at " + e.latlng.toString())
+                        //.openOn(map);
+                }
+
+                map.on('click', onMapClick);
+            //
+            function muestraCalle(e) {
+                geocodeService.reverse().latlng(e.latlng).run(function (error, result) {
+                if (error) {
+                    return;
+                }
+
+                // L.marker(result.latlng).addTo(map).bindPopup(result.address.Match_addr).openPopup();
+                popup
+                    .setLatLng(e.latlng)
+                    .setContent(result.address.Match_addr)
+                    .openOn(map);
+                });
+            };
+                map.on('click', muestraCalle);
+                
+            </script>
+                    
+            <script>
+                $("#filterDropdown").click(function(e){
+                    e.stopPropagation();
+                })
+            </script>
+        <script src="{{ URL::asset('/js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ URL::asset('/js/jquery-migrate-3.0.1.min.js') }}"></script>
+        <script src="{{ URL::asset('/js/jquery-ui.js') }}"></script>
+        <script src="{{ URL::asset('/js/popper.min.js') }}"></script>
+        <script src="{{ URL::asset('/js/bootstrap.min.js') }}"></script>
+        <script src="{{ URL::asset('/js/main.js') }}"></script>
 
     </body>
 </html>
