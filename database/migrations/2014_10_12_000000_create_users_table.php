@@ -8,7 +8,7 @@ class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * profile_photo_path '/images/icono3.png'
      * @return void
      */
     public function up()
@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
-            $table->text('profile_photo_path')->default('/images/icono3.png');
+            $table->text('profile_photo_path')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
