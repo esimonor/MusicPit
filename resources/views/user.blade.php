@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <title>MusicPit</title>
+        <link rel="shortcut icon" href="{{URL::asset('images/logo-transparent.png')}}"/>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Fonts -->
         <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Muli:300,400,700,900') }}" rel="stylesheet">
@@ -17,31 +17,24 @@
         <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('/css/botones.css') }}">
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"/> -->
-        <link rel="stylesheet" href="{{ URL::asset('/fonts/flaticon/font/flaticon.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('/css/profile.css') }}">
-
+        <link rel="stylesheet" href="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
         <!-- Scripts -->
-        <script>
-        function confirmDelete(event){
-            console.log("Entra2");
-            event.preventDefault();
-            if (confirm("Are you sure you want to delte your profile?")) {
-                document.getElementById('deleteForm').submit();
-            } else {
-
-            }
-        }
-        </script>
         <script src="{{URL::asset('/js/filterscript.js')}}"></script>
-        <script src="{{ mix('js/app.js') }}" defer></script>
+
+        <script>
+            function confirmDelete(event){
+                event.preventDefault();
+                if (confirm("Are you sure you want to delte your profile?")) {
+                    document.getElementById('deleteForm').submit();
+                } else {
+
+                }
+            }
+        </script>
 
     </head>
-    @if(Auth::user()->type == 1)
-    <script>
-        setTimeout(function(){ location.replace("{{ route('admin') }}"); }, 1);
-    </script>
-    @else
-    <body id="background-image" class="font-sans antialiased">
+    <body id="background-image">
          <!-- NAVBAR -->
          <nav class="navbar navbar-expand-lg navbar-dark navbar-styles p-2">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,9 +56,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('bands') }}">Bands</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('map') }}">Band map</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -116,6 +106,7 @@
             </div>
         </nav>
         <!-- END NAVBAR -->
+
         <!--Profile body-->
         <div class="container">
             <div class="row gutters">
@@ -125,23 +116,25 @@
                             <div class="account-settings">
                                 <div class="user-profile">
                                     <div class="user-avatar">
-                                        <img src="{{Auth::user()->profile_photo_path}}" alt="{{Auth::user()->name}}">
+                                    {{-- When clicking on an image it will use the file upload --}}
+                                    <form method="POST" action="{{ route('users.update', Auth::user()->id) }}" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="image-upload">
+                                        <label for="file-input">
+                                            <img src="{{Auth::user()->profile_photo_path}}" alt="{{Auth::user()->name}}">
+                                            <i class="fas fa-edit"></i>
+                                        </label>
+                                        <input id="file-input" name="profilePhoto" type="file" accept="image/*" />
                                     </div>
 
+                                    </div>
                                     <h5 class="user-name">{{Auth::user()->name}}</h5>
                                     <h6 class="user-email">{{Auth::user()->email}}</h6>
-
                                 </div>
                                 <div class="about">
                                     <h5 class="mb-2 text-danger">About</h5>
-                                    <p>{{Auth::user()->description}}</p>
-                                </div>
-                                <div class="about">
-                                <h6>Bandmates</h6>
-                                <p>@lang('landing.home')</p>
-                                {{-- @foreach(\App\Models\User::all() as $user)
-                                <p>{{$user->name}} </p>
-                                @endforeach --}}
+                                    <textarea name="description">{{Auth::user()->description}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -150,51 +143,74 @@
                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="card h-100">
                         <div class="card-body">
+
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mb-3 text-danger">Details</h6>
                                     <hr class="border border-danger">
                                 </div>
-
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
 
-                                        <label for="fullName">Name</label>
-                                        <h4 id="fullName">{{Auth::user()->name}}</h4>
+                                        <label for="fullName">Name</label><br>
+                                        <input type="text" name="nombre" value="{{Auth::user()->name}}" id="fullName">
 
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="eMail">Email</label>
-                                        <h4 id="eMail">{{Auth::user()->email}}</h4>
+                                        <label for="eMail">Email</label><br>
+                                        <input type="text" name="email" value="{{Auth::user()->email}}" id="eMail">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="phone">Instrument</label>
-                                        <h4 id="instrument">{{Auth::user()->instrument}}</h4>
+                                        <label for="instrument">Instrument</label><br>
+                                        <select id="instrument" name="instrument">
+                                            <option>{{Auth::user()->instrument}}</option>
+                                            <option>Bass</option>
+                                            <option>Guitar</option>
+                                            <option>Drums</option>
+                                            <option>Flute</option>
+                                            <option>Keyboard</option>
+                                        <select>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="website">Music</label>
-                                        <h4 id="music">{{Auth::user()->music}}</h4>
+                                        <label for="music">Music</label><br>
+                                        <select id="music" name="music">
+                                            <option>{{Auth::user()->music}}</option>
+                                            <option>Rock</option>
+                                            <option>Metal</option>
+                                            <option>Hip-hop</option>
+                                            <option>Jazz</option>
+                                            <option>Blues</option>
+                                        <select>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="sTate">Localization</label>
-                                        <h4 id="localization">{{Auth::user()->localization}}</h4>
+                                        <label for="sTate">Localization</label><br>
+                                        <select id="localization" name="localization">
+                                            <option>{{Auth::user()->localization}}</option>
+                                            <option>Gipuzkoa</option>
+                                            <option>Bizkaia</option>
+                                            <option>Sevilla</option>
+                                            <option>Murcia</option>
+                                            <option>Barcelona</option>
+                                        <select>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-
                                     <div class="form-group">
-                                        <label for="zIp">On a band?</label>
-                                        <a href="{{ route('bands') }}"><h4 id="bandmember">{{Auth::user()->bandmember}}</h4></a>
+                                        <label for="zIp">On a band?</label><br>
+                                        <select id="bandmember" name="bandmember" >
+                                            <option>{{Auth::user()->bandmember}}</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        <select>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="row gutters">
@@ -205,43 +221,32 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
 
-                                        <label for="Street" name="archivo">Video</label>
-                                        @if(Auth::user()->archivo == "")
-                                        <h4>No video yet</h4>
-                                        @else
-                                        <video style="width:100%;" controls>
-                                            <source src="{{Auth::user()->archivo}}" type='video/mp4'>
-                                        </video>
-                                        @endif
+
+                                        <label for="archivo">Video</label><br>
+                                        <input type="file" name="archivo" value="{{Auth::user()->archivo}} "accept="video/*" id="archivo">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="ciTy">Audio</label>
-                                        @if(Auth::user()->audio == "")
-                                        <h4 id="audio">No audio yet</h4>
-                                        @else
-                                        <br>
-                                        <audio style="width:100%" controls>
-                                            <source src="{{Auth::user()->audio}}" type="audio/mp3">
-                                        </audio>
-                                        @endif
+                                        <label for="audio">Audio</label><br>
+                                        <input type="file" name="audio" value="{{Auth::user()->audio}}" accept="audio/*" id="audio">
                                     </div>
                                 </div>
 
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h6 class="mb-3 text-danger">Edit or Delete your account</h6>
+                                    <h6 class="mb-3 text-danger">Update or Delete your account</h6>
                                     <hr class="border border-danger">
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <a href="profile/edit" style="color:white" name="submit" class="btn btn-warning">Edit</a>
+                                    <button type="submit" id="submit" name="submit" style="color:white" class="btn btn-success">Update</button>
+
                                     </div>
                                 </div>
-
+                        </form>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                    <form id="deleteForm" action="{{ route('users.destroy', Auth::user()->id) }}" method="POST">
+                                    <form action="{{ route('users.destroy', Auth::user()->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <input type="button" onclick="confirmDelete(event)" id="prueba" name="submitbtn" class="btn btn-danger" value="Delete">
@@ -259,12 +264,11 @@
     <!-- end profile body -->
 
     <!-- Scripts -->
-   <script>
+    <script>
     $("#filterDropdown").click(function(e){
         e.stopPropagation();
     })
    </script>
-
     <script src="{{ URL::asset('/js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery-ui.js') }}"></script>
@@ -279,11 +283,10 @@
     <script src="{{ URL::asset('/js/aos.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery.fancybox.min.js') }}"></script>
     <script src="{{ URL::asset('/js/jquery.sticky.js') }}"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
     -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+    
     <script src="{{ URL::asset('/js/main.js') }}"></script>
-    <!-- <script src="{{ URL::asset('/js/validate.js') }}"></script> -->
-        @livewireScripts
+    <script src="{{ URL::asset('/js/updateValidator.js') }}"></script>
     </body>
 </html>
-@endif

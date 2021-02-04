@@ -79,6 +79,7 @@
                                 <a href=""class="nav-link " data-toggle="modal" data-target="#exampleModalCenter"><span style="color:white">@lang('landing.login')</span></a>
                                 @endauth
                                 @endif
+
                                 </li>
                             </ul>
                         </nav>
@@ -117,16 +118,13 @@
                                                 <form method="POST" action="{{ route('login') }}">
                                                 @csrf
                                                     <div class="modal-body">
-
                                                         <div class="form-group">
                                                         <x-jet-label for="email" value="{{ __('Email') }}" />
-                                                        <x-jet-input id="email" class="block mt-1 w-full modal-form-input" type="email" name="email" :value="old('email')" required autofocus />
-                                                        {{ $errors->first('email')}}<br>
+                                                        <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
                                                     </div>
                                                     <div class="form-group">
                                                     <x-jet-label for="password" value="{{ __('Password') }}" />
-                                                    <x-jet-input id="password" class="block mt-1 w-full modal-form-input" type="password" name="password" required autocomplete="current-password" />
-                                                    {{ $errors->first('password')}}<br>
+                                                    <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
                                                     </div>
                                                     <div class="form-check">
                                                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -158,46 +156,20 @@
                                                 <div class="modal-body">
                                                 <div class="form-group">
                                                 <x-jet-label for="name" value="{{ __('Name') }}" />
-                                                <x-jet-input id="InputUsername" class="block mt-1 w-full modal-form-input" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-                                                {{ $errors->first('name')}}
+                                                <x-jet-input id="InputUsername" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                                                     </div>
 
                                                     <div class="form-group">
                                                     <x-jet-label for="email" value="{{ __('Email') }}" />
-                                                    <x-jet-input id="InputEmail" class="block mt-1 w-full modal-form-input" type="email" name="email" :value="old('email')" required />
-                                                    {{ $errors->first('email')}}
+                                                    <x-jet-input id="InputEmail" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
                                                     </div>
                                                     <div class="form-group">
                                                     <x-jet-label for="password" value="{{ __('Password') }}" />
-                                                    <x-jet-input id="InputPassword1" class="block mt-1 w-full modal-form-input" type="password" name="password" required autocomplete="new-password" />
-                                                    {{ $errors->first('password')}}
+                                                    <x-jet-input id="InputPassword1" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
                                                     </div>
                                                     <div class="form-group">
                                                     <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                                                    <x-jet-input id="InputPassword2" class="block mt-1 w-full modal-form-input" type="password" name="password_confirmation" required autocomplete="new-password" />
-                                                    {{ $errors->first('secpassword')}}
-                                                    </div>
-                                                    <div class="form-group">
-                                                    <select style="color:black" id="instrument" name="instrument">
-                                                    {{ $errors->first('instrument')}}
-                                                        <option>Select instrument</option>
-                                                        <option>Bass</option>
-                                                        <option>Guitar</option>
-                                                        <option>Drums</option>
-                                                        <option>Flute</option>
-                                                        <option>Keyboard</option>
-                                                    <select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                    <select style="color:black" id="music" name="music">
-                                                    {{ $errors->first('music')}}
-                                                        <option>Music genre</option>
-                                                        <option>Rock</option>
-                                                        <option>Metal</option>
-                                                        <option>Hip-hop</option>
-                                                        <option>Jazz</option>
-                                                        <option>Blues</option>
-                                                    <select>
+                                                    <x-jet-input id="InputPassword2" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -404,7 +376,7 @@
                 </div>
                 <div class="row text-center">
                     <div class="col-md-12">
-                        <div class="border-top">
+                        <div class="border-top pt-1">
                             <p>
                                 Copyright &copy;
                                 <script>

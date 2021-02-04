@@ -9,14 +9,19 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
 
     /**
      * The attributes that are mass assignable.
@@ -27,6 +32,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'localization',
+        'bandmember',
+        'instrument',
+        'music',
+        'archivo',
     ];
 
     /**
@@ -58,4 +68,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function band()
+    {
+       return $this->belongsTo('App\Models\Bands');
+    }
 }

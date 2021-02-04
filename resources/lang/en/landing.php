@@ -4,7 +4,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+<<<<<<< HEAD
     | Landing page Language Lines
+=======
+    | Landing àge Language Lines
+>>>>>>> Filter
     |--------------------------------------------------------------------------
     |
     | The following language lines are used during the landing page for various

@@ -21,26 +21,10 @@
         <link rel="stylesheet" href="{{ URL::asset('/css/profile.css') }}">
 
         <!-- Scripts -->
-        <script>
-        function confirmDelete(event){
-            console.log("Entra2");
-            event.preventDefault();
-            if (confirm("Are you sure you want to delte your profile?")) {
-                document.getElementById('deleteForm').submit();
-            } else {
-
-            }
-        }
-        </script>
         <script src="{{URL::asset('/js/filterscript.js')}}"></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
 
     </head>
-    @if(Auth::user()->type == 1)
-    <script>
-        setTimeout(function(){ location.replace("{{ route('admin') }}"); }, 1);
-    </script>
-    @else
     <body id="background-image" class="font-sans antialiased">
          <!-- NAVBAR -->
          <nav class="navbar navbar-expand-lg navbar-dark navbar-styles p-2">
@@ -117,6 +101,7 @@
         </nav>
         <!-- END NAVBAR -->
         <!--Profile body-->
+
         <div class="container">
             <div class="row gutters">
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -124,24 +109,23 @@
                         <div class="card-body">
                             <div class="account-settings">
                                 <div class="user-profile">
+                                @foreach($users as $user)
                                     <div class="user-avatar">
-                                        <img src="{{Auth::user()->profile_photo_path}}" alt="{{Auth::user()->name}}">
+                                        <img src="{{$user->profile_photo_path}}" alt="{{$user->name}}">
                                     </div>
-
-                                    <h5 class="user-name">{{Auth::user()->name}}</h5>
-                                    <h6 class="user-email">{{Auth::user()->email}}</h6>
+                                    <h5 class="user-name">{{$user->name}}</h5>
+                                    <h6 class="user-email">{{$user->email}}</h6>
 
                                 </div>
                                 <div class="about">
                                     <h5 class="mb-2 text-danger">About</h5>
-                                    <p>{{Auth::user()->description}}</p>
+                                    <p>{{$user->description}}</p>
                                 </div>
                                 <div class="about">
                                 <h6>Bandmates</h6>
-                                <p>@lang('landing.home')</p>
-                                {{-- @foreach(\App\Models\User::all() as $user)
+                                {{--@foreach(\App\Models\User::all() as $user)
                                 <p>{{$user->name}} </p>
-                                @endforeach --}}
+                                @endforeach--}}
                                 </div>
                             </div>
                         </div>
@@ -160,41 +144,39 @@
                                     <div class="form-group">
 
                                         <label for="fullName">Name</label>
-                                        <h4 id="fullName">{{Auth::user()->name}}</h4>
+                                        <h4 id="fullName">{{$user->name}}</h4>
 
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="eMail">Email</label>
-                                        <h4 id="eMail">{{Auth::user()->email}}</h4>
+                                        <h4 id="eMail">{{$user->email}}</h4>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="phone">Instrument</label>
-                                        <h4 id="instrument">{{Auth::user()->instrument}}</h4>
+                                        <h4 id="instrument">{{$user->instrument}}</h4>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="website">Music</label>
-                                        <h4 id="music">{{Auth::user()->music}}</h4>
+                                        <h4 id="music">{{$user->music}}</h4>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="sTate">Localization</label>
-                                        <h4 id="localization">{{Auth::user()->localization}}</h4>
+                                        <h4 id="localization">No localization set</h4>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-
                                     <div class="form-group">
                                         <label for="zIp">On a band?</label>
-                                        <a href="{{ route('bands') }}"><h4 id="bandmember">{{Auth::user()->bandmember}}</h4></a>
+                                        <h4 id="band">No</h4>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="row gutters">
@@ -206,11 +188,11 @@
                                     <div class="form-group">
 
                                         <label for="Street" name="archivo">Video</label>
-                                        @if(Auth::user()->archivo == "")
+                                        @if($user->archivo == "")
                                         <h4>No video yet</h4>
                                         @else
                                         <video style="width:100%;" controls>
-                                            <source src="{{Auth::user()->archivo}}" type='video/mp4'>
+                                            <source src="{{$user->archivo}}" type='video/mp4'>
                                         </video>
                                         @endif
                                     </div>
@@ -218,37 +200,18 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="ciTy">Audio</label>
-                                        @if(Auth::user()->audio == "")
+                                        @if($user->audio == "")
                                         <h4 id="audio">No audio yet</h4>
                                         @else
                                         <br>
                                         <audio style="width:100%" controls>
-                                            <source src="{{Auth::user()->audio}}" type="audio/mp3">
+                                            <source src="{{$user->audio}}" type="audio/mp3">
                                         </audio>
                                         @endif
                                     </div>
                                 </div>
-
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h6 class="mb-3 text-danger">Edit or Delete your account</h6>
-                                    <hr class="border border-danger">
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <a href="profile/edit" style="color:white" name="submit" class="btn btn-warning">Edit</a>
-                                    </div>
-                                </div>
-
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                    <form id="deleteForm" action="{{ route('users.destroy', Auth::user()->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="button" onclick="confirmDelete(event)" id="prueba" name="submitbtn" class="btn btn-danger" value="Delete">
-                                    </form>
-
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                             </div>
                         </div>
@@ -257,7 +220,6 @@
             </div>
         </div>
     <!-- end profile body -->
-
     <!-- Scripts -->
    <script>
     $("#filterDropdown").click(function(e){
@@ -286,4 +248,3 @@
         @livewireScripts
     </body>
 </html>
-@endif
